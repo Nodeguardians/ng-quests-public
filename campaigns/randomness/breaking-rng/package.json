@@ -1,0 +1,21 @@
+{
+  "name": "breaking-rng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "hardhat test --network hardhat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "caver-js": "^1.8.2",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.7"
+  }
+}
