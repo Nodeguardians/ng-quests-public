@@ -1,0 +1,36 @@
+{
+    "quests":  [
+        "bypassing-exstcodesize",
+        "changing-bytecode",
+        "clone-factories",
+        "delegate-call-detection",
+        "low-level-calls",
+        "merkle-proofs",
+        "multicall",
+        "unexpected-ether",
+        "unordered-key-set",
+        "using-signatures"
+    ],
+    "campaigns": [
+        {
+            "name": "understanding-storage",
+            "quests": [ "storage-layout", "storage-efficiency" ]
+        },
+        {
+            "name": "proxy-contracts",
+            "quests": [ "basic-proxies", "proxy-security", "using-openzeppelin" ]
+        },
+        {
+            "name": "randomness",
+            "quests": [ "breaking-rng" ]
+        },
+        {
+            "name": "learning-assembly",
+            "quests": [ "basics", "bits-and-bytes", "calldata", "memory" ]
+        },
+        {
+            "name": "diamonds",
+            "quests": [ "stateful-libraries", "using-diamonds", "building-diamonds" ]
+        },   
+    ]
+}
