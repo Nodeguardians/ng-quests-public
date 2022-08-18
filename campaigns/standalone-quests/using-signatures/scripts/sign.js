@@ -1,4 +1,4 @@
-const { ethers } = require("ethers");
+const { ethers } = require("hardhat");
 
 /**
  * Returns a personal signature approving the invite of a recipient to become grandmaster.

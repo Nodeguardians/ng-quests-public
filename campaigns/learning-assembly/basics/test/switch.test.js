@@ -1,0 +1,24 @@
+const { testSwitch } = require("./testsuites/testSwitch");
+
+inputs = [
+  {
+    name: "Public Test 1",
+    id:  0,
+  },
+  {
+    name: "Public Test 2",
+    id: 1,
+  },
+  {
+    name: "Public Test 3",
+    id: 2
+  },
+  {
+    name: "Public Test 3",
+    id: 3
+  }
+]
+
+describe("Switch (Part 4)", function() {
+  inputs.forEach(testSwitch)
+});

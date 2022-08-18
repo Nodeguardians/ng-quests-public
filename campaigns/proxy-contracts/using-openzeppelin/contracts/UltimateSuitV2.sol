@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.9;
 
-contract UltimateSuitV2 {
+import "./interfaces/ISuitV2.sol";
+
+contract UltimateSuitV2 is ISuitV2 {
 }

@@ -2,7 +2,7 @@
 
 import "./ISimpleGameV2.sol";
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 // MODIFY CODE
 contract SimpleGameV2 is ISimpleGameV2 {
@@ -11,7 +11,7 @@ contract SimpleGameV2 is ISimpleGameV2 {
 
     function totalDeposit() external view returns (uint256) {
         return address(this).balance;
-    } 
+    }
 
     function deposit() public payable override {
         require(msg.value == 0.1 ether, "Must deposit 0.1 Ether");
