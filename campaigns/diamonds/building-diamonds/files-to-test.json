@@ -1,0 +1,10 @@
+[
+    "contracts/facets/DiamondCutFacet.sol",
+    "contracts/facets/DiamondLoupeFacet.sol",
+    "contracts/facets/OwnershipFacet.sol",
+    "contracts/interfaces/IDiamondCut.sol",
+    "contracts/interfaces/IDiamondLoupe.sol",
+    "contracts/interfaces/IERC173.sol",
+    "contracts/libraries/LibDiamond.sol",
+    "contracts/Diamond.sol"
+]

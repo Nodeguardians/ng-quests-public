@@ -15,7 +15,7 @@ contract TestShip {
 
         bytes32 expectedHash = keccak256(abi.encode(expectedLocation));
         bytes32 currentHash = keccak256(abi.encode(LibMap.currentLocation()));
-        
+
         require(currentHash == expectedHash, "Unexpected currentLocation()");
     }
 
@@ -25,7 +25,6 @@ contract TestShip {
     ) external {
         LibMap.addPath(from, to);
     }
-
 
     /// @dev Returns `true` if `LibMap` is (somewhat) storage collision safe.
     /// Returns false otherwise.
@@ -42,5 +41,4 @@ contract TestShip {
         }
         return checksum == 0;
     }
-
 }

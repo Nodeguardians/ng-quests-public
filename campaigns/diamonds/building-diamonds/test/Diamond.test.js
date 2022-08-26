@@ -3,7 +3,7 @@ const { ethers } = require('hardhat')
 const { expect } = require('chai')
 const { diamonds } = require('@ngquests/test-helpers')
 
-describe('Diamond (Part 0)', async function () {
+describe('Diamond (Part 1)', async function () {
   let diamond;
   let diamondCutFacet;
   let diamondLoupeFacet;

@@ -1,5 +1,5 @@
 {
-  "name": "assembly-basics",
+  "name": "memory-manipulation",
   "version": "1.0.0",
   "scripts": {
     "test": "hardhat test --network hardhat"

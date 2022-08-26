@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
-const { abi } = require("./testabi.json");
+const { abi } = require("./testAbi.json");
 
 describe("UpgradeableMechSuit (Part 1)", function () {
   let upgradeableSuit;

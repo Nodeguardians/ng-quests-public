@@ -1,0 +1,6 @@
+[
+    "contracts/UltimateSuitV1.sol",
+    "contracts/UltimateSuitV2.sol",
+    "scripts/deploy.js",
+    "scripts/upgrade.js"
+]

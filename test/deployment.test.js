@@ -1,0 +1,112 @@
+/**
+ * These tests check that directory.json and quest-to-test.json are correctly configured for public deployment.
+ * Specifically:
+ *    1. directory.json should contain all quests with matching version numbers
+ *    2. directory.json should not contain extraneous quests
+ *    3. All entries in each files-to-test.json should be valid paths
+ *    4. All public contracts and scripts (i.e. in "/_contracts" and "/_scripts") not in files-to-test.json
+ *       must match their private counterparts.
+ */
+
+"use strict";
+const chai = require("chai");
+const fs = require("fs");
+const path = require("path");
+const { getFiles, equalFiles } = require("./helpers/filehelper.js");
+const assert = chai.assert;
+
+const directory = require("../campaigns/directory.json");
+
+const campaignDirectoryPath = path.resolve(__dirname, "..", "campaigns");
+
+/**
+ * Asserts files in public folder matches files in private folder.
+ * Excludes files found in `toExclude`.
+ */
+async function compareFiles(commonPath, publicFolder, privateFolder, toExclude) {
+
+  const publicFiles = await getFiles(path.resolve(commonPath, publicFolder));
+
+  for (const publicFile of publicFiles) {
+
+    const privateFile = publicFile.replace(publicFolder, privateFolder);
+    
+    if (toExclude.filter(x => x == privateFile).length > 0) {
+      continue;
+    }
+
+    assert(
+      equalFiles(publicFile, privateFile), 
+      `Files mismatch: ${publicFile} and ${privateFile}`
+    );
+
+  }
+}
+
+describe("Deployment Configuration Test", async function() {
+
+  it("directory.json should be correctly configured", async function() {
+
+    for (const campaign of directory) {
+
+      const campaignPath = path.resolve(campaignDirectoryPath, campaign.name);
+      
+      for (const quest of campaign.quests) {
+        const questPath = path.resolve(campaignPath, quest.name);
+
+        assert(fs.existsSync(questPath), `${questPath} does not exist`);
+
+        const version = require(path.resolve(questPath, "package.json")).version;
+        assert(version == quest.version, `"${quest.name}" has mismatched versions`);
+      }
+
+      const numQuests = fs.readdirSync(campaignPath, { withFileTypes: true })
+        .filter(entry => entry.isDirectory() && entry.name != "media")
+        .length;
+      
+      assert(
+        numQuests == campaign.quests.length, 
+        `"${campaign.name}" has mismatched number of quests`
+      );
+      
+    }
+
+  });
+
+  it("files-to-test.json should be correctly configured", async function() {
+
+    for (const campaign of directory) {
+
+      for (const quest of campaign.quests) {
+
+        const questPath = path.resolve(campaignDirectoryPath, campaign.name, quest.name);
+
+        // If quest is CTF (i.e. has no `/contracts` folder), skip
+        if (!fs.existsSync(path.resolve(questPath, "contracts"))) { 
+          continue; 
+        }
+
+        // Ensure build quest has files-to-test.json
+        const filesToTestPath = path.resolve(questPath, "files-to-test.json");
+        assert(fs.existsSync(filesToTestPath), `${quest.name} is missing files-to-test.json`); 
+        
+        const filesToTest = require(filesToTestPath)
+          .map(fileName => path.resolve(questPath, fileName));
+
+        // Test that all files to test are valid paths
+        for (const filePath of filesToTest) {
+          assert(fs.existsSync(filePath), `Invalid file path: ${filePath} in ${filesToTestPath}`);
+        }
+
+        // Test that all other common contracts/scripts 
+        // between public and private folder share the same code
+        // (This ensures there is no missing file in files-to-test.json)
+        await compareFiles(questPath, "_contracts", "contracts", filesToTest);
+        await compareFiles(questPath, "_scripts", "scripts", filesToTest);
+
+      }
+    }
+
+  })
+
+});

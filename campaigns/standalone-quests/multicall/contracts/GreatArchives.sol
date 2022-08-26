@@ -22,12 +22,16 @@ contract GreatArchives {
      * Write Functions
      */
 
-    function recordHistory(uint256 index, bytes calldata data) public returns (bytes memory) {
-        return _writeRecord(historyRecords, index, data);
+    function recordHistory(bytes calldata data) public {
+        historyRecords.push(
+            Record(block.timestamp, data)
+        );
     }
 
-    function recordMagic(uint256 index, bytes calldata data) public returns (bytes memory) {
-        return _writeRecord(magicRecords, index, data);
+    function recordMagic(bytes calldata data) public {
+        magicRecords.push(
+            Record(block.timestamp, data)
+        );
     }
 
     function writeScience(address id, bytes calldata data) public returns (bool) {
@@ -36,24 +40,6 @@ contract GreatArchives {
 
     function writeMusic(address id, bytes calldata data) public returns (bool) {
         return _writeScroll(musicScrolls, id, data);
-    }
-
-    /**
-     * @dev Writes `data` to `records[index]`. 
-     * If record already exists, just return old existent data instead. 
-     */
-    function _writeRecord(
-        Record[] storage records,
-        uint256 index,
-        bytes calldata data
-    ) private returns (bytes memory) {
-
-        bytes memory oldData = records[index].data;
-        if (oldData.length > 0) { return oldData; }
-
-        records[index] = Record(block.timestamp, data);
-        return data;
-
     }
 
     /**

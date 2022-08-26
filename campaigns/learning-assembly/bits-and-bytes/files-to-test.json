@@ -1,0 +1,6 @@
+[
+    "contracts/BitOperators.sol",
+    "contracts/MaskGenerator.sol",
+    "contracts/Masks.sol",
+    "contracts/Scrambled.sol"
+]
