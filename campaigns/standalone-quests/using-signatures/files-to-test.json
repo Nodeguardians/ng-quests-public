@@ -1,4 +1,5 @@
 [
     "contracts/Grandmasters.sol",
-    "scripts/sign.js"
+    "output/invites.json",
+    "output/blessings.json"
 ]

@@ -1,12 +1,9 @@
 {
-    "name": "merkle-proofs",
+    "name": "hardhat-forking",
     "version": "1.0.0",
     "scripts": {
         "test": "hardhat test --network hardhat"
     },
     "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "merkletreejs": "^0.2.31"
-    }
+    "license": "MIT"
 }

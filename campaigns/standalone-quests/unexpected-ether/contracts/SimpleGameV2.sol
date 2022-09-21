@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: MIT
-
-import "./ISimpleGameV2.sol";
-
 pragma solidity ^0.8.9;
 
 // MODIFY CODE
-contract SimpleGameV2 is ISimpleGameV2 {
+contract SimpleGameV2 {
     bool public isFinished;
     uint256 lastDepositedBlock;
 
@@ -13,7 +10,7 @@ contract SimpleGameV2 is ISimpleGameV2 {
         return address(this).balance;
     }
 
-    function deposit() public payable override {
+    function deposit() public payable {
         require(msg.value == 0.1 ether, "Must deposit 0.1 Ether");
         require(!isFinished, "The game is over");
         require(
@@ -24,7 +21,7 @@ contract SimpleGameV2 is ISimpleGameV2 {
         lastDepositedBlock = block.number;
     }
 
-    function claim() public override {
+    function claim() public {
         require(address(this).balance >= 1 ether, "Condition not satisfied");
 
         payable(msg.sender).transfer(address(this).balance);
