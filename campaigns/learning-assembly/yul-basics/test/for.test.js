@@ -5,6 +5,6 @@ inputs = [
   { name: "Private Test 2", beg: 11, end: 11 },
 ]
 
-describe("For (Part 5)", function() {
+describe("For (Part 6)", function() {
   inputs.forEach(testFor)
 });

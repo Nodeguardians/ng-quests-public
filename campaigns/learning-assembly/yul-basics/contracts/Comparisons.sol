@@ -21,26 +21,6 @@ contract Comparisons {
         }
     }
 
-    /// @notice Returns lhs > rhs.
-    function signedGreaterThan(
-        int256 lhs, 
-        int256 rhs
-    ) public pure returns (bool greater) {
-        assembly {
-
-        }
-    }
-
-    /// @notice Returns lhs < rhs.
-    function lowerThan(
-        uint256 lhs, 
-        uint256 rhs
-    ) public pure returns (bool lower) {
-        assembly {
-
-        }
-    }
-
     /// @notice Returns lhs < rhs.
     function signedLowerThan(
         int256 lhs, 

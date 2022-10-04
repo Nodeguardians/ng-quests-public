@@ -17,7 +17,11 @@ contract DynamicArray {
 
     /// @notice Pops the last element from a memory array.
     /// @dev Reverts if array is empty.
-    function pop(uint256[] memory array) public pure {
+    function pop(uint256[] memory array) 
+        public 
+        pure 
+        returns (uint256[] memory array_) 
+    {
         assembly {
 
         }
@@ -25,7 +29,11 @@ contract DynamicArray {
 
     /// @notice Pops the `index`th element from a memory array.
     /// @dev Reverts if index is out of bounds.
-    function popAt(uint256[] memory array, uint256 index) public pure {
+    function popAt(uint256[] memory array, uint256 index) 
+        public 
+        pure 
+        returns (uint256[] memory array_) 
+    {
         assembly {
             
         }

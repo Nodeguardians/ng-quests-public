@@ -19,6 +19,6 @@ inputs = [
   }
 ]
 
-describe("Switch (Part 4)", function() {
+describe("Switch (Part 5)", function() {
   inputs.forEach(testSwitch)
 });

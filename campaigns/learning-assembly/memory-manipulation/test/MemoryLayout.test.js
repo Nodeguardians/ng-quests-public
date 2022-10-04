@@ -14,6 +14,6 @@ inputs = [
   }
 ]
 
-describe("Memory Layout (Part 2)", function() {
+describe("Memory Layout (Part 3)", function() {
   inputs.forEach(testMemoryLayout)
 });

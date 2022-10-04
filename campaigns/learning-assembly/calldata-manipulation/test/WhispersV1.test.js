@@ -11,6 +11,6 @@ input = {
   ]
 }
 
-describe("WhispersV1 (Part 1)", function() {
+describe("WhispersV1 (Part 2)", function() {
   testWhispersV1(input);
 });

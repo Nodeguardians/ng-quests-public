@@ -31,7 +31,7 @@ contract Masks {
     function get8BytesAt(uint256 x, uint256 at)
         public
         pure
-        returns (uint256 rvalue)
+        returns (uint64 rvalue)
     {
         assembly {
             

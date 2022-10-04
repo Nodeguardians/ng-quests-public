@@ -15,7 +15,7 @@ inputs = [
   }
 ]
 
-describe("Cursed Grimoires (Part 1)", function() {
+describe("Cursed Grimoires (Part 2)", function() {
 
   inputs.forEach(testCursedGrimoires);
 

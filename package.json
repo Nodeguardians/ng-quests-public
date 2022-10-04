@@ -10,12 +10,12 @@
         "@nomicfoundation/hardhat-network-helpers": "^1.0.6",
         "@nomiclabs/hardhat-ethers": "^2.1.1",
         "@openzeppelin/contracts": "^4.7.3",
-        "dotenv": "^16.0.2",
+        "dotenv": "^16.0.3",
         "hardhat": "^2.11.1",
-        "lerna": "^5.5.1"
+        "lerna": "^5.5.4"
     },
     "devDependencies": {
-        "markdown-link-check": "^3.10.2",
+        "markdown-link-check": "^3.10.3",
         "mochawesome": "^7.1.3",
         "mochawesome-report-generator": "^6.2.0"
     },

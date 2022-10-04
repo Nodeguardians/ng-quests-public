@@ -19,12 +19,6 @@ function testBitOperators(input) {
       expect(await bitOperators.shiftLeft(value, shift)).to.equal(expected);
     });
 
-    it("Should shiftRight()", async function () {
-      const [value, shift] = input.shiftRight.map(ethers.BigNumber.from);
-      const expected = value.shr(shift.toNumber()).mod(ethers.constants.MaxUint256.add(1));
-      expect(await bitOperators.shiftRight(value, shift)).to.equal(expected);
-    });
-
     it("Should setBit()", async function () {
       const [value, index] = input.setBit.map(ethers.BigNumber.from);
       const expected = value.or(ethers.constants.Two.pow(index));

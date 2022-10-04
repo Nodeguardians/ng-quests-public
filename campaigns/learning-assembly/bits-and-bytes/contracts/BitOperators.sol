@@ -14,17 +14,6 @@ contract BitOperators {
         }
     }
 
-    /// @notice Returns x << shift.
-    function shiftRight(uint256 x, uint256 shift)
-        public
-        pure
-        returns (uint256 rvalue)
-    {
-        assembly {
-            
-        }
-    }
-
     /// @notice Sets the bit at `index` in `x` to `1`.
     /// @return rvalue value with the set bit
     function setBit(uint256 x, uint256 index)
@@ -66,7 +55,7 @@ contract BitOperators {
     function getBit(uint256 x, uint256 index)
         public
         pure
-        returns (bool rvalue)
+        returns (uint256 rvalue)
     {
         assembly {
             

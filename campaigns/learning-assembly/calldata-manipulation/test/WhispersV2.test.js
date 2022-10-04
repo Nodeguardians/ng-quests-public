@@ -16,6 +16,6 @@ inputs = [
   }
 ];
 
-describe("WhispersV2 (Part 2)", function () {
+describe("WhispersV2 (Part 3)", function () {
   inputs.forEach(testWhispersV2);
 });

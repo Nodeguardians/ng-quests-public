@@ -12,6 +12,6 @@ inputs = [
   }
 ]
 
-describe("If (Part 3)", function() {
+describe("If (Part 4)", function() {
   inputs.forEach(testIf)
 });

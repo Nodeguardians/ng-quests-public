@@ -103,7 +103,7 @@ inputs = [
   }
 ]
 
-describe('Diamond with undo() (Part 1)', async function () {
+describe('Diamond with undo() (Part 2)', async function () {
 
   describe('Public Test 1', async function () {
     it('Should have undo() in loupe', async () => {

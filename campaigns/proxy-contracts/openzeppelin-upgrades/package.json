@@ -8,6 +8,6 @@
     "license": "MIT",
     "dependencies": {
         "@openzeppelin/contracts-upgradeable": "^4.7.3",
-        "@openzeppelin/hardhat-upgrades": "^1.20.0"
+        "@openzeppelin/hardhat-upgrades": "^1.21.0"
     }
 }

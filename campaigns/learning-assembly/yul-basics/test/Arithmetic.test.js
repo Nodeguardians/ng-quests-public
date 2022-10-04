@@ -12,6 +12,6 @@ inputs = [
   }
 ]
 
-describe("Arithmetic (Part 1)", function() {
+describe("Arithmetic (Part 2)", function() {
   inputs.forEach(testArithmetic)
 });

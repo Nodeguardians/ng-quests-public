@@ -9,6 +9,6 @@ input = {
   freeMemory: [["0x20", "0x20"], ["0x20", "0x21"]]
 }
 
-describe("Free Memory Pointer (Part 1)", function() {
+describe("Free Memory Pointer (Part 2)", function() {
   testFreeMemoryPointer(input);
 });

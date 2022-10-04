@@ -5,7 +5,7 @@ contract QuarryBase {
 
     // OTHER FUNCTIONS AND STATE VARIABLE OMITTED
 
-    function _dig() internal view returns (string memory) {
+    function _dig() internal view returns (string memory treasure) {
         // LOGIC OMITTED
     }
 

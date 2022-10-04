@@ -15,6 +15,6 @@ inputs = [
   }
 ]
 
-describe("Dynamic Array (Part 3)", function() {
+describe("Dynamic Array (Part 4)", function() {
   inputs.forEach(testDynamicArray)
 });

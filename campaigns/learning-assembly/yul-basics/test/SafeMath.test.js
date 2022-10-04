@@ -25,6 +25,6 @@ inputs = [
   }
 ]
 
-describe("SafeMath (Part 6)", function() {
+describe("SafeMath (Part 7)", function() {
   inputs.forEach(testSafeMath)
 });

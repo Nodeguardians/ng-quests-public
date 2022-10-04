@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const stealthTransfer = require("../input/stealthTransfer.json");
 
-describe("Find Stealth Recipient (Part 2)", function() {
+describe("Find Stealth Recipient (Part 3)", function() {
 
   describe("Public Test 1", function() {
 

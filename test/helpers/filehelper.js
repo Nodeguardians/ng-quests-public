@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { ast } = require("@ngquests/test-helpers");
 
 var BUF_SIZE = 16 * 1024;
 
@@ -33,5 +34,14 @@ function equalFiles(pathA, pathB) {
 
 }
 
+/* Get contract definition AST from a given contract */
+function getContractDefinition(contractPath) {
+
+  const contractData = fs.readFileSync(contractPath, { encoding: "utf8" });
+  return ast.toAst(contractData);
+
+}
+
 module.exports.getFiles = getFiles;
 module.exports.equalFiles = equalFiles;
+module.exports.getContractDefinition = getContractDefinition;

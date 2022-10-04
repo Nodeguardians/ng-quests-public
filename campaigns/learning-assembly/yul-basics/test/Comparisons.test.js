@@ -15,6 +15,6 @@ input = {
   ]
 }
 
-describe("Comparisons (Part 2)", function() {
+describe("Comparisons (Part 3)", function() {
   testComparisons(input);
 });
