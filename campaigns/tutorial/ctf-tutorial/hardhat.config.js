@@ -16,7 +16,7 @@ module.exports = {
     hardhat: {
     },
     goerli: {
-      url: process.env.ENDPOINT_URL,
+      url: "http://goerli.nodeguardians.io",
       accounts: [process.env.PRIVATE_KEY],
     },
   },
