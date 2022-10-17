@@ -1,8 +1,8 @@
-const { testEggs } = require("./testsuite/testEggs1");
+const { testCrates } = require("./testsuite/testCrates1");
 
 input = {
   name: "Public Test 1",
-  eggs: [
+  crates: [
     { id: 284759285912343, size: 1939283597, strength: 102191 },
     { id: 9825293891, size: 235423, strength: 9851321 },
     { id: 82345124521234, size: 28359098918, strength: 93992929919 },
@@ -16,6 +16,6 @@ input = {
   ]
 }
 
-describe("SpiderEggs (Part 1)", function() {
-  testEggs(input)
+describe("Crates (Part 1)", function() {
+  testCrates(input)
 });

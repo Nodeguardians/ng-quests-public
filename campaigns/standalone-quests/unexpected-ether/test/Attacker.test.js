@@ -22,5 +22,6 @@ describe("Attacker (Part 1)", function () {
       attacker.attack(simpleGame.address, {value: ethers.utils.parseEther("1")})
     ).to.changeEtherBalance(attacker.address, ethers.utils.parseEther("1"));
 
+    expect(await simpleGame.isFinished()).to.be.true;
   });
 });

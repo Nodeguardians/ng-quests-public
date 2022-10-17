@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import './interfaces/ISpiderEggs.sol';
+import './interfaces/ICrates.sol';
 
-contract SpiderEggs is ISpiderEggs {
+contract Crates is ICrates {
     // CODE HERE
 }
