@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { testFor } = require("./testsuites/testFor");
 
 inputs = [
@@ -7,4 +8,7 @@ inputs = [
 
 describe("For (Part 6)", function() {
   inputs.forEach(testFor)
+
+  cheating.testAssemblyAll("contracts/For.sol");
+  cheating.testExternalCode("contracts/For.sol");
 });

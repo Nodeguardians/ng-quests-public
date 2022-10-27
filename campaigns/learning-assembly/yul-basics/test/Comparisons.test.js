@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testComparisons } = require("./testsuites/testComparisons");
 
@@ -17,4 +18,7 @@ input = {
 
 describe("Comparisons (Part 3)", function() {
   testComparisons(input);
+
+  cheating.testAssemblyAll("contracts/Comparisons.sol");
+  cheating.testExternalCode("contracts/Comparisons.sol");
 });

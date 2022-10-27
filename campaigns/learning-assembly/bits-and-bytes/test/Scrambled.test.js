@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { testScrambled } = require("./testsuites/testScrambled");
 
 inputs = [
@@ -12,5 +13,8 @@ inputs = [
 ]
 
 describe("Scrambled (Part 4)", function() {
-  inputs.forEach(testScrambled)
+  inputs.forEach(testScrambled);
+
+  cheating.testAssemblyAll("contracts/Scrambled.sol");
+  cheating.testExternalCode("contracts/Scrambled.sol");
 });

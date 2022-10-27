@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testMaskGenerator } = require("./testsuites/testMaskGenerator");
 
@@ -23,5 +24,8 @@ inputs = [
 ]
 
 describe("Mask Generator (Part 3)", function() {
-  inputs.forEach(testMaskGenerator)
+  inputs.forEach(testMaskGenerator);
+
+  cheating.testAssemblyAll("contracts/MaskGenerator.sol");
+  cheating.testExternalCode("contracts/MaskGenerator.sol");
 });

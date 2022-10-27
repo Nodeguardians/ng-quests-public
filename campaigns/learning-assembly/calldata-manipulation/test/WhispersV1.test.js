@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testWhispersV1 } = require("./testsuites/testWhispersV1");
 
@@ -13,4 +14,7 @@ input = {
 
 describe("WhispersV1 (Part 2)", function() {
   testWhispersV1(input);
+
+  cheating.testAssemblyAll("contracts/WhispersV1.sol");
+  cheating.testExternalCode("contracts/WhispersV1.sol");
 });

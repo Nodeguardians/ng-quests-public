@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { testSwitch } = require("./testsuites/testSwitch");
 
 inputs = [
@@ -20,5 +21,8 @@ inputs = [
 ]
 
 describe("Switch (Part 5)", function() {
-  inputs.forEach(testSwitch)
+  inputs.forEach(testSwitch);
+
+  cheating.testAssemblyAll("contracts/Switch.sol");
+  cheating.testExternalCode("contracts/Switch.sol");
 });

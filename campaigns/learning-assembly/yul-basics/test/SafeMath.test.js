@@ -1,5 +1,6 @@
 const { ethers } = require("hardhat")
 const { testSafeMath } = require("./testsuites/testSafeMath");
+const { cheating } = require("@ngquests/test-helpers");
 
 inputs = [
   {
@@ -26,5 +27,8 @@ inputs = [
 ]
 
 describe("SafeMath (Part 7)", function() {
-  inputs.forEach(testSafeMath)
+  inputs.forEach(testSafeMath);
+
+  cheating.testAssemblyAll("contracts/SafeMath.sol");
+  cheating.testExternalCode("contracts/SafeMath.sol");
 });

@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testFreeMemoryPointer } = require("./testsuites/testFreeMemoryPointer");
 
@@ -11,4 +12,7 @@ input = {
 
 describe("Free Memory Pointer (Part 2)", function() {
   testFreeMemoryPointer(input);
+
+  cheating.testAssemblyAll("contracts/FreeMemoryPointer.sol");
+  cheating.testExternalCode("contracts/FreeMemoryPointer.sol");
 });

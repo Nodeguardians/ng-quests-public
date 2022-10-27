@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testBitOperators } = require("./testsuites/testBitOperators");
 
@@ -22,4 +23,7 @@ inputs = [
 
 describe("Bit Operators (Part 1)", function() {
   inputs.forEach(testBitOperators)
+
+  cheating.testAssemblyAll("contracts/BitOperators.sol");
+  cheating.testExternalCode("contracts/BitOperators.sol");
 });

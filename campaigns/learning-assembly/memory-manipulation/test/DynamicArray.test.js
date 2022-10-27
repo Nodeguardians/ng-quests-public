@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { testDynamicArray } = require("./testsuites/testDynamicArray");
 
 inputs = [
@@ -16,5 +17,8 @@ inputs = [
 ]
 
 describe("Dynamic Array (Part 4)", function() {
-  inputs.forEach(testDynamicArray)
+  inputs.forEach(testDynamicArray);
+
+  cheating.testAssemblyAll("contracts/DynamicArray.sol");
+  cheating.testExternalCode("contracts/DynamicArray.sol");
 });

@@ -3,7 +3,7 @@ pragma solidity ^0.8.9;
 
 contract BitOperators {
 
-    /// @notice Returns x >> shift.
+    /// @notice Returns x << shift.
     function shiftLeft(uint256 x, uint256 shift)
         public
         pure

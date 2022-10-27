@@ -1,3 +1,4 @@
+const { cheating } = require("@ngquests/test-helpers");
 const { ethers } = require("hardhat");
 const { testIf } = require("./testsuites/testIf");
 
@@ -13,5 +14,8 @@ inputs = [
 ]
 
 describe("If (Part 4)", function() {
-  inputs.forEach(testIf)
+  inputs.forEach(testIf);
+
+  cheating.testAssemblyAll("contracts/If.sol");
+  cheating.testExternalCode("contracts/If.sol");
 });
