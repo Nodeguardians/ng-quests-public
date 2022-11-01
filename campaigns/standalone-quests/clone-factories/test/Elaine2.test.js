@@ -3,40 +3,43 @@ const { expect } = require("chai");
 const { events } = require("@ngquests/test-helpers");
 
 describe("Elaine (Part 2)", function () {
-  let elaine;
-  let token;
-  let cat;
 
-  let recipient;
+  describe("Public Test 1", function () {
+    let elaine;
+    let token;
+    let cat;
 
-  before(async function () {
-    recipient = await ethers.getSigner(1);
+    let recipient;
 
-    let Elaine = await ethers.getContractFactory("Elaine");
-    elaine = await Elaine.deploy();
+    before(async function () {
+      recipient = await ethers.getSigner(1);
 
-    await elaine.deployed();
+      let Elaine = await ethers.getContractFactory("Elaine");
+      elaine = await Elaine.deploy();
 
-    let Token = await ethers.getContractFactory("Token");
-    token = await Token.deploy(elaine.address);
+      await elaine.deployed();
 
-    await token.deployed();
+      let Token = await ethers.getContractFactory("Token");
+      token = await Token.deploy(elaine.address);
 
-    let tx = await elaine.summon(
-      recipient.address,
-      token.address,
-      ethers.utils.parseEther("1"),
-      100000
-    );
+      await token.deployed();
 
-    let catAddress = await events.getArg(tx, "EscrowSummoned(address)", "escrow");
-    cat = await ethers.getContractAt("SpiritCat", catAddress);
+      let tx = await elaine.summon(
+        recipient.address,
+        token.address,
+        ethers.utils.parseEther("1"),
+        100000
+      );
 
-  });
+      let catAddress = await events.getArg(tx, "EscrowSummoned(address)", "escrow");
+      cat = await ethers.getContractAt("SpiritCat", catAddress);
 
-  it("Should summon minimal proxy cat", async function () {
-    let bytecode = await ethers.provider.getCode(cat.address);
-    expect(bytecode.length).to.be.equal(92);
+    });
+
+    it("Should summon minimal proxy cat", async function () {
+      let bytecode = await ethers.provider.getCode(cat.address);
+      expect(bytecode.length).to.be.equal(92);
+    });
   });
 
 });
