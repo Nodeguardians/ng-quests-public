@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 const { expect } = require("chai");
 const { matchers, events } = require("@ngquests/test-helpers");
 
-const ROUNDING_ERROR = ethers.utils.parseEther("0.002");
+const ROUNDING_ERROR = ethers.utils.parseEther("0.001");
 
 function testElaine(input) {
 
