@@ -47,4 +47,18 @@ describe("UpgradeableMechSuit (Part 2)", function () {
       deployer.address.toLowerCase()
     );
   });
+
+  it("Should only allow admin to call upgradeTo()", async function () {
+
+    const notAdmin = await ethers.getSigner(1);
+
+    const MechSuitV2 = await ethers.getContractFactory("MechSuitV2");
+    const mechSuitV2 = await MechSuitV2.deploy();
+
+    await expect(
+      upgradeableSuit.connect(notAdmin).upgradeTo(mechSuitV2.address)
+    ).to.be.reverted;
+
+  });
+
 });

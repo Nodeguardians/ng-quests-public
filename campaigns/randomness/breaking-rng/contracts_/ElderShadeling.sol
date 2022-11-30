@@ -14,9 +14,9 @@ contract ElderShadeling {
 
     function checkPrediction() external {
         // Ensure prediction is checked at a later block.
-        require(block.number - 1 > blockNumber);
+        require(block.number > blockNumber + 1);
 
-        require(prediction == blockhash(blockNumber - 1));
+        require(prediction == blockhash(blockNumber + 1));
         isPredicted = true;
     }
     

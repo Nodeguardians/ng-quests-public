@@ -20,7 +20,7 @@ inputs = [
   {
     name: "Public Test 3",
     add: [ethers.constants.MaxInt256, 1],
-    sub: [ethers.constants.MaxInt256, -1],
+    sub: [0, ethers.constants.MaxInt256],
     mul: [ethers.constants.MaxInt256, 2],
     div: [ethers.constants.MinInt256, 0]
   }

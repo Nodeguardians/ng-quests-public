@@ -17,8 +17,13 @@ describe("SimpleGameV2 (Part 2)", function () {
   });
 
   it("Should be immune to attacker", async () => {
+
+    for (let i = 0; i < 5; i++) {
+      await simpleGame.deposit( {value: ethers.utils.parseEther("0.1")} );
+    }
+
     await expect(
-      attacker.attack(simpleGame.address, { value: ethers.utils.parseEther("1") })
+      attacker.attack(simpleGame.address, { value: ethers.utils.parseEther("0.5") })
     ).to.be.revertedWith("Condition not satisfied");
   });
 
