@@ -1,6 +1,6 @@
 {
   "name": "breaking-rng",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "test": "hardhat test --network hardhat",
     "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
