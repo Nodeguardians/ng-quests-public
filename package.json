@@ -11,7 +11,7 @@
         "@nomiclabs/hardhat-ethers": "^2.2.1",
         "@openzeppelin/contracts": "^4.8.0",
         "dotenv": "^16.0.3",
-        "hardhat": "^2.12.2",
+        "hardhat": "^2.12.4",
         "lerna": "^5.5.4"
     },
     "devDependencies": {
@@ -20,7 +20,7 @@
         "mochawesome-report-generator": "^6.2.0"
     },
     "overrides": {
-        "parse-url": "^8.1.0"
+        "json5": "^2.2.2"
     },
     "workspaces": [
         "campaigns/**"

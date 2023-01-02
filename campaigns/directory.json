@@ -207,5 +207,22 @@
                 "parts": 1
             }
         ]
+    },
+    {
+        "name": "get-rekt",
+        "quests": [
+            {
+                "name": "cream-rekt",
+                "version": "1.0.0",
+                "type": "ctf",
+                "parts": 1
+            },
+            {
+                "name": "poly-rekt",
+                "version": "1.0.0",
+                "type": "ctf",
+                "parts": 1
+            }
+        ]
     }
 ]
