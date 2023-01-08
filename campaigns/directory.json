@@ -222,6 +222,12 @@
                 "version": "1.0.0",
                 "type": "ctf",
                 "parts": 1
+            },
+            {
+                "name": "wintermute-rekt",
+                "version": "1.0.0",
+                "type": "ctf",
+                "parts": 1
             }
         ]
     }

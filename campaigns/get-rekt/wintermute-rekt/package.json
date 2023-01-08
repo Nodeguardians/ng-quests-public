@@ -1,0 +1,13 @@
+{
+    "name": "wintermute-rekt",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "hardhat test --network hardhat",
+        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@noble/secp256k1": "1.7.0"
+    }
+}

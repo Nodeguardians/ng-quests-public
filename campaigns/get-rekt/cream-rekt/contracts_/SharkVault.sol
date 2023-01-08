@@ -50,7 +50,7 @@ contract SharkVault {
         LoanAccount memory account = updatedAccount(msg.sender);
         account.depositedGold -= _amount;
 
-        require(_hasEnoughCollateral(account), "Undercollateralized $SEAGLD loan");
+        require(_hasEnoughCollateral(account), "Undercollateralized $SEAGOLD loan");
         accounts[msg.sender] = account;
 
         gold.transfer(msg.sender, _amount);
@@ -60,7 +60,7 @@ contract SharkVault {
     /**
      * @notice Borrow seagold.
      * @param _amount Amount of seagold to borrow.
-     * @dev Seagold loan have be suffciently collateralized 
+     * @dev Seagold loan has be sufficiently collateralized 
      * by previously deposited gold.
      */
     function borrow(uint256 _amount) external {
@@ -70,10 +70,10 @@ contract SharkVault {
 
         // Fail if insufficient remaining balance of $SEAGOLD
         uint256 seagoldBalance = seagold.balanceOf(address(this));
-        require(_amount <= seagoldBalance, "Insufficient $SEAGLD to lend");
+        require(_amount <= seagoldBalance, "Insufficient $SEAGOLD to lend");
 
         // Fail if borrower has insufficient gold collateral
-        require(_hasEnoughCollateral(borrowerAccount), "Undercollateralized $SEAGLD loan");
+        require(_hasEnoughCollateral(borrowerAccount), "Undercollateralized $SEAGOLD loan");
 
         // Transfer $SEAGOLD and update records
         seagold.transfer(msg.sender, _amount);
