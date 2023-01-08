@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "ng-quests",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repository": "https://github.com/Nodeguardians/ng-quests.git",
     "dependencies": {
         "@ngquests/contracts": "./@ngquests/contracts",
