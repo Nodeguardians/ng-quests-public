@@ -23,6 +23,13 @@ inputs = [
     sub: [0, ethers.constants.MaxInt256],
     mul: [ethers.constants.MaxInt256, 2],
     div: [ethers.constants.MinInt256, 0]
+  },
+  {
+    name: "Public Test 4",
+    add: [-1, 1],
+    sub: [-1, ethers.constants.MinInt256],
+    mul: [-1, ethers.constants.MinInt256],
+    div: [177, 3]
   }
 ]
 
