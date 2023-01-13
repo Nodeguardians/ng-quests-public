@@ -2,7 +2,6 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 function testDynamicArray(input) {
-
   describe(input.name, function () {
     let testProbeContract;
 
@@ -18,34 +17,32 @@ function testDynamicArray(input) {
 
       const expected = array.map((x) => x);
       expected.push(value);
-      
+
       expect(
         await testProbeContract.testPush(array, value, expected)
       ).to.deep.equal("");
-
     });
 
     it("Should pop()", async function () {
-      const array = input.pop
+      const array = input.pop;
 
       if (array.length == 0) {
-        expect(testProbeContract.testPop()).to.be.reverted;
+        await expect(testProbeContract.pop(array)).to.be.reverted;
         return;
       }
 
       const expected = array.map((x) => x);
       expected.pop();
-      expect(
-        await testProbeContract.testPop(array, expected)
-      ).to.deep.equal("");
-
-    })
+      expect(await testProbeContract.testPop(array, expected)).to.deep.equal(
+        ""
+      );
+    });
 
     it("Should popAt()", async function () {
-      const [array, at] = input.popAt
+      const [array, at] = input.popAt;
 
       if (at >= array.length) {
-        expect(testProbeContract.testPopAt()).to.be.reverted;
+        await expect(testProbeContract.popAt(array, at)).to.be.reverted;
         return;
       }
 
@@ -54,10 +51,8 @@ function testDynamicArray(input) {
       expect(
         await testProbeContract.testPopAt(array, at, expected)
       ).to.deep.equal("");
-    })
-
+    });
   });
-
 }
 
 module.exports.testDynamicArray = testDynamicArray;

@@ -53,7 +53,7 @@ contract TestProbe is FreeMemoryPointer, MemoryLayout, DynamicArray {
         }
 
         if (addr != 0x80) {
-
+          return "Invalid return value";
         } else if (fmp != 0x80 + size) {
             return "Invalid memory allocation";
         }
