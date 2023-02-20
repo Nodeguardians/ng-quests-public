@@ -2,7 +2,6 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 function testCopyArray(input, gasConsumed = []) {
-
   describe(input.name, function () {
     let challengeContract;
     let referenceContract;
@@ -13,38 +12,63 @@ function testCopyArray(input, gasConsumed = []) {
 
       referenceContract = await referenceFactory.deploy(input.skip);
       challengeContract = await challengeFactory.deploy(input.skip);
-
       await referenceContract.deployed();
       await challengeContract.deployed();
     });
 
-    it("Should correctly compute the sum", async function () {
-      const expected = input.array.reduce((sum, current) => {
-        if (current != input.skip) {
-          return sum + current;
-        }
-        return sum;
-      }, 0)
+    const sum = input.array.reduce((acc, current) => {
+      const value = ethers.BigNumber.from(current);
 
-      expect(await challengeContract.sumAllExceptSkip(input.array)).equal(expected);
-    });
+      if (value.eq(input.skip) == false) {
+        acc = acc.add(value);
+      }
 
-    it("Should be more efficient than the reference implementation", async function () {
+      return acc;
+    }, ethers.constants.Zero);
 
-        const referenceConsumed = await referenceContract.estimateGas.referenceSumAllExceptSkip(input.array)
-        const consumed = await challengeContract.estimateGas.sumAllExceptSkip(input.array);
+    const overflow = sum.gt(ethers.constants.MaxUint256);
+
+    if (overflow) {
+      it("Should revert on overflow", async function () {
+        await expect(challengeContract.sumAllExceptSkip(input.array)).to.be
+          .reverted;
+      });
+    } else {
+      it("Should correctly compute the sum", async function () {
+        const expected = input.array.reduce((sum, current) => {
+          if (current != input.skip) {
+            return sum + current;
+          }
+          return sum;
+        }, 0);
+
+        expect(await challengeContract.sumAllExceptSkip(input.array)).equal(
+          expected
+        );
+      });
+
+      it("Should be more efficient than the reference implementation", async function () {
+        const referenceConsumed =
+          await referenceContract.estimateGas.referenceSumAllExceptSkip(
+            input.array
+          );
+        const consumed = await challengeContract.estimateGas.sumAllExceptSkip(
+          input.array
+        );
 
         expect(consumed).to.be.lessThan(referenceConsumed);
-    })
+      });
 
-    it(`Should be below the ${input.target} gas consumption target`, async function () {
-      const consumed = await challengeContract.estimateGas.sumAllExceptSkip(input.array) - 21000;
-      expect(consumed).to.be.lessThanOrEqual(input.target);
+      it(`Should be below the ${input.target} gas consumption target`, async function () {
+        const consumed =
+          (await challengeContract.estimateGas.sumAllExceptSkip(input.array)) -
+          21000;
+        expect(consumed).to.be.lessThanOrEqual(input.target);
 
-      gasConsumed.push(consumed);
-    })
+        gasConsumed.push(consumed);
+      });
+    }
   });
-
 }
 
 module.exports.testCopyArray = testCopyArray;

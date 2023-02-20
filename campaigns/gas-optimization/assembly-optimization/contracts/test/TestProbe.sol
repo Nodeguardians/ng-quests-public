@@ -7,7 +7,14 @@ import "../Challenge.sol";
 /// @dev For testing purposes
 contract TestProbe is Challenge, Reference {
 
-    function testCopyArray(bytes memory array) external pure {
+    bytes private sArray;
+
+    function setArray(bytes memory array) external {
+      sArray = array;
+    }
+
+    function testCopyArray() external view {
+        bytes memory array = sArray;
         bytes memory copy;
         uint256 fmpBefore = _getFreeMemoryPointer();
         uint256 fmpAfter;
@@ -36,7 +43,8 @@ contract TestProbe is Challenge, Reference {
         return gasBefore - gasAfter;
     }
 
-    function measureCopyArray(bytes memory array) external view returns(uint256) {
+    function measureCopyArray() external view returns(uint256) {
+        bytes memory array = sArray;
         uint256 gasBefore = gasleft();
         copyArray(array);
         uint256 gasAfter = gasleft();
