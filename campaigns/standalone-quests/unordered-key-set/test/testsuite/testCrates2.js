@@ -64,7 +64,9 @@ function testCrates(input) {
 
       expectedIds = expectedIds.filter(x => x); // Filter out deleted crates
 
-      const actualIds = await cratesContract.getCrateIds();
+      const actualIds = (await cratesContract.getCrateIds())
+        .map(id => ethers.BigNumber.from(id));
+      
       expect(actualIds).to.have.deep.members(expectedIds);
     });
 
