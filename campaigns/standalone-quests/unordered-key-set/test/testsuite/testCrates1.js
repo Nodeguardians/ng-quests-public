@@ -45,7 +45,9 @@ function testCrates(input) {
       const expectedIds = input.crates
         .map(crate => ethers.BigNumber.from(crate.id));
 
-      const actualIds = await cratesContract.getCrateIds();
+      const actualIds = (await cratesContract.getCrateIds())
+        .map(id => ethers.BigNumber.from(id));
+      
       expect(actualIds).to.have.deep.members(expectedIds);
 
     });
