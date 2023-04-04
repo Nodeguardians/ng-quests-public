@@ -1,9 +1,9 @@
 {
     "name": "hardhat-forking",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "scripts": {
-        "test": "hardhat test --network hardhat",
-        "deployment-test": "npx hardhat test scripts/validation-test/deployment.test.js"
+        "test": "hardhat test --network hardhat && hardhat test scripts/validation-test/deployment.test.js && forge test",
+        "test:hardhat": "hardhat test --network hardhat"
     },
     "author": "",
     "license": "MIT"

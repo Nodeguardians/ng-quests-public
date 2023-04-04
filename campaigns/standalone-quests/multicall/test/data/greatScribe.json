@@ -1,0 +1,75 @@
+{
+    "testWrites": [
+        { 
+            "sig": "recordHistory(bytes)",
+            "args": [
+                32,
+                8,
+                "0xdeadbeefdeadbeef000000000000000000000000000000000000000000000000"
+            ]
+        },
+        {
+            "sig": "writeMusic(address,bytes)", 
+            "args": [
+                808808808,
+                64,
+                8,
+                "0xfeedfeedfeedfeed000000000000000000000000000000000000000000000000"
+            ]
+        },
+        { 
+            "sig": "writeScience(address,bytes)", 
+            "args": [
+                808808,
+                64,
+                4,
+                "0xbebebebe00000000000000000000000000000000000000000000000000000000"
+            ]
+        },
+        {
+            "sig": "recordHistory(bytes)",
+            "args": [
+                32,
+                8,
+                "0x1234123412341234000000000000000000000000000000000000000000000000"
+            ]
+        }
+    ],
+    "testReads": [
+        {
+            "sig": "historyRecords(uint256)", 
+            "args": [ 0 ]
+        },
+        {
+            "sig": "musicScrolls(address)",
+            "args": [ 808808808 ]
+        },
+        {
+            "sig": "scienceScrolls(address)",
+            "args": [ 808808 ]
+        },
+        {
+            "sig": "historyRecords(uint256)",
+            "args": [ 1 ]
+        }
+    ],
+    "invalidWrites": [
+        { 
+            "sig": "fakeFunction()", 
+            "args": [
+                808808,
+                64
+            ]
+        }
+    ],
+    "invalidReads": [
+        { 
+            "sig": "recordHistory(bytes)",
+            "args": [
+                32,
+                8,
+                "0xdeadbeefdeadbeef000000000000000000000000000000000000000000000000"
+            ]
+        }
+    ]
+}

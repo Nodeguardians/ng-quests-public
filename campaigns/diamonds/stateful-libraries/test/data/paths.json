@@ -1,0 +1,14 @@
+{
+    "steps": [
+        { "action": "Travel", "from": "", "to": "island A" },
+        { "action": "AddPath", "from": "harbor", "to": "island A" },
+        { "action": "Travel", "from": "", "to": "island A" },
+        { "action": "Travel", "from": "", "to": "harbor" },
+        { "action": "AddPath", "from": "island A", "to": "island B" },
+        { "action": "AddPath", "from": "island B", "to": "island c" },
+        { "action": "Travel", "from": "", "to": "island C" },
+        { "action": "Travel", "from": "", "to": "island B" },
+        { "action": "Travel", "from": "", "to": "island C" }
+    ],
+    "slots": 5000
+}

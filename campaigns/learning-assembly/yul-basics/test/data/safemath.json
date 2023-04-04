@@ -1,0 +1,78 @@
+[
+    {
+        "add": { "x": 0, "y": 7777, "shouldOverflow": false },
+        "sub": { 
+            "x": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "y": -1,
+            "shouldOverflow": true 
+        },
+        "mul": { "x": 111, "y": 222, "shouldOverflow": false },
+        "div": { "x": 8, "y": 2, "shouldOverflow": false }
+    },
+    {
+        "add": { 
+            "x": 0, 
+            "y": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "shouldOverflow": false 
+        },
+        "sub": { 
+            "x": 0,
+            "y": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "shouldOverflow": false
+        },
+        "mul": { 
+            "x": -1, 
+            "y": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "shouldOverflow": false 
+        },
+        "div": { 
+            "x": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": -1,
+            "shouldOverflow": false 
+        }
+    },
+    {
+        "add": { 
+            "x": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": 1,
+            "shouldOverflow": true 
+        },
+        "sub": { 
+            "x": 0,
+            "y": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "shouldOverflow": false 
+        },
+        "mul": { 
+            "x": "0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": 2,
+            "shouldOverflow": true 
+        },
+        "div": { 
+            "x": "0x8000000000000000000000000000000000000000000000000000000000000000", 
+            "y": 0,
+            "shouldOverflow": true
+        }
+    },
+    {
+        "add": { 
+            "x": -1, 
+            "y": 1,
+            "shouldOverflow": false
+        },
+        "sub": { 
+            "x": -1,
+            "y": "0x8000000000000000000000000000000000000000000000000000000000000000",
+            "shouldOverflow": false
+        },
+        "mul": { 
+            "x": -1, 
+            "y": "0x8000000000000000000000000000000000000000000000000000000000000000",
+            "shouldOverflow": true 
+        },
+        "div": { 
+            "x": 177, 
+            "y": 3,
+            "shouldOverflow": false 
+        }
+    }
+]

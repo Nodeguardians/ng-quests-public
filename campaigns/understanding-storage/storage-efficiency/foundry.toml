@@ -1,0 +1,12 @@
+[profile.default]
+src = 'contracts'
+out = 'artifacts'
+libs = ['lib', '../../../lib', '../../../node_modules']
+solc_version = '0.8.19'
+fs_permissions = [{ access = 'read', path = './test/data' }]
+remappings = [
+    "test/=test/",
+    "@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/"
+]
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

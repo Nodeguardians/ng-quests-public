@@ -2,13 +2,13 @@
     "name": "openzeppelin-upgrades",
     "version": "1.0.1",
     "scripts": {
-        "test": "hardhat test --network hardhat"
+        "test": "hardhat test --network hardhat",
+        "test:hardhat": "hardhat test --network hardhat"
     },
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@openzeppelin/contracts-upgradeable": "^4.7.3",
-        "@openzeppelin/hardhat-upgrades": "^1.21.0",
-        "@solidity-parser/parser": "^0.14.5"
+        "@openzeppelin/contracts-upgradeable": "^4.8.2",
+        "@openzeppelin/hardhat-upgrades": "^1.22.1"
     }
 }

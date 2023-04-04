@@ -1,0 +1,12 @@
+{
+    "uintValues": [
+        128,
+        256,
+        "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+    ],
+    "strValues": [
+        "test string",
+        "UTF-8 𝄞 test string",
+        "A very very very very very very very very very very very very very very very very very long test string"
+    ]
+}

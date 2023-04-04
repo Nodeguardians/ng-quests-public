@@ -1,0 +1,12 @@
+[
+    {
+        "addition": { "x": 2, "y": 1 },
+        "multiplication": { "x": 1, "y": -1 },
+        "signedDivision": { "x": -16, "y": 2 },
+        "modulo": { 
+            "x": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": 3
+        },
+        "power": { "x": 1, "y": 0 }
+    }
+]

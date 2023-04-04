@@ -1,8 +1,9 @@
 {
   "name": "storage-efficiency",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
-    "test": "hardhat test --network hardhat"
+    "test": "hardhat test --network hardhat && forge test",
+    "test:hardhat": "hardhat test --network hardhat"
   },
   "author": "",
   "license": "MIT"

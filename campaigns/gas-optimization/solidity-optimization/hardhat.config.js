@@ -5,11 +5,13 @@ require("@nomicfoundation/hardhat-chai-matchers");
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.16",
-  settings: {
-    optimizer: {
-      enabled: true,
-      runs: 800,
+  solidity: {
+    version: "0.8.19",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 800,
+      }
     }
   }
 };

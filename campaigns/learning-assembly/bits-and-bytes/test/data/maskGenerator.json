@@ -1,0 +1,20 @@
+[
+    {
+        "nBytes": 2,
+        "at": 0,
+        "reversed": false,
+        "expectedMask": "0x000000000000000000000000000000000000000000000000000000000000FFFF"
+    },
+    {
+        "nBytes": 17,
+        "at": 3,
+        "reversed": false,
+        "expectedMask": "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000"
+    },
+    {
+        "nBytes": 20,
+        "at": 13,
+        "reversed": false,
+        "expectedMask": 0
+    }
+]

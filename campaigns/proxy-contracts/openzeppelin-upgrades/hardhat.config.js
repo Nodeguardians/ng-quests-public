@@ -6,5 +6,5 @@ require('@openzeppelin/hardhat-upgrades');
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.16"
+  solidity: "0.8.19"
 };

@@ -1,0 +1,24 @@
+[
+    {
+        "push": {
+            "array": [1, 2, 3],
+            "value": 4
+        },
+        "pop": [ 1, 5, 2 ],
+        "popAt": {
+            "array": [1, 5, 2, 1],
+            "value": 1
+        }
+    },
+    {
+        "push": {
+            "array": [ ],
+            "value": 1
+        },
+        "pop": [ ],
+        "popAt": {
+            "array": [1, 2, 3],
+            "value": 3
+        }
+    }
+]

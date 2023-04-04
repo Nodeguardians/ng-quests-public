@@ -9,7 +9,7 @@
  */
 
 "use strict";
-const { assert, expect } = require("chai");
+const { assert } = require("chai");
 const fs = require("fs");
 const path = require("path");
 const { getFiles, equalFiles, getContractDefinition } = require("./helpers/filehelper.js");
@@ -37,25 +37,28 @@ async function checkTemplates(questPath, solutionFiles) {
 
 }
 
+
 /**
-* Asserts files in public folder matches files in private folder.
+* Asserts files in public `contracts` matches files in private `_contracts`.
 * Excludes files found in toExclude.
 */
-async function compareFiles(commonPath, publicFolder, privateFolder, toExclude) {
+async function compareFiles(questPath, toExclude) {
 
-  const publicFiles = await getFiles(path.resolve(commonPath, publicFolder));
+  const userContracts = await getFiles(path.join(questPath, "_contracts"));
+  const solutionContracts = await getFiles(path.join(questPath, "contracts"));
 
-  for (const publicFile of publicFiles) {
+  var unionContracts = [...new Set([...userContracts, ...solutionContracts])];
 
-    const privateFile = publicFile.replace(publicFolder, privateFolder);
+  for (const contract of unionContracts) {
     
-    if (toExclude.filter(x => x == privateFile).length > 0) {
-      continue;
-    }
+    if (toExclude.some(filepath => filepath.endsWith(contract))) { continue; }
+
+    const userContract = path.resolve(questPath, "_contracts", contract);
+    const solutionContract = path.resolve(questPath, "contracts", contract);
 
     assert(
-      equalFiles(publicFile, privateFile), 
-      `Files mismatch: ${publicFile} and ${privateFile}`
+      equalFiles(userContract, solutionContract), 
+      `User contract mismatch with solution: ${contract}`
     );
 
   }
@@ -142,10 +145,16 @@ describe("Deployment Configuration Test", async function() {
           assert(fs.existsSync(filePath), `Invalid file path: ${filePath} in ${filesToTestPath}`);
         }
 
+        // For files-to-test that are not exactly "templates"
+        const notTemplatesPath = path.resolve(questPath, "not-templates.json");
+        const notTemplates = fs.existsSync(notTemplatesPath)
+          ? require(notTemplatesPath).map(file => path.resolve(questPath, file))
+          : [];
+
         // Test that all other common contracts/scripts 
         // between public and private folder share the same code
         // (This ensures there is no missing file in files-to-test.json)
-        await compareFiles(questPath, "_contracts", "contracts", filesToTest);
+        await compareFiles(questPath, [...filesToTest, ...notTemplates]);
 
       }
     }
@@ -179,4 +188,6 @@ describe("Deployment Configuration Test", async function() {
 
     }
   });
+
+
 });

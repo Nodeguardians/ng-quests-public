@@ -1,0 +1,22 @@
+[
+    {
+        "createUint256Array": {
+            "size": 0,
+            "value": 0 
+        },
+        "createBytesArray": {
+            "size": 0,
+            "value": 0 
+        }
+    },
+    {
+        "createUint256Array": {
+            "size": 0,
+            "value": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "createBytesArray": {
+            "size": 0,
+            "value": 255
+        }
+    }
+]

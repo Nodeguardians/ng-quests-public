@@ -1,0 +1,9 @@
+{
+    "freeMemoryPointer": [ "0x80", "0x0120" ],
+    "maxAccessedMemory": [ "0x80", "0x100" ],
+    "allocateMemory": [ "0x20", "0x100"],
+    "freeMemory": [
+        { "allocated": "0x20", "size": "0x20" },
+        { "allocated": "0x20", "size": "0x21" }
+    ]
+}

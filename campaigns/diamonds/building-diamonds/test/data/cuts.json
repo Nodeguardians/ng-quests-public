@@ -1,0 +1,257 @@
+{
+    "undoAdd": {
+        "numSteps": 2,
+        "steps":[
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 0,
+                        "facetId": 1,
+                        "functions": [ "func1()" ]
+                    },
+                    {
+                        "action": 0,
+                        "facetId": 2,
+                        "functions": ["func2()", "func3()" ]
+                    }
+                ]
+            },
+            { 
+                "action": 1, 
+                "cuts": [
+                    { 
+                        "action": 2, 
+                        "facetId": 0,
+                        "functions": [ "func2()" ] 
+                    },
+                    { 
+                        "action": 2, 
+                        "facetId": 0,
+                        "functions": [ "func3()" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "undoRemove": {
+        "numSteps": 2,
+        "steps": [
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 0,
+                        "facetId": 1,
+                        "functions": [ "func1()", "func2()" ]
+                    },
+                    {
+                        "action": 0,
+                        "facetId": 2,
+                        "functions": ["func3()", "func4()" ]
+                    },
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": ["func3()", "func2()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1, 
+                "cuts": [
+                    { 
+                        "action": 0, 
+                        "facetId": 1, 
+                        "functions": [ "func2()" ]
+                    },
+                    { 
+                        "action": 0, 
+                        "facetId": 2, 
+                        "functions": [ "func3()" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "undoReplace": {
+        "numSteps": 3,
+        "steps": [
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 0,
+                        "facetId": 1,
+                        "functions": [ "func1()", "func2()", "func3()" ]
+                    }
+                ]
+            },            
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 2,
+                        "functions": [ "func1()", "func2()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 1,
+                        "functions": [ "func1()", "func2()" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "undoMultiple": {
+        "numSteps": 10,
+        "steps": [
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 0,
+                        "facetId": 1,
+                        "functions": [ "func1()", "func2()", "func3()" ]
+                    },
+                    {
+                        "action": 0,
+                        "facetId": 2,
+                        "functions": [ "func4()", "func5()" ]
+                    }
+                ]
+            },            
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func1()" ]
+                    },
+                    {
+                        "action": 1,
+                        "facetId": 3,
+                        "functions": [ "func2()", "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 4,
+                        "functions": [ "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 3,
+                        "functions": [ "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 1,
+                        "functions": [ "func2()" ]
+                    },
+                    {
+                        "action": 1,
+                        "facetId": 2,
+                        "functions": [ "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 0,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 5,
+                        "functions": [ "func2()", "func4()", "func5()" ]
+                    }
+                ]
+            }, 
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 1,
+                        "facetId": 1,
+                        "functions": [ "func2()" ]
+                    },
+                    {
+                        "action": 1,
+                        "facetId": 2,
+                        "functions": [ "func4()" ]
+                    },
+                    {
+                        "action": 1,
+                        "facetId": 2,
+                        "functions": [ "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 0,
+                        "facetId": 1,
+                        "functions": [ "func1()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func4()" ]
+                    },
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func5()" ]
+                    }
+                ]
+            },
+            {
+                "action": 1,
+                "cuts": [
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func1()" ]
+                    },
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func2()" ]
+                    },
+                    {
+                        "action": 2,
+                        "facetId": 0,
+                        "functions": [ "func3()" ]
+                    }
+                ]
+            }
+        ]
+    }
+}

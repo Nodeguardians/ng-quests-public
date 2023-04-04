@@ -1,0 +1,25 @@
+[
+    {
+        "shiftLeft": { "x": 3, "y": 5 },
+        "setBit": { "x": 4500779, "y": 196 },
+        "clearBit": { 
+            "x": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": 254 
+        },
+        "flipBit": { "x": 0, "y": 17 },
+        "getBit": { "x": 8, "y": 3 }
+    },
+    {
+        "shiftLeft": { 
+            "x": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 
+            "y": 5 
+        },
+        "setBit": { 
+            "x": 3, 
+            "y": 0 
+        },
+        "clearBit": { "x": 0, "y": 128 },
+        "flipBit": { "x": 3, "y": 1 },
+        "getBit": { "x": 2002, "y": 0 }
+    }
+]

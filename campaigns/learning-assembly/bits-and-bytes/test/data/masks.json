@@ -1,0 +1,36 @@
+[
+    {
+        "setMask": {
+            "value": "0x1F00FF00FF00FF00",
+            "mask": "0xFFFFFF00FF00FF",
+            "expected": "0x1FFFFFFFFFFFFFFF"
+        },
+        "clearMask": {
+            "value": "0xFFFFFF00FF00FF00",
+            "mask": "0xFF00FF00FF00FF00",
+            "expected": "0x00FF000000000000"
+        },
+        "get8BytesAt": {
+            "at": 0,
+            "value": "0x12341234",
+            "expected": "0x12341234"
+        }
+    },
+    {
+        "setMask": {
+            "value": "0x1F1F1F1F",
+            "mask": "0xFFFF0000",
+            "expected": "0xFFFF1F1F"
+        },
+        "clearMask": {
+            "value": "0x0000FFFFF",
+            "mask": "0x00001F1F",
+            "expected": "0x0FE0E0"
+        },
+        "get8BytesAt": {
+            "value": "0x1234ABCDABCDABCDABCD12341234",
+            "at": 2,
+            "expected": "0xABCDABCDABCD1234"
+        }
+    }
+]

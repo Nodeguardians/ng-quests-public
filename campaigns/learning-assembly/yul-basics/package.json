@@ -1,9 +1,18 @@
 {
   "name": "yul-basics",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "scripts": {
-    "test": "hardhat test --network hardhat"
+    "test": "hardhat test --network hardhat && forge test",
+    "test:hardhat": "hardhat test --network hardhat"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "syntax-checks": [
+    "./contracts/Arithmetic.sol",
+    "./contracts/Comparisons.sol",
+    "./contracts/If.sol",
+    "./contracts/Switch.sol",
+    "./contracts/For.sol",
+    "./contracts/SafeMath.sol"
+  ]
 }

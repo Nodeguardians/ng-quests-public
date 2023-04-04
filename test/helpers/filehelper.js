@@ -4,10 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const { ast } = require("@ngquests/test-helpers");
 
-var BUF_SIZE = 16 * 1024;
-
 /* Recursively gets all files from a given directory. */
 async function getFiles(dir) {
+  return (await getFilesRecursive(dir))
+    .map(file => path.relative(dir, file));
+}
+
+async function getFilesRecursive(dir) {
 
   if (!fs.existsSync(dir)) return [];
   
@@ -15,7 +18,7 @@ async function getFiles(dir) {
 
   const files = await Promise.all(dirents.map((dirent) => {
     const res = path.resolve(dir, dirent.name);
-    return dirent.isDirectory() ? getFiles(res) : res;
+    return dirent.isDirectory() ? getFilesRecursive(res) : res;
   }));
 
   return Array.prototype.concat(...files);

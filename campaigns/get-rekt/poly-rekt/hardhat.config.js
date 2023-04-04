@@ -7,7 +7,7 @@ require('dotenv').config({ path: '../../../.env' });
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-    solidity: "0.8.16",
+    solidity: "0.8.19",
     defaultNetwork: "hardhat",
     networks: {
       hardhat: {
