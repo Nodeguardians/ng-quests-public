@@ -2,7 +2,7 @@
     "name": "poly-rekt",
     "version": "1.0.1",
     "scripts": {
-        "test": "hardhat test --network hardhat",
+        "test": "hardhat test --network hardhat && forge build",
         "deploy": "hardhat run ./scripts/deploy-validator.js"
     },
     "author": "",

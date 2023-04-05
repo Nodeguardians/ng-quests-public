@@ -2,12 +2,19 @@
 src = 'contracts_'
 out = 'artifacts'
 script = 'script'
-libs = ['lib', '../../../lib']
+libs = [
+    'lib', 
+    '../../../lib', 
+    '../../../node_modules/@ngquests', 
+    '../../../node_modules/@openzeppelin',
+    '../../../node_modules/@chainlink'
+]
 solc_version = '0.8.19'
 remappings = [
-    "test/=test/",
-    "@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/",
-    "@ngquests/contracts/=../../../node_modules/@openzeppelin/contracts/"
+    'test/=test/',
+    '@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/',
+    '@ngquests/contracts/=../../../node_modules/@ngquests/contracts/',
+    '@chainlink/contracts/=../../../node_modules/@chainlink/contracts'
 ]
 
 [rpc_endpoints]
