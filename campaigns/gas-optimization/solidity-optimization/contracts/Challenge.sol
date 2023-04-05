@@ -3,10 +3,10 @@ pragma solidity ^0.8.19;
 
 contract Challenge {
 
-    uint256 SKIP;
+    uint256 _SKIP;
 
     constructor(uint256 skip) {
-        SKIP = skip;
+        _SKIP = skip;
     }
 
     /** 
