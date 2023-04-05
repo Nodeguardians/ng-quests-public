@@ -1,0 +1,48 @@
+{
+    "jacToAffTests": [
+      {
+        "P": {
+          "x": "0x9482fb0e492539ec8cce745be070cda11c2e92960a201a61abfb9dc69e4536ca",
+          "y": "0x351d9ca745f157f91a5d638ca7534e63f63d5e295707bfbb1fad863bf58cc1c8",
+          "z": 1
+        }
+      },
+      {
+        "P": {
+          "x": "0x06f22dfd6bc509f5949c1844d4f5752375e5b59d51d4881be25d873a6409c459",
+          "y": "0xfd82b2af847cb5daa0c7dc44435b10d6bfb3f4a89210e940f26378247784f08f",
+          "z": "0x0914553eedffdee0087b2be682efa5d7722c2da66876f0413d0095bbe38effe7"
+        }
+      },
+      {
+        "P": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        }
+      }
+    ],
+    "affToJacTests": [
+      {
+        "x": "0x3ed113b7883b4c590638379db0c21cda16742ed0255048bf433391d374bc21d1",
+        "y": "0x9099209accc4c8a224c843afa4f4c68a090d04da5e9889dae2f8eefce82a3740"
+      },
+      {
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "jacToAffEfficiencyTest": {
+      "P": {
+        "x": "0x06f22dfd6bc509f5949c1844d4f5752375e5b59d51d4881be25d873a6409c459",
+        "y": "0xfd82b2af847cb5daa0c7dc44435b10d6bfb3f4a89210e940f26378247784f08f",
+        "z": "0x0914553eedffdee0087b2be682efa5d7722c2da66876f0413d0095bbe38effe7"
+      },
+      "gasLimit": 180500
+    },
+    "affToJacEfficiencyTest": {
+      "x": "0x3ed113b7883b4c590638379db0c21cda16742ed0255048bf433391d374bc21d1",
+      "y": "0x9099209accc4c8a224c843afa4f4c68a090d04da5e9889dae2f8eefce82a3740",
+      "gasLimit": 400
+    }
+}

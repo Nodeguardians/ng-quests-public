@@ -32,7 +32,8 @@ async function checkTemplates(questPath, solutionFiles) {
     const templatePath = solutionPath.replace("/contracts", "/_contracts");
     const templateDefinition = getContractDefinition(templatePath);
 
-    ast.isSubAst(templateDefinition, solutionDefinition);
+    const err = `${solutionFile} has misconfigured templates`;
+    ast.isSubAst(templateDefinition, solutionDefinition, err);
   }
 
 }

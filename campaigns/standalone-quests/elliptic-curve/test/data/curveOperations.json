@@ -1,0 +1,247 @@
+[
+    {
+    "addTests": [
+        {
+        "P": {
+            "x": "0x177c837ae0ac495a61805df2d85ee2fc792e284b65ead58a98e15d9d46072c01",
+            "y": "0x63bb58cd4ebea558a24091adb40f4e7226ee14c3a1fb4df39c43bbe2efc7bfd8",
+            "z": 1
+        },
+        "Q": {
+            "x": "0x54e77a001c3862b97a76647f4336df3cf126acbe7a069c5e5709277324d2920b",
+            "y": "0xf599f1bb29f4317542121f8c05a2e7c37171ea77735090081ba7c82f60d0b375",
+            "z": 1
+        },
+        "R": {
+            "x": "0x184ffa5819d80d51deba2fac4611f378576355bd683e54abf2e201173b0883d1",
+            "y": "0xc0a66e276688f359a4c6d90826cb999545bdeccc63f0491620d242c260906e6f",
+            "z": 1
+        }
+        },
+        {
+        "P": {
+            "x": "0xf5757c012185a599d1f3958b0ae68aa5dffd3d78e1a2eee67417001857658331",
+            "y": "0x393a6ed02c7675b24b1238d1d2a08fd50a6e5e5108df840bff533dfe7268dec4",
+            "z": 1
+        },
+        "Q": {
+            "x": "0x83760f2b75cdbfc829d21de1e1cb61a36d65cf8ade32daff5ce9c8ea15ba7fed",
+            "y": "0xaff64a0d125d2808a65f44f28758a0503c623a9bf1ee547eefdb50fbf71c4d8a",
+            "z": "0x74434286037364323417f9f1c2c2e5a2fcc5ea09bbad606b0a8474b8844a0774"
+        },
+        "R": {
+            "x": "0xd6d33adefa195b07a7c36da090853b8cfd8cd1c688b58a41dedd693d1c784def",
+            "y": "0x84aaba16ee195d7e3f78245f558a5dcb09a166ab4b95eded550c124593d1bca6",
+            "z": 1
+        }
+        },
+        {
+        "P": {
+            "x": "0xfa5681e74c2196fa8df4f5de840986124f22ec40ab95fa139f3607f07124eed0",
+            "y": "0xdbd3a9cf51b44d37fb961b8da1fcbf68163cd8b438e2dfcb96c3b3fcd2230a75",
+            "z": "0x851cddd392c1ff58a727af83650b7d43eeb3e0905c07388c3b96767d3da00572"
+        },
+        "Q": {
+            "x": "0x83760f2b75cdbfc829d21de1e1cb61a36d65cf8ade32daff5ce9c8ea15ba7fed",
+            "y": "0xaff64a0d125d2808a65f44f28758a0503c623a9bf1ee547eefdb50fbf71c4d8a",
+            "z": "0x74434286037364323417f9f1c2c2e5a2fcc5ea09bbad606b0a8474b8844a0774"
+        },
+        "R": {
+            "x": "0x51590b7a515140d2d784c85608668fdfef8c82fd1f5be52421554a0dc3d033ed",
+            "y": "0xe0c17da8904a727d8ae1bf36bf8a79260d012f00d4d80888d1d0bb44fda16da4",
+            "z": 1
+        }
+        }
+    ],
+    "doubleTests": [
+        {
+        "P1": {
+            "x": "0xfa5681e74c2196fa8df4f5de840986124f22ec40ab95fa139f3607f07124eed0",
+            "y": "0xdbd3a9cf51b44d37fb961b8da1fcbf68163cd8b438e2dfcb96c3b3fcd2230a75",
+            "z": "0x851cddd392c1ff58a727af83650b7d43eeb3e0905c07388c3b96767d3da00572"
+        },
+        "P2": {
+            "x": "0xfa5681e74c2196fa8df4f5de840986124f22ec40ab95fa139f3607f07124eed0",
+            "y": "0xdbd3a9cf51b44d37fb961b8da1fcbf68163cd8b438e2dfcb96c3b3fcd2230a75",
+            "z": "0x851cddd392c1ff58a727af83650b7d43eeb3e0905c07388c3b96767d3da00572"
+        },
+        "Q": {
+            "x": "0xe2534a3532d08fbba02dde659ee62bd0031fe2db785596ef509302446b030852",
+            "y": "0xe0f1575a4c633cc719dfee5fda862d764efc96c3f30ee0055c42c23f184ed8c6",
+            "z": 1
+        }
+        },
+        {
+        "P1": {
+            "x": "0xb01a172a76a4602c92d3242cb897dde3024c740debb215b4c6b0aae93c2291a9",
+            "y": "0xe85c10743237dad56fec0e2dfba703791c00f7701c7e16bdfd7c48538fc77fe2",
+            "z": 1
+        },
+        "P2": {
+            "x": "0x6faa7a14b3fc0dcd94cc7bc2aa6c4df44fe200f6b6b6f9a081ba892b45daf6cd",
+            "y": "0xfc7a93d4f6d3a34b598fea30cf5fc5472620c8cab0e6982758e22b18f48f49a0",
+            "z": "0x5d1b91f3b8792289c248d5cea93b312b2d66b8c620ba52ec6441fac34fd0232e"
+        },
+        "Q": {
+            "x": "0x741dd5bda817d95e4626537320e5d55179983028b2f82c99d500c5ee8624e3c4",
+            "y": "0x0770b46a9c385fdc567383554887b1548eeb912c35ba5ca71995ff22cd4481d3",
+            "z": 1
+        }
+        },
+        {
+        "P1": {
+            "x": "0x297d4ca8d33eeff9be11fb4d6fbd22c386a3585c0a369c1412f46da4b0c25344",
+            "y": "0x7814c55856b307b9e8e6c13ecf711d14080ddc4eb594d039bf3a487919369554",
+            "z": "0x44939da07e2c6e71586a38d47275a6754070f32153238d2bef193fadefb31bf9"
+        },
+        "P2": {
+            "x": "0xea68d7b6fedf0b71878938d51d71f8729e0acb8c2c6df8b3d79e8a4b90949ee0",
+            "y": "0x2a2744c972c9fce787014a964a8ea0c84d714feaa4de823fe85a224a4dd048fa",
+            "z": 1
+        },
+        "Q": {
+            "x": "0x1057e0ab5780f470defc9378d1c7c87437bb4c6f9ea55c63d936266dbd781fda",
+            "y": "0xf6f1645a15cbe5dc9fa9b7dfd96ee5a7dcc11b5c5ef4f1f78d83b3393c6a45a2",
+            "z": 1
+        }
+        }
+    ],
+    "mulTests": [
+        {
+        "k": "0xf8d7526bb35e1a89c04481967b303c49a7b9d3f7a8843cc9f212e20c43bfa605",
+        "P": {
+            "x": "0x33b547a1f7da266d66351083fe1bf9572c8907f5c9c394ddd0b49a1169a6d96e",
+            "y": "0x38884e4767f600e87ffe1af5d1cb4ee5906bbbbba93e99dc5f1c0230562a4a18",
+            "z": "0xd32da685c063abd7dc8a4b700b758191c0166781d5af55d0374718e9681fcc50"
+        },
+        "Q": {
+            "x": "0xeda4ace0e3a6b4a9a81ed3588ea299089d0331efbc45b87c3fc663b301f0b9ae",
+            "y": "0xb6b9dfa68b6e6121efd385bfc45c8a1a49c4feaa0182b88a05bd5b5ea44a3810",
+            "z": 1
+        }
+        }
+    ],
+    "genTests": [
+        {
+        "k": 47,
+        "P": {
+            "x": "0x42c315cc48958708595361ea83071bbcdd5b31583e19066d51d689227b1c0d7c",
+            "y": "0x649a61ce571b95852914d1dfbb7a799074f1a1e1eb87f164d6c4a72bb2f9b1b9",
+            "z": 1
+        }
+        }
+    ]
+    },
+    {
+    "addTests": [
+        {
+        "P": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        },
+        "Q": {
+            "x": "0x5ecbe4d1a6330a44c8f7ef951d4bf165e6c6b721efada985fb41661bc6e7fd6c",
+            "y": "0x8734640c4998ff7e374b06ce1a64a2ecd82ab036384fb83d9a79b127a27d5032",
+            "z": 1
+        },
+        "R": {
+            "x": "0x5ecbe4d1a6330a44c8f7ef951d4bf165e6c6b721efada985fb41661bc6e7fd6c",
+            "y": "0x8734640c4998ff7e374b06ce1a64a2ecd82ab036384fb83d9a79b127a27d5032",
+            "z": 1
+        }
+        },
+        {
+        "P": {
+            "x": "0x5ecbe4d1a6330a44c8f7ef951d4bf165e6c6b721efada985fb41661bc6e7fd6c",
+            "y": "0x8734640c4998ff7e374b06ce1a64a2ecd82ab036384fb83d9a79b127a27d5032",
+            "z": 1
+        },
+        "Q": {
+            "x": "0x5ecbe4d1a6330a44c8f7ef951d4bf165e6c6b721efada985fb41661bc6e7fd6c",
+            "y": "0x1f0ea8a4b39cc339e62011a02579d289b103693d0cf11ffaa3bd3dc0e7b12739",
+            "z": 1
+        },
+        "R": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        }
+        }
+    ],
+    "doubleTests": [
+        {
+        "P1": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        },
+        "P2": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        },
+        "Q": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        }
+        },
+        {
+        "P1": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        },
+        "P2": {
+            "x": 111111,
+            "y": 111111,
+            "z": 0
+        },
+        "Q": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        }
+        }
+    ],
+    "mulTests": [
+        {
+        "k": 0,
+        "P": {
+            "x": "0x06f22dfd6bc509f5949c1844d4f5752375e5b59d51d4881be25d873a6409c459",
+            "y": "0xfd82b2af847cb5daa0c7dc44435b10d6bfb3f4a89210e940f26378247784f08f",
+            "z": "0x0914553eedffdee0087b2be682efa5d7722c2da66876f0413d0095bbe38effe7"
+        },
+        "Q": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        }
+        },
+        {
+        "k": "0xf8d7526bb35e1a89c04481967b303c49a7b9d3f7a8843cc9f212e20c43bfa605",
+        "P": {
+            "x": 111111,
+            "y": 111111,
+            "z": 0
+        },
+        "Q": {
+            "x": 1,
+            "y": 1,
+            "z": 0
+        }
+        }
+    ],
+    "genTests": [
+        {
+        "k": "0x4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5",
+        "P": {
+            "x": "0xc6a23e1b389f3f4433b2c88d4b225cb585d5c6e20efcf37c35bfca907e14b3ba",
+            "y": "0xaae6220a8c27fd53b0931b5d6ea1c8d9b68e11fce71b5d00233622fa6760561a",
+            "z": 1
+        }
+        }
+    ]
+    }
+]

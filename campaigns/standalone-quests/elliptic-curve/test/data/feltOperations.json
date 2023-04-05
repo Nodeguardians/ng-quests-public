@@ -1,0 +1,60 @@
+[
+    {
+        "addTests": [
+            { "x": 2345891, "y": 7150112, "gasLimit": 160 },
+            { 
+                "x": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffee",
+                "y": 7150112 
+            }
+        ],
+        "subTests": [
+            { "x": 234567890123, "y": 7150112 },
+            { "x": 5, "y": 6 }
+        ],
+        "mulTests": [
+            { "x": 188, "y": 97 },
+            { 
+                "x": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe", 
+                "y": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd" 
+            },
+            { 
+                "x": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe", 
+                "y": 11 }
+        ],
+        "eqTests": [
+            { "x": 0, "y": 17 },
+            { 
+                "x": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3", 
+                "y": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3"
+            }
+        ],
+        "invTests": [
+            16,
+            "0xbffffff4a0000000bffffff55ffffff55ffffff61fffffeabfffffeabfffffea"
+        ]
+    },
+    {
+        "addTests": [
+            { "x": 0, "y": 11 },
+            { 
+                "x": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc17",
+                "y": 999 
+            }
+        ],
+        "subTests": [
+            { "x": 0, "y": 199 },
+            { "x": 17, "y": 0 }
+        ],
+        "mulTests": [
+            { "x": 1, "y": 55 },
+            { "x": 33, "y": 0 }
+        ],
+        "eqTests": [
+            {           
+                "x": "0x1000000000000000000000000000000000000000000000000000000000000001",
+                "y": 1
+            }
+        ],
+        "invTests": [ 1 ]
+    }
+]
