@@ -24,7 +24,7 @@ function testFeltArithmetic(subsuiteName, input) {
 
     it("Should modulo subtract", async function () {
       for (const test of input.subTests) {
-        const call = feltProbe.testAdd(test.x, test.y);
+        const call = feltProbe.testSub(test.x, test.y);
         await expect(call).to.not.be.reverted;
         expect (await call, "Too gas inefficient").to.be.lessThan(160);
       }
