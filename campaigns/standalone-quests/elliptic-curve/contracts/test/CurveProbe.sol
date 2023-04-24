@@ -108,6 +108,8 @@ contract CurveProbe {
         if (_affineX == FELT_ZERO && _affineY == FELT_ZERO) {
             // Affine point is point of infinity
             return _JacPoint.z == FELT_ZERO;
+        } else if (_JacPoint.z == FELT_ZERO) {
+            return false;
         }
 
         return (_JacPoint.x == _affineX * _JacPoint.z * _JacPoint.z
