@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "./utils/Decimal.sol";
+import "./libraries/Decimal.sol";
 
 contract ProposalHandler {
     using Decimal for Decimal.D256;

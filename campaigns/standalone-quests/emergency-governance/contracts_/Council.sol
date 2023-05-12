@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "./utils/Decimal.sol";
+import "./libraries/Decimal.sol";
 import "./ProposalHandler.sol";
 
 contract Council is ProposalHandler {
@@ -20,6 +20,8 @@ contract Council is ProposalHandler {
 
         require(account.power > 0, "Nothing to withdraw");
         require(account.votedUntil < block.timestamp, "Power locked in vote");
+
+        accounts[msg.sender].power = 0;
         require(GOV_TOKEN.transfer(msg.sender, account.power), "Transfer failed");
     }
 

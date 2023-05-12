@@ -1,8 +1,8 @@
 {
     "name": "emergency-governance",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scripts": {
-        "test": "forge test",
+        "test": "hardhat compile && forge test",
         "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
     },
     "author": "",
