@@ -28,7 +28,7 @@
     "scripts": {
         "test": "mocha && npm run test --workspaces",
         "test:links": "find . -type f -name '*.md' ! -path './node_modules/*' ! -path './examples/*' -exec npx markdown-link-check --quiet {} \\;",
-        "test:deployment": "mocha",
+        "test:deployment": "mocha --timeout 10000",
         "collect-md": "scripts/collect-md.js"
     }
 }

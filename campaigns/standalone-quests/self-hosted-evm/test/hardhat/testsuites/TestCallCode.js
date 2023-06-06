@@ -69,7 +69,7 @@ function testCallCode(subsuiteName) {
       });
 
       const account = await evm.accounts(callCoderAddress);
-      const callCoderArtifact = require("../../../artifacts/contracts/Test/utils/CallCoder.sol/CallCoder.json");
+      const callCoderArtifact = require("../../../artifacts/contracts/test/utils/CallCoder.sol/CallCoder.json");
       expect(account.bytecode).to.equal(callCoderArtifact.deployedBytecode);
     });
 

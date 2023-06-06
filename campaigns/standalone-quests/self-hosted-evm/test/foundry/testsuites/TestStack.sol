@@ -2,7 +2,7 @@
 pragma solidity ^0.8.16;
 
 import "contracts/libraries/Stack.sol";
-import "contracts/Test/TestProbeStack.sol";
+import "contracts/test/TestProbeStack.sol";
 import "forge-std/Test.sol";
 
 abstract contract TestStack is TestProbeStack, Test {

@@ -1,6 +1,6 @@
 {
     "name": "wintermute-rekt",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "scripts": {
         "test": "hardhat test --network hardhat && forge build",
         "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.16;
 
 import "contracts/libraries/Memory.sol";
-import "contracts/Test/TestProbeMemory.sol";
+import "contracts/test/TestProbeMemory.sol";
 import "forge-std/Test.sol";
 
 abstract contract TestMemory is TestProbeMemory, Test {

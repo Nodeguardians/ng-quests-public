@@ -1,5 +1,5 @@
 const { BigNumber } = require("ethers");
-const { keccak256, arrayify } = require("ethers/lib/utils");
+const { arrayify, keccak256, zeroPad } = require("ethers/lib/utils");
 const { Worker } = require('worker_threads');
 const { CURVE } = require('@noble/secp256k1');
 
@@ -18,7 +18,7 @@ for (let i = 0; i < NUM_OF_THREADS; i++) {
 
   // Each thread is given a private key `p + (i * K)`
   const delta = BigNumber.from(K).mul(i);
-  const seedKey = arrayify(privateKey.add(delta).mod(CURVE.n));
+  const seedKey = zeroPad(arrayify(privateKey.add(delta).mod(CURVE.n)), 32);
 
   const thread = new Worker(
     "./find-dead.js", 
