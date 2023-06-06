@@ -1,0 +1,21 @@
+[profile.default]
+src = 'contracts'
+out = 'artifacts'
+script = 'script'
+test = 'test/foundry'
+libs = [
+    'lib', 
+    '../../../lib', 
+]
+fs_permissions = [
+  { access = 'read', path = './test/data' }
+]
+remappings = [
+    "test/=test/"
+]
+solc_version = '0.8.19'
+ignored_error_codes = [9432, 5574]
+[rpc_endpoints]
+goerli = 'https://goerli.nodeguardians.io'
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

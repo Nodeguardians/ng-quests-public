@@ -97,6 +97,12 @@
                 "version": "0.1.0",
                 "type": "ctf",
                 "parts": 1
+            },
+            {
+                "name": "self-hosted-evm",
+                "version": "0.1.0",
+                "type": "build",
+                "parts": 7
             }
         ] 
     },

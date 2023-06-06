@@ -1,0 +1,6 @@
+[
+    "contracts/sEVM.sol",
+    "contracts/libraries/Instructions.sol",
+    "contracts/libraries/Stack.sol",
+    "contracts/libraries/Memory.sol"
+]
