@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./testsuites/testAffine.sol";
+import "./testsuites/TestAffine.sol";
 import "../../contracts/ObsidianGates.sol";
 
 contract PublicTest1 is TestAffine {

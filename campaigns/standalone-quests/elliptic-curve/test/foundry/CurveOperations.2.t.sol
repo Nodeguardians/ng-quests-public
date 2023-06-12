@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./testsuites/testCurveOps.sol";
+import "./testsuites/TestCurveOps.sol";
 
 contract PublicTest1 is TestCurveOps {
     string PATH = "test/data/curveOperations.json";

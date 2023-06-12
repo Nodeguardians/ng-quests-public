@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./testsuites/testFieldElement.sol";
+import "./testsuites/TestFieldElement.sol";
 
 contract PublicTest1 is TestFelt {
     string PATH = "test/data/feltOperations.json";
