@@ -15,7 +15,7 @@ contract State {
 
     /**
      * @dev Returns the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to query the account of.
      * @return account The account associated with the given address.
      */
@@ -25,7 +25,7 @@ contract State {
 
     /**
      * @dev Returns the balance of the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to query the balance of.
      * @return balance The balance of the account associated with the given address.
      */
@@ -35,7 +35,7 @@ contract State {
 
     /**
      * @dev Returns the nonce of the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to query the nonce of.
      * @return nonce The nonce of the account associated with the given address.
      */
@@ -45,7 +45,7 @@ contract State {
 
     /**
      * @dev Increments the nonce of the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to increment the nonce of.
      * @return nonce The new nonce of the account associated with the given address.
      */
@@ -58,7 +58,7 @@ contract State {
 
     /**
      * @dev Returns the bytecode of the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to query the bytecode of.
      * @return bytecode The bytecode of the account associated with the given address.
      */
@@ -70,7 +70,7 @@ contract State {
 
     /**
      * @dev Sets the bytecode of the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to set the bytecode of.
      * @param bytecode The bytecode to set.
      */
@@ -80,7 +80,7 @@ contract State {
 
     /**
      * @dev Returns the value stored at the given key in the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to query the storage of.
      * @param key The key to query the storage at.
      * @return value The value stored at the given key in the account associated with the given address.
@@ -94,7 +94,7 @@ contract State {
 
     /**
      * @dev Sets the value stored at the given key in the account associated with the given address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param addr The address to set the storage of.
      * @param key The key to set the storage at.
      * @param value The value to set.
@@ -109,7 +109,7 @@ contract State {
 
     /**
      * @dev Validates that the account associated with the given address has sufficient funds to transfer the given value.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @param from The address to validate the balance of.
      * @param value The value to validate the balance against.
      * @return valid Whether the account associated with the given address has sufficient funds to transfer the given value.
@@ -123,7 +123,7 @@ contract State {
 
     /**
      * @dev Transfers the given value from the account associated with the given from address to the account associated with the given to address.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @dev Reverts if the account associated with the given from address does not have sufficient funds to transfer the given value.
      * @param from The address to transfer the value from.
      * @param to The address to transfer the value to.
@@ -140,7 +140,7 @@ contract State {
 
     /**
      * @dev Creates an account associated with the given address with the given value.
-     * @notice DO NOT MDOIFY THIS FUNCTION.
+     * @notice DO NOT MODIFY THIS FUNCTION.
      * @dev Reverts if an account already exists at the given address.
      * @param addr The address to create the account at.
      * @param value The value to set the account balance to.

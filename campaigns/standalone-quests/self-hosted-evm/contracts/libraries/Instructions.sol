@@ -22,7 +22,7 @@ library InstructionsLib {
     using MemoryLib for Memory;
 
     // ======================
-    //   BASIC INSTRUCTIONS  
+    //   BASIC INSTRUCTIONS
     // ======================
 
     /**
@@ -257,7 +257,7 @@ library InstructionsLib {
     /**
      * @dev SHL instruction.
      * @notice Pops the top two values from the stack, performs a bitwise left shift and pushes the result back to the stack.
-     * @notice STACK = [lhs, rhs, ...] => STACK = [lhs << rhs, ...]
+     * @notice STACK = [shift, value, ...] => STACK = [value << shift, ...]
      * @param scope The current execution scope.
      */
     function opShl(Scope memory scope) internal pure {
@@ -267,7 +267,7 @@ library InstructionsLib {
     /**
      * @dev SHR instruction.
      * @notice Pops the top two values from the stack, performs a bitwise right shift and pushes the result back to the stack.
-     * @notice STACK = [lhs, rhs, ...] => STACK = [lhs >> rhs, ...]
+     * @notice STACK = [shift, value, ...] => STACK = [value >> shift, ...]
      * @param scope The current execution scope.
      */
     function opShr(Scope memory scope) internal pure {
@@ -277,7 +277,7 @@ library InstructionsLib {
     /**
      * @dev SAR instruction.
      * @notice Pops the top two values from the stack, performs a (signed) bitwise right shift and pushes the result back to the stack.
-     * @notice STACK = [lhs, rhs, ...] => STACK = [lhs >>> rhs, ...]
+     * @notice STACK = [shift, value, ...] => STACK = [value >>> shift, ...]
      * @param scope The current execution scope.
      */
     function opSar(Scope memory scope) internal pure {
@@ -743,7 +743,7 @@ library InstructionsLib {
      * @param scope The current execution scope.
      */
     function opCreate(Scope memory scope) internal {
-       /*
+        /*
         ...
         try ICrossTx(address(this)).create(...) {
             ...
@@ -775,7 +775,7 @@ library InstructionsLib {
     }
 
     // =====================
-    //   CALL INSTRUCTIONS  
+    //   CALL INSTRUCTIONS
     // =====================
 
     /**
@@ -866,5 +866,4 @@ library InstructionsLib {
         }
         */
     }
-
 }
