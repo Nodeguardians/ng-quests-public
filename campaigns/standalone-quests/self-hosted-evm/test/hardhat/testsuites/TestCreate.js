@@ -39,7 +39,7 @@ function testCreate(subsuiteName) {
         data: CreateFactory.getDeployTransaction().data,
       });
 
-      const createArtifact = require("../../../artifacts/contracts/test/utils/Create.sol/Create.json");
+      const createArtifact = require("../../../artifacts/contracts/test/helpers/Create.sol/Create.json");
       expect(await evm.getAccountBytecode(createAddress)).to.equal(
         createArtifact.deployedBytecode
       );
@@ -75,7 +75,7 @@ function testCreate(subsuiteName) {
         data: calldata,
       });
 
-      const createdNoParamsArtifact = require("../../../artifacts/contracts/test/utils/CreatedNoParams.sol/CreatedNoParams.json");
+      const createdNoParamsArtifact = require("../../../artifacts/contracts/test/helpers/CreatedNoParams.sol/CreatedNoParams.json");
       expect(await evm.getAccountBytecode(CreatedNoParamsAddress)).to.equal(
         createdNoParamsArtifact.deployedBytecode
       );
@@ -132,7 +132,7 @@ function testCreate(subsuiteName) {
         data: calldata,
       });
 
-      const createdNoParamsArtifact = require("../../../artifacts/contracts/test/utils/CreatedNoParams.sol/CreatedNoParams.json");
+      const createdNoParamsArtifact = require("../../../artifacts/contracts/test/helpers/CreatedNoParams.sol/CreatedNoParams.json");
       expect(await evm.getAccountBytecode(CreatedNoParamsAddress)).to.equal(
         createdNoParamsArtifact.deployedBytecode
       );
@@ -179,7 +179,7 @@ function testCreate(subsuiteName) {
         data: calldata,
       });
 
-      const createdParamsArtifact = require("../../../artifacts/contracts/test/utils/CreatedParams.sol/CreatedParams.json");
+      const createdParamsArtifact = require("../../../artifacts/contracts/test/helpers/CreatedParams.sol/CreatedParams.json");
       expect(await evm.getAccountBytecode(CreatedParamsAddress)).to.equal(
         createdParamsArtifact.deployedBytecode
       );
@@ -223,7 +223,7 @@ function testCreate(subsuiteName) {
         data: calldata,
       });
 
-      const createdParamsArtifact = require("../../../artifacts/contracts/test/utils/CreatedParams.sol/CreatedParams.json");
+      const createdParamsArtifact = require("../../../artifacts/contracts/test/helpers/CreatedParams.sol/CreatedParams.json");
       expect(await evm.getAccountBytecode(CreatedParamsAddress)).to.equal(
         createdParamsArtifact.deployedBytecode
       );

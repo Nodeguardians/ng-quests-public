@@ -69,7 +69,7 @@ function testDelegateCall(subsuiteName) {
       });
 
       const account = await evm.accounts(delegateCallerAddress);
-      const delegateCallerArtifact = require("../../../artifacts/contracts/test/utils/DelegateCaller.sol/DelegateCaller.json");
+      const delegateCallerArtifact = require("../../../artifacts/contracts/test/helpers/DelegateCaller.sol/DelegateCaller.json");
       expect(account.bytecode).to.equal(
         delegateCallerArtifact.deployedBytecode
       );

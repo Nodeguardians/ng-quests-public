@@ -4,9 +4,9 @@ pragma solidity ^0.8.16;
 import "forge-std/Test.sol";
 import "forge-std/StdUtils.sol";
 import "contracts/sEVM.sol";
-import "contracts/test/utils/Create2.sol";
-import "contracts/test/utils/CreatedParams.sol";
-import "contracts/test/utils/CreatedNoParams.sol";
+import "contracts/test/helpers/Create2.sol";
+import "contracts/test/helpers/CreatedParams.sol";
+import "contracts/test/helpers/CreatedNoParams.sol";
 
 abstract contract TestCreate2 is Test {
     sEVM sevm;

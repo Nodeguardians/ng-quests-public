@@ -3,8 +3,8 @@ pragma solidity ^0.8.16;
 
 import "forge-std/Test.sol";
 import "contracts/sEVM.sol";
-import "contracts/test/utils/DelegateCaller.sol";
-import "contracts/test/utils/Callee.sol";
+import "contracts/test/helpers/DelegateCaller.sol";
+import "contracts/test/helpers/Callee.sol";
 
 abstract contract TestDelegateCall is Test {
     sEVM sevm;

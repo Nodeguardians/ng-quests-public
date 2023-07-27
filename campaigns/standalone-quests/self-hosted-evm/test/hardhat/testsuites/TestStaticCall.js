@@ -70,7 +70,7 @@ function testStaticCall(subsuiteName) {
       });
 
       const account = await evm.accounts(staticCallerAddress);
-      const callerArtifact = require("../../../artifacts/contracts/test/utils/StaticCaller.sol/StaticCaller.json");
+      const callerArtifact = require("../../../artifacts/contracts/test/helpers/StaticCaller.sol/StaticCaller.json");
       expect(account.bytecode).to.equal(callerArtifact.deployedBytecode);
     });
 
