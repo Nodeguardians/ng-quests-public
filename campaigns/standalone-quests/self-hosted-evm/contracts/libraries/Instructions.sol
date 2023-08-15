@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
+import "./Errors.sol";
 import "./Context.sol";
 import "./Stack.sol";
 import "./Memory.sol";
@@ -366,7 +367,7 @@ library InstructionsLib {
 
     /**
      * @dev CALLDATACOPY instruction.
-     * @notice Pops the top three values from the stack, copies the specified range of calldata to memory and pushes the result back to the stack.
+     * @notice Pops the top three values from the stack, copies the specified range of calldata to memory.
      * @notice STACK = [memOffset, dataOffset, length, ...] => STACK = [...]
      * @notice MEMORY[memOffset:memOffset+length] = CALLDATA[dataOffset:dataOffset+length
      * @param scope The current execution scope.

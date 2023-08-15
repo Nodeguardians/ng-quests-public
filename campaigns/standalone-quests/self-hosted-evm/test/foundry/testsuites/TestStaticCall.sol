@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "contracts/sEVM.sol";
 import "contracts/test/helpers/StaticCaller.sol";
 import "contracts/test/helpers/Callee.sol";
+import "contracts/libraries/Errors.sol";
 
 abstract contract TestStaticCall is Test {
     sEVM sevm;
@@ -169,7 +170,7 @@ abstract contract TestStaticCall is Test {
     }
 
     function test_Cannot_StaticCall_A_State_Changing_Function() external EOA {
-        vm.expectRevert("sEVM: read only");
+        vm.expectRevert(bytes(READ_ONLY_ERROR));
         sevm.execute(
             Core.Input({
                 caller: origin,
@@ -187,7 +188,7 @@ abstract contract TestStaticCall is Test {
         external
         EOA
     {
-        vm.expectRevert("sEVM: insufficient balance");
+        vm.expectRevert(bytes(INSUFFICIENT_BALANCE_ERROR));
         sevm.execute(
             Core.Input({
                 caller: origin,
@@ -202,7 +203,7 @@ abstract contract TestStaticCall is Test {
     }
 
     function test_Cannot_StaticCall_From_Outside_The_sEVM() external {
-        vm.expectRevert("sEVM: msg.sender must be sEVM");
+        vm.expectRevert(bytes(INVALID_MSG_SENDER_ERROR));
         sevm.staticCall(
             ICrossTx.InternalInput({
                 origin: origin,
@@ -217,7 +218,7 @@ abstract contract TestStaticCall is Test {
 
     function test_Cannot_Change_The_State_While_Context_Is_ReadOnly() external {
         vm.prank(address(sevm));
-        vm.expectRevert("sEVM: read only");
+        vm.expectRevert(bytes(READ_ONLY_ERROR));
         sevm.staticCall(
             ICrossTx.InternalInput({
                 origin: origin,

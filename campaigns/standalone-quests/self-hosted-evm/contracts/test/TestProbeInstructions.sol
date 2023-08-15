@@ -1180,7 +1180,8 @@ contract TestProbeInstructions is sEVM {
         bytes32 _offset = bytes32(offset);
         bytes32 _value = bytes32(uint256(value));
 
-        scope._memory.store8(offset + 1, ~value);
+        scope._memory.store8(offset, ~value);
+        scope._memory.mem[offset + 1] = 0xFF;
 
         assertStackDepth(scope, 0);
         scope.stack.push(_value);
@@ -1197,7 +1198,7 @@ contract TestProbeInstructions is sEVM {
 
         require(stored >> 248 == bytes32(uint256(value)), "Invalid mstore8");
         require(
-            (uint256(stored) >> 240) & 0xFF == uint256(~value),
+            scope._memory.mem[offset + 1] == 0xFF,
             "mstore8 wrote more than 1 byte"
         );
     }
@@ -1255,11 +1256,17 @@ contract TestProbeInstructions is sEVM {
                 "Invalid sstore revert flag when readOnly"
             );
 
-            bytes memory returndata = scope.returndata;
+            bytes32 received = keccak256(scope.returndata);
+            bytes32 expected = keccak256(
+                abi.encodeWithSignature("Error(string)", READ_ONLY_ERROR)
+            );
 
-            assembly {
-                revert(add(returndata, 0x20), mload(returndata))
-            }
+            require(
+                received == expected,
+                "Invalid sstore revert data when readOnly"
+            );
+
+            return;
         }
 
         assertStackDepth(scope, 0);
@@ -1472,5 +1479,4 @@ contract TestProbeInstructions is sEVM {
             "Invalid revert data"
         );
     }
-
 }

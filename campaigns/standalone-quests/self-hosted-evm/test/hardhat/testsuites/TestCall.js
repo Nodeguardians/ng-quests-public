@@ -287,7 +287,7 @@ function testCall(subsuiteName) {
             from: impersonatedSigner.address,
           }
         )
-      ).to.be.revertedWith("sEVM: cannot send value to a read-only call");
+      ).to.be.revertedWith("sEVM: read only");
     });
 
     it("Should not allow a state changing operation while in a readonly context", async function () {

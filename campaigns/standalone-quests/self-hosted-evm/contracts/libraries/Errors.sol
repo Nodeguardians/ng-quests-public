@@ -13,3 +13,5 @@ string constant MEMORY_BOUNDS_ERROR = "sEVM: memory out of bounds";
 string constant INSUFFICIENT_BALANCE_ERROR = "sEVM: insufficient balance";
 string constant READ_ONLY_ERROR = "sEVM: read only";
 string constant DUPLICATE_ACCOUNT_ERROR = "sEVM: account already exists";
+
+string constant INVALID_MSG_SENDER_ERROR = "sEVM: msg.sender must be sEVM";

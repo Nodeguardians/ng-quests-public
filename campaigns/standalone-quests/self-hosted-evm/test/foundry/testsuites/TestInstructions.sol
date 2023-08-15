@@ -217,7 +217,7 @@ abstract contract TestInstructions is TestProbeInstructions, Test {
             (Exp)
         );
         inputs.signExtend = abi.decode(
-            data.parseRaw(string.concat(key, ".signExtend")),
+            data.parseRaw(string.concat(key, ".signextend")),
             (SignExtend)
         );
         inputs.lt = abi.decode(
@@ -425,7 +425,6 @@ abstract contract TestInstructions is TestProbeInstructions, Test {
             data.parseRaw(string.concat(key, ".revert")),
             (DataOffset)
         );
-
     }
 
     function _test_Add() internal view {
@@ -757,10 +756,6 @@ abstract contract TestInstructions is TestProbeInstructions, Test {
         uint256 value = inputs.sstore.value;
         bool readOnly = inputs.sstore.readOnly;
 
-        if (readOnly) {
-            vm.expectRevert("sEVM: read only");
-        }
-
         _testSstore(key, value, readOnly);
     }
 
@@ -774,6 +769,22 @@ abstract contract TestInstructions is TestProbeInstructions, Test {
         bool condition = inputs.jumpi.condition;
 
         _testJumpi(pc, condition);
+    }
+
+    function test_JumpDest() external pure {
+        _testJumpDest();
+    }
+
+    function test_PushN() external pure {
+        _testPushN();
+    }
+
+    function test_DupN() external pure {
+        _testDupN();
+    }
+
+    function test_SwapN() external pure {
+        _testSwapN();
     }
 
     function test_Pc() external view {
@@ -799,5 +810,4 @@ abstract contract TestInstructions is TestProbeInstructions, Test {
 
         _testRevert(data, offset);
     }
-
 }

@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "contracts/sEVM.sol";
 import "contracts/test/helpers/CallCoder.sol";
 import "contracts/test/helpers/Callee.sol";
+import "contracts/libraries/Errors.sol";
 
 abstract contract TestCallCode is Test {
     sEVM sevm;
@@ -210,7 +211,7 @@ abstract contract TestCallCode is Test {
     }
 
     function test_Cannot_CallCode_With_More_Value_Than_Balance() external EOA {
-        vm.expectRevert("sEVM: insufficient balance");
+        vm.expectRevert(bytes(INSUFFICIENT_BALANCE_ERROR));
         sevm.execute(
             Core.Input({
                 caller: origin,
@@ -225,7 +226,7 @@ abstract contract TestCallCode is Test {
     }
 
     function test_Cannot_CallCode_From_Outside_The_sEVM() external {
-        vm.expectRevert("sEVM: msg.sender must be sEVM");
+        vm.expectRevert(bytes(INVALID_MSG_SENDER_ERROR));
         sevm.delegateCall(
             ICrossTx.InternalInput({
                 origin: origin,
@@ -241,7 +242,7 @@ abstract contract TestCallCode is Test {
 
     function test_Cannot_Change_The_State_While_Context_Is_ReadOnly() external {
         vm.prank(address(sevm));
-        vm.expectRevert("sEVM: read only");
+        vm.expectRevert(bytes(READ_ONLY_ERROR));
         sevm.delegateCall(
             ICrossTx.InternalInput({
                 origin: origin,

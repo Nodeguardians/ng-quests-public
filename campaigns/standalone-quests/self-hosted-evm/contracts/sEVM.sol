@@ -3,9 +3,9 @@ pragma solidity ^0.8.16;
 
 import "./Core.sol";
 import "./interfaces/ICrossTx.sol";
+import "./libraries/Errors.sol";
 
 contract sEVM is Core, ICrossTx {
-
     /**
      * @dev Executes a call to the given address with the given input data.
      * @param input The input to the call.

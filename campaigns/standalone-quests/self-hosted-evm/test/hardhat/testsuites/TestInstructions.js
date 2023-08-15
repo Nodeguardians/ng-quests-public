@@ -192,13 +192,7 @@ function testInstructions(subsuiteName, input) {
       const value = ethers.BigNumber.from(input.sstore.value);
       const readOnly = input.sstore.readOnly;
 
-      if (readOnly) {
-        await expect(
-          testProbe._testSstore(key, value, readOnly)
-        ).to.be.revertedWith("sEVM: read only");
-      } else {
-        await testProbe._testSstore(key, value, readOnly);
-      }
+      await testProbe._testSstore(key, value, readOnly);
     });
 
     it("Should correctly implement the JUMP opcode", async function () {
@@ -249,7 +243,6 @@ function testInstructions(subsuiteName, input) {
       const offset = ethers.BigNumber.from(input.revert.offset);
       await testProbe._testRevert(data, offset);
     });
-
   });
 }
 
