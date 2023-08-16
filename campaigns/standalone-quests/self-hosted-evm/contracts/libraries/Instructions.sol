@@ -388,7 +388,7 @@ library InstructionsLib {
 
     /**
      * @dev CODECOPY instruction.
-     * @notice Pops the top three values from the stack, copies the specified range of code to memory and pushes the result back to the stack.
+     * @notice Pops the top three values from the stack, copies the specified range of code to memory.
      * @notice STACK = [memOffset, codeOffset, length, ...] => STACK = [...]
      * @notice MEMORY[memOffset:memOffset+length] = CODE[codeOffset:codeOffset+length]
      * @param scope The current execution scope.
@@ -419,7 +419,7 @@ library InstructionsLib {
 
     /**
      * @dev EXTCODECOPY instruction.
-     * @notice Pops the top four values from the stack, copies the specified range of code of the specified account to memory and pushes the result back to the stack.
+     * @notice Pops the top four values from the stack, copies the specified range of code of the specified account to memory.
      * @ notice STACK = [address, memOffset, codeOffset, length, ...] => STACK = [...]
      * @notice MEMORY[memOffset:memOffset+length] = EXTCODE[address][codeOffset:codeOffset+length]
      * @param scope The current execution scope.
@@ -440,7 +440,7 @@ library InstructionsLib {
 
     /**
      * @dev RETURNDATACOPY instruction.
-     * @notice Pops the top three values from the stack, copies the specified range of return data to memory and pushes the result back to the stack.
+     * @notice Pops the top three values from the stack, copies the specified range of return data to memory.
      * @notice STACK = [memOffset, dataOffset, length, ...] => STACK = [...]
      * @notice MEMORY[memOffset:memOffset+length] = RETURNDATA[dataOffset:dataOffset+length]
      * @param scope The current execution scope.

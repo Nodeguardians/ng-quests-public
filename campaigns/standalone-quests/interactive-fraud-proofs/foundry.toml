@@ -1,0 +1,22 @@
+[profile.default]
+src = 'contracts_'
+out = 'artifacts'
+script = 'script'
+libs = [
+    'lib', 
+    '../../../lib', 
+    '../../../node_modules/@ngquests', 
+    '../../../node_modules/@openzeppelin'
+]
+solc_version = '0.8.19'
+remappings = [
+    'test/=test/',
+    '@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/',
+    '@ngquests/contracts/=../../../node_modules/@ngquests/contracts/'
+]
+no_match_path = "contracts_/utils/*.sol"
+
+[rpc_endpoints]
+goerli = 'https://goerli.nodeguardians.io'
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
