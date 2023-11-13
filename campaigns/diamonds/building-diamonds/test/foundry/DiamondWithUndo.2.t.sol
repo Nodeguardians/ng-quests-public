@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./utils/DiamondHelpers.sol";
+import "./helpers/DiamondHelpers.sol";
 import "./testsuites/TestUndo.sol";
 
 contract PublicTest1 is Test {
@@ -54,7 +54,7 @@ contract PublicTest3 is TestUndo {
 
 contract PublicTest4 is TestUndo {
 
-    string PATH = "test/data/private/cuts.json";
+    string PATH = "test/data/cuts.json";
     string KEY = ".undoReplace";
     constructor() TestUndo(PATH, KEY) { }
 
@@ -65,7 +65,7 @@ contract PublicTest4 is TestUndo {
 
 contract PublicTest5 is TestUndo {
 
-    string PATH = "test/data/private/cuts.json";
+    string PATH = "test/data/cuts.json";
     string KEY = ".undoMultiple";
     constructor() TestUndo(PATH, KEY) { }
 

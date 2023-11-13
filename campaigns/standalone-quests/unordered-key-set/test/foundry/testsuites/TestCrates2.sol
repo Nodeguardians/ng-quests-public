@@ -58,6 +58,10 @@ contract TestCrates2 is Test {
         }
     }
 
+    /*
+    /// Note: This test is temporarily disabled because of Foundry's inability to 
+    ///       handle cold/warm storage differences.
+    ///       Will be re-enabled once `vm.cool` is available.
     function test_be_gas_efficient() external {
 
         for (uint256 i = 0; i < testCrates.length; i++) {
@@ -75,7 +79,7 @@ contract TestCrates2 is Test {
         crates.getCrateIds{ gas: gasToIterate }();
 
     }
-
+    */
     function test_fail_if_deleting_an_inexistent_crate() external {
         Crates crates1 = new Crates();
         crates1.insertCrate(

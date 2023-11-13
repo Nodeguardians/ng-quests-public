@@ -5,4 +5,5 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./TimeEscrow.sol";
 
 contract SpiritCat is TimeEscrow {
+    
 }

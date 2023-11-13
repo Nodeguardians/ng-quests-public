@@ -6,16 +6,16 @@ libs = [
     'lib', 
     '../../../lib', 
     '../../../node_modules/@ngquests', 
-    '../../../node_modules/@openzeppelin',
-    './node_modules/@chainlink'
+    '../../../node_modules/@openzeppelin'
 ]
 solc_version = '0.8.19'
 remappings = [
     'test/=test/',
     '@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/',
-    '@ngquests/contracts/=../../../node_modules/@ngquests/contracts/',
-    '@chainlink/contracts/=./node_modules/@chainlink/contracts'
+    '@ngquests/contracts/=../../../node_modules/@ngquests/contracts/'
 ]
+no_match_path = "contracts_/utils/*.sol"
+evm_version = "shanghai"
 
 [rpc_endpoints]
 goerli = 'https://goerli.nodeguardians.io'

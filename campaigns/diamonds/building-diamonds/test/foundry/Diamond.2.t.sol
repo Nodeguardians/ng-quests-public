@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
-import "./utils/DiamondHelpers.sol";
+import "./helpers/DiamondHelpers.sol";
 import "../../contracts/facets/HeadFacet.sol";
 
 contract PublicTest1 is Test {

@@ -9,12 +9,15 @@
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
         "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
         "@nomiclabs/hardhat-ethers": "^2.2.2",
-        "@openzeppelin/contracts": "^4.8.2",
+        "@openzeppelin/contracts": "^4.9.3",
         "@solidity-parser/parser": "^0.16.0",
         "dotenv": "^16.0.3",
-        "hardhat": "^2.13.0"
+        "hardhat": "^2.13.0",
+        "husky": "^8.0.3"
     },
     "devDependencies": {
+        "@commitlint/cli": "^18.2.0",
+        "@commitlint/config-conventional": "^18.1.0",
         "markdown-link-check": "^3.10.3",
         "mochawesome": "^7.1.3",
         "mochawesome-report-generator": "^6.2.0"
@@ -26,9 +29,10 @@
         "campaigns/**"
     ],
     "scripts": {
+        "collect-md": "scripts/collect-md.js",
         "test": "mocha && npm run test --workspaces",
-        "test:links": "find . -type f -name '*.md' ! -path './node_modules/*' ! -path './examples/*' -exec npx markdown-link-check --quiet {} \\;",
         "test:deployment": "mocha --timeout 10000",
-        "collect-md": "scripts/collect-md.js"
+        "test:links": "find . -type f -name '*.md' ! -path './node_modules/*' ! -path './examples/*' -exec npx markdown-link-check --quiet {} \\;",
+        "prepare": "husky install"
     }
 }
