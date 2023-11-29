@@ -19,8 +19,8 @@ abstract contract TimeEscrow {
     /**
      * @dev If {endTime} has not passed, transfers {unlockedBalance()} 
      * amount of tokens to the recipient, and locks the remainder up. 
-     * 
      * Otherwise, transfers all remaining tokens to the recipient. 
+     * Can only be called by recipient.
      */
     function withdraw() external virtual;
 

@@ -3,7 +3,8 @@
     "version": "2.0.0",
     "scripts": {
         "test": "hardhat test --network hardhat && hardhat test scripts/validation-test/deployment.test.js && forge test",
-        "test:hardhat": "hardhat test --network hardhat"
+        "test:hardhat": "hardhat test --network hardhat",
+        "deploy": "hardhat run ./scripts/deploy.js --network goerli"
     },
     "author": "",
     "license": "MIT"

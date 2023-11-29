@@ -16,7 +16,7 @@ abstract contract Summoner {
     }
 
     /**
-     * @dev Creates a `SpiritCat` contract with the specified parameters. 
+     * @dev Creates a `SpiritCat` contract with the specified parameters and emits an `EscrowSummoned` event.
      * Only can be called by {owner}.
      * 
      * @param recipient Address of SpiritCat's recipient.
@@ -32,6 +32,12 @@ abstract contract Summoner {
         uint256 lockTime
     ) external virtual;
 
+    /**
+     * @dev Collects all remaining tokens from cat and destroys the contract. 
+     * Can only be called by a contract's creator.
+     * 
+     * @param escrow Address of escrow to destroy.
+     */
     function dispel(address escrow) external virtual;
 
 }
