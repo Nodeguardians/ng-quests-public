@@ -17,7 +17,7 @@ abstract contract TestElegy1 is Test {
 
     constructor(string memory _testDataPath) {
         string memory jsonData = vm.readFile(_testDataPath);
-        firstVerse = bytes8(jsonData.readBytes32(".firstVerse"));
+        firstVerse = bytes8(jsonData.readBytes(".firstVerse"));
         secondVerse = jsonData.readBytes32(".secondVerse");
         thirdVerse = jsonData.readAddress(".thirdVerse");
         fourthVerse = uint128(jsonData.readUint(".fourthVerse"));

@@ -1,0 +1,126 @@
+[
+  {
+    "setup": {
+      "villagers": [
+        "0x0000000000000000000000000000000000000001",
+        "0x0000000000000000000000000000000000000002"
+      ],
+      "proposals": [1, 2],
+      "roundDuration": 100,
+      "shouldFail": false,
+      "voteTokens": [1, 2]
+    },
+    "numRounds": 1,
+    "rounds": [
+      {
+        "activeProposals": [],
+        "countTime": 101,
+        "steps": [
+          {
+            "voter": "0x0000000000000000000000000000000000000001",
+            "proposalIds": [1],
+            "votes": [1]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000002",
+            "proposalIds": [1, 2],      
+            "votes": [1, 1]
+          }
+        ],
+        "winner": 1
+      }
+    ]
+  },
+  {
+    "setup": {
+      "villagers": [
+        "0x0000000000000000000000000000000000000001", 
+        "0x0000000000000000000000000000000000000002", 
+        "0x0000000000000000000000000000000000000003"
+      ],
+      "proposals": [1, 2, 3],
+      "roundDuration": 100,
+      "shouldFail": false,
+      "voteTokens": [20, 10, 3]
+    },
+    "numRounds": 2,
+    "rounds": [
+      {
+        "activeProposals": [1, 2] ,
+        "countTime": 101,
+        "steps": [
+          {
+            "voter": "0x0000000000000000000000000000000000000001",
+            "proposalIds": [1],
+            "votes": [20]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000002",
+            "proposalIds": [2],      
+            "votes": [10]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000003",
+            "proposalIds": [2],      
+            "votes": [3]
+          }
+        ],
+        "winner": 0
+      },
+      {
+        "activeProposals": [],
+        "countTime": 101,
+        "steps": [
+          {
+            "voter": "0x0000000000000000000000000000000000000001",
+            "proposalIds": [2],
+            "votes": [20]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000002",
+            "proposalIds": [1],      
+            "votes": [10]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000003",
+            "proposalIds": [2],      
+            "votes": [3]
+          }
+        ],
+        "winner": 2
+      }
+    ]
+  },
+  {
+    "setup": {
+      "villagers": [
+        "0x0000000000000000000000000000000000000001", 
+        "0x0000000000000000000000000000000000000002"
+      ],
+      "proposals": [1, 2],
+      "roundDuration": 100,
+      "shouldFail": true,
+      "voteTokens": [1, 2]
+    },
+    "numRounds": 1,
+    "rounds": [
+      {
+        "activeProposals": [],
+        "countTime": 10,
+        "steps": [
+          {
+            "voter": "0x0000000000000000000000000000000000000001",
+            "proposalIds": [1],
+            "votes": [1]
+          },
+          {
+            "voter": "0x0000000000000000000000000000000000000002",
+            "proposalIds": [1, 2],      
+            "votes": [1, 1]
+          }
+        ],
+        "winner": 1
+      }
+    ]
+  }
+]

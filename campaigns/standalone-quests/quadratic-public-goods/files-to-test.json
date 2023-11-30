@@ -1,0 +1,4 @@
+[
+    "contracts/VillageVoting.sol",
+    "contracts/VillageFunding.sol"
+]
