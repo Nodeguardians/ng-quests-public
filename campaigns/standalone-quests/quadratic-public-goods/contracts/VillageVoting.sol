@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
 
 import "./interfaces/IVillageVoting.sol";
 
@@ -9,14 +9,22 @@ contract VillageVoting is IVillageVoting {
      */
     mapping (address => uint256) public balanceOf;
     
-    constructor(address[] memory _villagers, uint256[] memory _voteTokens, uint256[] memory _proposalIds, uint256 _roundDuration) payable {
+    constructor(
+        address[] memory _villagers, 
+        uint256[] memory _voteTokens, 
+        uint256[] memory _proposalIds,
+        uint256 _roundDuration
+    ) payable {
         // YOUR CODE HERE
     }
 
     /**
      * @inheritdoc IVillageVoting
      */
-    function vote(uint256[] calldata _proposalIds, uint256[] calldata _amounts) external {
+    function vote(
+        uint256[] calldata _proposalIds, 
+        uint256[] calldata _amounts
+    ) external {
         // YOUR CODE HERE
     }
 

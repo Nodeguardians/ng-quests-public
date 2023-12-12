@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
 
 interface IVillageFunding {    
     /**
@@ -8,7 +8,7 @@ interface IVillageFunding {
     function getProjects() external view returns (uint256[] memory);
 
     /**
-     * @dev Returns the vote power of a villager
+     * @dev Returns the current vote power of a villager
      * @param villager - the address of a villager
      */
     function getVotePower(address villager) external view returns (uint256);
@@ -34,21 +34,24 @@ interface IVillageFunding {
     function getFunds(uint256 projectId) external view returns (uint256);
     
     /**
-     * @dev Call to donate ETH to get a certain amount of vote power
-     * Can only be called once per villager and before voting ends
+     * @dev villagers call this function to donate ETH 
+     * to get a certain amount of vote power. 
+     * The function should only be callable once per villager 
+     * and before the voting round ends
      */
     function donate() external payable;
 
     /**
-     * @dev Call to vote for a certain project
-     * Should revert if a villager tries to vote with 0 vote power
-     * @param projectId - the ID of the project to vote on
+     * @dev Villagers call this function to vote for their preferred project. 
+     * Should revert if a villager tries to vote with 0 vote power.
+     * @param projectId - the ID of the project to vote for
      * @param votePower - the amount of vote power to vote with
      */
     function vote(uint256 projectId, uint256 votePower) external;
 
     /**
-     * @dev Called by a deployer to distrbute funds
+     * @dev Distributes the funds using the quadratic formula. 
+     * This can only be called by the deployer and after the voting round ends.
      */
     function distribute() external;
 }

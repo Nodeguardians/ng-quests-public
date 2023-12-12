@@ -5,6 +5,5 @@
     "test": "hardhat test --network hardhat && forge test",
     "test:hardhat": "hardhat test --network hardhat"
   },
-  "author": "nzmpi",
   "license": "MIT"
 }

@@ -1,11 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
 
 import "./interfaces/IVillageFunding.sol";
 
 contract VillageFunding is IVillageFunding {
 
-    constructor(address[] memory _villagers, uint256[] memory _projectIds, uint256 _voteDuration) payable {
+    constructor(
+        address[] memory _villagers, 
+        uint256[] memory _projectIds,
+        uint256 _voteDuration
+    ) payable {
         // YOUR CODE HERE
     }
 
@@ -47,7 +51,11 @@ contract VillageFunding is IVillageFunding {
     /**
      * @inheritdoc IVillageFunding
      */
-    function getContributions(uint256 _projectId) external view returns (uint256, uint256) {
+    function getContributions(uint256 _projectId) 
+        external 
+        view 
+        returns (uint256, uint256) 
+    {
         // YOUR CODE HERE
     }
 

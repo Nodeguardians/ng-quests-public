@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity ^0.8.19;
 
 interface IVillageVoting {
     /**
@@ -10,7 +10,7 @@ interface IVillageVoting {
     function getActiveProposals() external view returns (uint256[] memory);
 
     /**
-     * @dev Returns the info of the current round
+     * @dev Returns information about the current round
      * @param winner - the ID of the winner
      * @param round - the current round
      * @param roundEndTime - the end time of the current round in seconds
@@ -38,20 +38,18 @@ interface IVillageVoting {
         returns (uint256);
 
     /**
-     * @dev Call this function to cast 
-     * a vote for proposals with 
-     * corresponding amounts of vote tokens
-     * @param proposalIds - an array of proposal IDs, 
-     * that a user wants to vote for
-     * @param amounts - an array of corresponding amounts of 
-     * vote tokens for each proposal
+     * @dev Villagers call this function to vote for their preferred proposals. 
+     * Proposals must be active and the villager must have a sufficient 
+     * amount of tokens. 
+     * Each villager can only vote once per round and before the voting round ends.
+     * @param proposalIds - array of proposal IDs that a villager wants to vote for
+     * @param amounts - array of amounts of vote tokens for each proposal
      */
     function vote(uint256[] calldata proposalIds, uint256[] calldata amounts) external;
     
     /**
-     * @dev Called by a deployer to decide the winner 
-     * or start a new voting round if there is a tie. 
-     * This can only be called when the voting round ends.
+     * @dev Decides the winner or start a new voting round if there is a tie. 
+     * This can only be called by the deployer and when the voting round ends.
      */
     function countVotes() external;
 }
