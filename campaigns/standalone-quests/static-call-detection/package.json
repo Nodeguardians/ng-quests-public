@@ -1,0 +1,11 @@
+{
+  "name": "staticcall-detection",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "hardhat test --network hardhat && forge test",
+    "test:hardhat": "hardhat test --network hardhat",
+    "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
+  },
+  "author": "",
+  "license": "MIT"
+}
