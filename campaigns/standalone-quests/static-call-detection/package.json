@@ -1,5 +1,5 @@
 {
-  "name": "staticcall-detection",
+  "name": "static-call-detection",
   "version": "1.0.0",
   "scripts": {
     "test": "hardhat test --network hardhat && forge test",

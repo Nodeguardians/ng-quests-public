@@ -17,6 +17,6 @@ remappings = [
 no_match_path = "contracts_/utils/*.sol"
 
 [rpc_endpoints]
-sepolia = 'https://rpc-sepolia-eth.nodeguardians.io'
+sepolia = 'https://goerli.nodeguardians.io'
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
