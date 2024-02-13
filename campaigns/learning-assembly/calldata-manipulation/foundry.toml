@@ -8,8 +8,7 @@ fs_permissions = [
     { access = 'read', path = './artifacts' }
 ]
 remappings = [
-    "test/=test/",
-    "@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/"
+    "test/=test/"
 ]
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

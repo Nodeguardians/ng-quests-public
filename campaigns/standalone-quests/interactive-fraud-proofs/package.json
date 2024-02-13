@@ -1,10 +1,16 @@
 {
     "name": "interactive-fraud-proofs",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "scripts": {
         "test": "forge test",
-        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
+        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia"
     },
     "author": "",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@node-guardians/ng-quests-contracts": "^1.0.0",
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+        "@nomiclabs/hardhat-ethers": "^2.2.2",
+        "hardhat": "^2.13.0"
+    }
 }

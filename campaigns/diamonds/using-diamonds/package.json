@@ -1,11 +1,18 @@
 {
-    "name": "using-diamonds",
-    "version": "1.0.1",
-    "scripts": {
-      "test": "hardhat test --network hardhat && forge build",
-      "deploy": "hardhat run scripts/deploy.js --network goerli"
-    },
-    "author": "",
-    "license": "MIT"
+  "name": "using-diamonds",
+  "version": "1.1.1",
+  "scripts": {
+    "test": "hardhat test --network hardhat && forge build",
+    "deploy": "hardhat run scripts/deploy.js --network sepolia"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@node-guardians/ng-quests-contracts": "^1.0.0",
+    "@node-guardians/ng-quests-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.13.0"
   }
-  
+}

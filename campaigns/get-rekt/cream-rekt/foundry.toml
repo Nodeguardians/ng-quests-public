@@ -4,18 +4,16 @@ out = 'artifacts'
 script = 'script'
 libs = [
     'lib', 
-    '../../../lib', 
-    '../../../node_modules/@ngquests', 
-    '../../../node_modules/@openzeppelin'
+    '../../../lib',
+    'node_modules',
+    '../../../node_modules'
 ]
 solc_version = '0.8.19'
 remappings = [
-    'test/=test/',
-    '@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/',
-    '@ngquests/contracts/=../../../node_modules/@ngquests/contracts/'
+    'test/=test/'
 ]
 
 [rpc_endpoints]
-goerli = 'https://goerli.nodeguardians.io'
+sepolia =  'https://rpc-sepolia-eth.nodeguardians.io'
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

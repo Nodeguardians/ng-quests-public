@@ -1,0 +1,17 @@
+[
+    {
+        "paymentAmount": 111500,
+        "time": 1000,
+        "totalFunds": 111500
+    },
+    {
+        "paymentAmount": 231000000,
+        "time": 100000,
+        "totalFunds": 232000000
+    },
+    {
+        "paymentAmount": 18800000000,
+        "time": 100000,
+        "totalFunds": 28800000000
+    }
+]

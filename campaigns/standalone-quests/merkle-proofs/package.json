@@ -8,6 +8,9 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "merkletreejs": "^0.3.10"
+        "merkletreejs": "^0.3.10",
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+        "@nomiclabs/hardhat-ethers": "^2.2.2",
+        "hardhat": "^2.13.0"
     }
 }

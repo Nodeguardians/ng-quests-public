@@ -5,5 +5,12 @@
     "test": "hardhat test --network hardhat && forge test",
     "test:hardhat": "hardhat test --network hardhat"
   },
-  "license": "MIT"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+      "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+      "@nomiclabs/hardhat-ethers": "^2.2.2",
+      "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+      "hardhat": "^2.13.0"
+  }
 }

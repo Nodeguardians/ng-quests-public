@@ -11,8 +11,8 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
-    goerli: {
-      url: "https://goerli.nodeguardians.io",
+    sepolia: {
+      url: "https://rpc-sepolia-eth.nodeguardians.io",
       accounts: [process.env.PRIVATE_KEY],
     },
   },

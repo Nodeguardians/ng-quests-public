@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
-const { ast } = require("@ngquests/test-helpers");
+const { ast } = require("@node-guardians/ng-quests-helpers");
 const parser = require("@solidity-parser/parser");
 const fs = require("fs");
 

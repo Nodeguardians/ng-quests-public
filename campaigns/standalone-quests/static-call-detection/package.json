@@ -4,7 +4,14 @@
   "scripts": {
     "test": "hardhat test --network hardhat && forge test",
     "test:hardhat": "hardhat test --network hardhat",
-    "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
+    "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia"
+  },
+  "dependencies": {
+    "@node-guardians/ng-quests-contracts": "^1.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.13.0"
   },
   "author": "",
   "license": "MIT"

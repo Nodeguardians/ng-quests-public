@@ -1,5 +1,5 @@
 const { ethers } = require('hardhat');
-const { diamonds } = require("@ngquests/test-helpers");
+const { diamonds } = require("@node-guardians/ng-quests-helpers");
 
 async function deployDiamond () {
   const contractOwner = await ethers.getSigner();

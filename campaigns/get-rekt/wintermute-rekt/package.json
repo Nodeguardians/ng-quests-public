@@ -1,13 +1,19 @@
 {
     "name": "wintermute-rekt",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "scripts": {
         "test": "hardhat test --network hardhat && forge build",
-        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network goerli"
+        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia"
     },
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@noble/secp256k1": "1.7.0"
+        "@noble/secp256k1": "1.7.0",
+        "@node-guardians/ng-quests-contracts": "^1.0.0",
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+        "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+        "@nomiclabs/hardhat-ethers": "^2.2.2",
+        "dotenv": "^16.0.3",
+        "hardhat": "^2.13.0"
     }
 }

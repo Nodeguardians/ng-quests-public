@@ -5,6 +5,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 abstract contract TimeEscrow {
 
+    /// @dev Whether escrow is active.
+    bool public isActive;
     /// @dev Address of recipient.
     address public recipient;
     /// @dev True if recipient has withdrawn tokens early. False otherwise.
@@ -20,7 +22,7 @@ abstract contract TimeEscrow {
      * @dev If {endTime} has not passed, transfers {unlockedBalance()} 
      * amount of tokens to the recipient, and locks the remainder up. 
      * Otherwise, transfers all remaining tokens to the recipient. 
-     * Can only be called by recipient.
+     * Can only be called by recipient and when the contract is still active.
      */
     function withdraw() external virtual;
 
@@ -33,6 +35,7 @@ abstract contract TimeEscrow {
 
     /**
      * @dev Returns amount of tokens the recipient can withdraw early.
+     * Should be 0 if if the escrow is deactivated.
      *
      * Tokens are linearly unlocked over time and are 
      * fully unlocked at {endTime}. If the recipient withdraws early, 

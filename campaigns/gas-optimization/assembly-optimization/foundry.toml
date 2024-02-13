@@ -8,8 +8,7 @@ fs_permissions = [
     { access = 'read', path = './test/data' }
 ]
 remappings = [
-    "test/=test/",
-    "@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/"
+    "test/=test/"
 ]
 no_match_path = "contracts/test/TestProbe.sol"
 

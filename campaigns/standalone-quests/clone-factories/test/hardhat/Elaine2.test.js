@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
-const { events } = require("@ngquests/test-helpers");
+const { events } = require("@node-guardians/ng-quests-helpers");
 
 describe("Elaine (Part 2)", function () {
 

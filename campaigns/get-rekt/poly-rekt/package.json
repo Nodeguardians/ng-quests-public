@@ -1,10 +1,20 @@
 {
     "name": "poly-rekt",
-    "version": "1.0.1",
+    "version": "1.1.1",
     "scripts": {
         "test": "hardhat test --network hardhat && forge build",
         "deploy": "hardhat run ./scripts/deploy-validator.js"
     },
     "author": "",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@node-guardians/ng-quests-contracts": "^1.0.0",
+        "@node-guardians/ng-quests-helpers": "^1.0.0",
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+        "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+        "@nomiclabs/hardhat-ethers": "^2.2.2",
+        "@openzeppelin/contracts": "^4.9.3",
+        "dotenv": "^16.0.3",
+        "hardhat": "^2.13.0"
+    }
 }

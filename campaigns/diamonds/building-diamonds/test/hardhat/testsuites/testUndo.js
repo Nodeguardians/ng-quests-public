@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
-const { diamonds, events } = require('@ngquests/test-helpers')
+const { diamonds, events } = require('@node-guardians/ng-quests-helpers')
 const { deployDiamond } = require("../diamonds/deploy");
 
 const FacetCutAction = { Add: 0, Replace: 1, Remove: 2, Undo: 3, Commit: 4 }

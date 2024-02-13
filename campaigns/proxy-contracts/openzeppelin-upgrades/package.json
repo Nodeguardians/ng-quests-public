@@ -8,9 +8,15 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@nomiclabs/hardhat-etherscan": "^3.1.7",
         "@openzeppelin/contracts-upgradeable": "^4.9.2",
         "@openzeppelin/hardhat-upgrades": "^1.22.1",
-        "@openzeppelin/upgrades-core": "^1.27.3"
+        "@nomiclabs/hardhat-etherscan": "3.1.0",
+        "@openzeppelin/upgrades-core": "1.32.4",
+        "@node-guardians/ng-quests-helpers": "^1.0.0",
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+        "@nomiclabs/hardhat-ethers": "^2.2.2",
+        "@solidity-parser/parser": "^0.16.0",
+        "chai-exclude": "^2.1.0",
+        "hardhat": "^2.13.0"
     }
 }

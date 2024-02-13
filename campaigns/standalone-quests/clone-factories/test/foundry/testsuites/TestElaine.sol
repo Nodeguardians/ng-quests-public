@@ -54,6 +54,7 @@ abstract contract TestElaine is Test {
             catContractSize := extcodesize(catAddress)
         }
         assertGt(catContractSize, 0, "SpiritCat is not a contract");
+        assertTrue(cat.isActive(), "SpiritCat is not active");
     }
     
     function test_deploy_cats_that_hold_tokens() external {
@@ -149,6 +150,16 @@ abstract contract TestElaine is Test {
             0
         );
 
+        assertEq(cat.isActive(), false);
+
+        vm.expectRevert();
+        vm.prank(catData.recipient);
+        cat.withdraw();
+
+        vm.expectRevert();
+        elaine.dispel(address(cat));
+
+        assertEq(cat.unlockedBalance(), 0);
     }
 
     function _getEventLog(string memory _eventSig) private returns (Vm.Log memory) {

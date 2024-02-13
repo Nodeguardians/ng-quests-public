@@ -8,8 +8,7 @@ fs_permissions = [
     { access = 'read', path = './artifacts' }
 ]
 remappings = [
-    "test/=test/",
-    "@openzeppelin/contracts=../../../node_modules/@openzeppelin/contracts/"
+    "test/=test/"
 ]
 optimizer = false
 no_match_path = "contracts/test/TestProbe.sol"

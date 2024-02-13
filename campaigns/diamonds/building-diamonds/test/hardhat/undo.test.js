@@ -1,6 +1,6 @@
 const { ethers } = require('hardhat')
 const { expect } = require('chai')
-const { diamonds } = require('@ngquests/test-helpers')
+const { diamonds } = require('@node-guardians/ng-quests-helpers')
 const { deployDiamond } = require('./diamonds/deploy.js')
 const { testUndo } = require('./testsuites/testUndo.js')
 const inputs = require('../data/cuts.json')

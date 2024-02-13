@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
-const { matchers, events } = require("@ngquests/test-helpers");
+const { matchers, events } = require("@node-guardians/ng-quests-helpers");
 
 const ROUNDING_ERROR = ethers.utils.parseEther("0.001");
 
@@ -46,6 +46,7 @@ function testElaine(subsuiteName, catData) {
     it("Should summon new cat", async function () {
       let bytecode = await ethers.provider.getCode(cat.address);
       expect(bytecode.length).to.be.above(2);
+      expect(await cat.isActive(), "SpiritCat is not active").to.be.true;
     });
 
     it("Should deploy cats that hold tokens", async function () {
@@ -117,8 +118,10 @@ function testElaine(subsuiteName, catData) {
         .to.emit(token, "Transfer(address,address,uint256)")
         .withArgs(cat.address, elaine.address, catData.amount);
 
-      let bytecode = await ethers.provider.getCode(cat.address);
-      expect(bytecode.length).to.be.equal(2);
+      expect(await cat.isActive()).to.be.false;
+      await expect(cat.connect(recipient).withdraw(), "withdraw() should revert()").to.be.reverted;
+      await expect(elaine.dispel(cat.address)).to.be.reverted;
+      expect(await cat.unlockedBalance()).to.equal(0);
     });
   });
 

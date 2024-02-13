@@ -1,20 +1,11 @@
-require("@nomiclabs/hardhat-ethers");
 require("@nomicfoundation/hardhat-chai-matchers");
-
-require('dotenv').config({ path: '../../../.env' });
+require("@nomiclabs/hardhat-ethers");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.19",
-  defaultNetwork: "hardhat",
-  networks: {
-    hardhat: {
-    },
-    goerli: {
-      url: "https://goerli.nodeguardians.io",
-      accounts: [process.env.PRIVATE_KEY],
-    },
-  },
-};
+  solidity: {
+    "version": "0.8.19"
+  }
+}

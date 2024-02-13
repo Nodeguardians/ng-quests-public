@@ -33,7 +33,7 @@ abstract contract Summoner {
     ) external virtual;
 
     /**
-     * @dev Collects all remaining tokens from cat and destroys the contract. 
+     * @dev Collects all remaining tokens from escrow and deactivates the contract. 
      * Can only be called by a contract's creator.
      * 
      * @param escrow Address of escrow to destroy.

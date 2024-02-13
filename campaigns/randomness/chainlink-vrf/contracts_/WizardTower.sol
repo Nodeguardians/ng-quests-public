@@ -2,11 +2,11 @@
 pragma solidity ^0.8.19;
 
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
-import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
+import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
 
 contract WizardTower is VRFConsumerBaseV2 {
 
-    address private constant COORDINATOR = 0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D;
+    address private constant COORDINATOR = 0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625;
     
     uint32 public floorsClimbed;
 

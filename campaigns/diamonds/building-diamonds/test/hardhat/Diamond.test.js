@@ -1,7 +1,7 @@
 const { deployDiamond } = require('./diamonds/deploy.js')
 const { ethers } = require('hardhat')
 const { expect } = require('chai')
-const { diamonds } = require('@ngquests/test-helpers')
+const { diamonds } = require('@node-guardians/ng-quests-helpers')
 
 describe('Diamond (Part 2)', async function () {
   describe('Public Test 1', async function() {

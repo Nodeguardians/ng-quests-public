@@ -3,15 +3,7 @@ pragma solidity ^0.8.19;
 
 contract BadMechSuit3 {
     
-    address public impl;
-
-    constructor() {
-        impl = address(new SuitLogic());
-        (bool result ,) = impl.delegatecall(
-            abi.encodeWithSignature("initialize()")
-        );
-        require(result);
-    }
+    address impl;
 
     /// @dev You can safely assume this fallback function works safely!
     fallback() external {
@@ -28,25 +20,59 @@ contract BadMechSuit3 {
         }
     }
 
+    function upgradeTo(uint8 mode) external {
+        impl = address(new MultiSuitLogic());
+        (bool result, ) = address(this).call(
+            abi.encodeWithSignature("initialize(uint8)", mode)
+        );
+        require(result);
+    }
+
+    function shootTrustyRockets(uint128 x, uint128 y) external view returns (bytes32) {
+        require(!_isUpgraded());
+        return keccak256(abi.encode("SHOOT SHOOT", x, y));
+    }
+
+    function _isUpgraded() private view returns (bool) {
+        return impl != address(0);
+    }
 }
 
-contract SuitLogic {
+contract MultiSuitLogic {
 
     bytes32 private DO_NOT_USE;
-    uint32 private fuel;
+    uint8 public mode;
 
-    function initialize() external {
-        fuel = 100;
+    function initialize(uint8 _mode) external {
+        require(mode == 0, "Suit already initialised!");
+        require(_mode > 0 && _mode < 6);
+        mode =  _mode;
     }
 
-    function shootFire() external pure returns (bytes32) {
-        return keccak256("FWOOOOOSH");
+    function throwIronAxe(uint16 x) external view returns (bytes32) {
+        require(mode == 1);
+        return keccak256(abi.encode("WATCH OUT", x));
     }
 
-    function explode() external payable {
-        if (msg.value > fuel * 100 ether) {
-            selfdestruct(payable(msg.sender));
-        }
+    function crackElectricWhip(bool x, bool y) external view returns (bytes32) {
+        require(mode == 2);
+        return keccak256(abi.encode("THWIIP", x, y));
     }
+
+    function castPoisonKnives(uint32 x, uint8 y) external view returns (bytes32) {
+        require(mode == 3);
+        return keccak256(abi.encode("SNIKT SNIKT", x, y));
+    }
+
+    function lungeGiantBlade(uint32 x) external view returns (bytes32) {
+        require(mode == 4);
+        return keccak256(abi.encode("VERY BIG BLADE", x));
+    }
+
+    function tossFireBombs(uint32 x) external view returns (bytes32) {
+        require(mode == 5);
+        return keccak256(abi.encode("KABOOM", x));
+    }
+
 
 }

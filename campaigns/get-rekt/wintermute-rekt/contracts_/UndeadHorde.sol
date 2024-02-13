@@ -6,9 +6,11 @@ contract UndeadHorde {
     address public constant LADY_WHITEFROST 
         = 0x0DEaD582fa84de81e5287132d70d9a296224Cf90;
 
+    bool public isActive = true;
     mapping(address => bool) public infested;
 
     function infestDead(address _target) external {
+        require(isActive);
         require(_fromLady(), "We only answer to our Queen Mother...");
         require(_isDead(_target), "Target is still alive...");
 
@@ -17,7 +19,9 @@ contract UndeadHorde {
 
     function releaseArmy() external {
         require(_fromLady(), "We only answer to our Queen Mother...");
-        selfdestruct(payable(LADY_WHITEFROST));
+
+        isActive = false;
+        payable(LADY_WHITEFROST).transfer(address(this).balance);
     }
 
     function _fromLady() private view returns (bool) {

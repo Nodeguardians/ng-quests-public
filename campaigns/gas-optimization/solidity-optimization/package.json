@@ -1,14 +1,16 @@
 {
-    "name": "solidity-optimization",
-    "version": "2.0.0",
-    "scripts": {
-      "test": "hardhat test --network hardhat && forge test",
-      "test:hardhat": "hardhat test --network hardhat"
-    },
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-        "cli-table": "0.3.11"
-    }
+  "name": "solidity-optimization",
+  "version": "2.0.0",
+  "scripts": {
+    "test": "hardhat test --network hardhat && forge test",
+    "test:hardhat": "hardhat test --network hardhat"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cli-table": "0.3.11",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "hardhat": "^2.13.0"
+  }
 }
-  

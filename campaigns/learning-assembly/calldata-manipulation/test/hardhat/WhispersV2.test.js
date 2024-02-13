@@ -1,4 +1,4 @@
-const { cheating } = require("@ngquests/test-helpers");
+const { cheating } = require("@node-guardians/ng-quests-helpers");
 const { testWhispersV2 } = require("./testsuites/testWhispersV2");
 const inputs = require("../data/whispersV2.json");
 

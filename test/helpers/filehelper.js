@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { ast } = require("@ngquests/test-helpers");
+const { ast } = require("@node-guardians/ng-quests-helpers");
 
 /* Recursively gets all files from a given directory. */
 async function getFiles(dir) {

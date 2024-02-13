@@ -6,5 +6,15 @@
     "test:hardhat": "hardhat test --network hardhat"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@node-guardians/ng-quests-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@solidity-parser/parser": "^0.16.0",
+    "chai-exclude": "^2.1.0",
+    "hardhat": "^2.13.0"
+  }
 }

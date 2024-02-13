@@ -13,7 +13,7 @@ const { assert } = require("chai");
 const fs = require("fs");
 const path = require("path");
 const { getFiles, equalFiles, getContractDefinition } = require("./helpers/filehelper.js");
-const { ast } = require("@ngquests/test-helpers");
+const { ast } = require("@node-guardians/ng-quests-helpers");
 
 const directory = require("../campaigns/directory.json");
 
