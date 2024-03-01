@@ -1,0 +1,4 @@
+[
+    "contracts/Doubloon.sol",
+    "contracts/MintableDoubloon.sol"
+]

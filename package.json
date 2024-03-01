@@ -10,6 +10,7 @@
     "devDependencies": {
         "@commitlint/cli": "17.8.0",
         "@commitlint/config-conventional": "17.8.0",
+        "@node-guardians/ng-quests-helpers": "^1.0.2",
         "markdown-link-check": "^3.10.3",
         "mochawesome": "^7.1.3",
         "mochawesome-report-generator": "^6.2.0"

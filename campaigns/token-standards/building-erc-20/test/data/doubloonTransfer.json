@@ -1,0 +1,12 @@
+[
+    {
+        "supply": 1000,
+        "transferAmount1": 100,
+        "transferAmount2": 50
+    },
+    {
+        "supply": 1000,
+        "transferAmount1": 15,
+        "transferAmount2": 6
+    }
+]

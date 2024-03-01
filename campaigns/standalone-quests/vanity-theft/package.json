@@ -1,0 +1,17 @@
+{
+  "name": "vanity-theft",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "forge test",
+    "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia && hardhat run scripts/deployVault.js --network sepolia"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@node-guardians/ng-quests-contracts": "^1.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.13.0"
+  }
+}
