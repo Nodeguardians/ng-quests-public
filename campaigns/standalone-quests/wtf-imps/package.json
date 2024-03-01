@@ -1,0 +1,14 @@
+{
+  "name": "wtf-imps",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "hardhat test --network hardhat && forge test"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "hardhat": "^2.13.0"
+  }
+}

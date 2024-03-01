@@ -8,9 +8,6 @@ require("dotenv").config({ path: "../../../.env" });
  */
 module.exports = {
   solidity: "0.8.19",
-  paths: {
-    sources: "./contracts_",
-  },
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
@@ -18,5 +15,8 @@ module.exports = {
       url: "https://rpc-sepolia-eth.nodeguardians.io",
       accounts: [process.env.PRIVATE_KEY],
     },
+  },
+  paths: {
+    sources: "./contracts_",
   },
 };

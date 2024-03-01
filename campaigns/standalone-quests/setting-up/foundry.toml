@@ -4,14 +4,14 @@ out = 'artifacts'
 script = 'script'
 libs = [
     'lib', 
-    '../../../lib', 
-    'node_modules', 
+    '../../../lib',
     '../../../node_modules'
 ]
 solc_version = '0.8.19'
 remappings = [
     'test/=test/'
 ]
+no_match_path = "contracts_/utils/*.sol"
 
 [rpc_endpoints]
 sepolia =  'https://rpc-sepolia-eth.nodeguardians.io'

@@ -1,0 +1,10 @@
+[
+    {
+        "mintAmount": 100,
+        "supply": 1000
+    },
+    {
+        "mintAmount": 150000,
+        "supply": 100
+    }
+]
