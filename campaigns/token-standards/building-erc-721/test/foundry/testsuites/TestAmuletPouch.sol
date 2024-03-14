@@ -11,16 +11,20 @@ interface IMintable is IERC721 {
 }
 
 abstract contract TestAmuletPouch is Test {
+
+    event WithdrawRequested(address indexed requester, uint256 indexed tokenId, uint256 indexed requestId);
+
     using stdJson for string;
 
-    struct WithdrawRequests {
+    struct WithdrawRequest {
         uint256 requesterId;
-        uint256[] withdrawalIds;
+        uint256 withdrawalId;
     }
 
     struct Input {
+        uint256 approvedRequestId;
         uint256 numMembers;
-        WithdrawRequests withdrawRequests;
+        WithdrawRequest[] withdrawRequests;
     }
 
     IMintable amulet;
@@ -28,95 +32,82 @@ abstract contract TestAmuletPouch is Test {
 
     address creator;
     address[] users;
+    uint256 totalAmulets;
 
-    Input input;
+    // Input
+    uint256 approvedRequestId;
+    uint256 numMembers;
+    WithdrawRequest[] withdrawRequests;
 
     constructor(string memory _testDataPath, string memory _testDataKey) {
         string memory jsonData = vm.readFile(_testDataPath);
-        input = abi.decode(
+        Input memory input = abi.decode(
             jsonData.parseRaw(_testDataKey), 
             (Input)
         );
 
+        approvedRequestId = input.approvedRequestId;
+        numMembers = input.numMembers;
+        for (uint256 i = 0; i < input.withdrawRequests.length; i++) {
+            withdrawRequests.push(input.withdrawRequests[i]);
+        }
+
         creator = makeAddr("creator");
 
         address userBase = makeAddr("user");
-        for (uint160 i = 0; i < input.numMembers + 1; i++) {
+        for (uint160 i = 0; i < numMembers + 1; i++) {
             users.push(address(uint160(userBase) + i));
         }
     }
 
     function setUp() public {
-
+        totalAmulets = 0;
         vm.prank(creator);
         amulet = IMintable(address(new Amulet()));
-        for (uint i = 0; i < input.numMembers; i++) {
-            mintAmulet(users[i], i);
-        }
         
         amuletPouch = IAmuletPouch(address(new AmuletPouch(address(amulet))));
-
-    }
-
-    // Helper function to mint Amulets
-    function mintAmulet(address _owner, uint256) private {
-        vm.prank(creator);
-        amulet.mint(_owner, "https://url.com");
     }
 
     // Helper function to deposit an Amulet (for non-members)
-    function depositAmulet(address _owner, uint256 _tokenId) private {
+    function depositAmulet(address _owner) private {
+        vm.prank(creator);
+        amulet.mint(_owner, "https://url.com");
+
         vm.prank(_owner);
         amulet.safeTransferFrom(
             _owner, 
             address(amuletPouch), 
-            _tokenId, 
+            totalAmulets++, 
             ""
         );
     }
 
     // Helper function to deposit an Amulet and request withdrawal of another
-    function exchangeAmulet(address _owner, uint256 _depositId, uint256 _withdrawId) private {
+    function exchangeAmulet(address _owner, uint256 _withdrawId) private {
+        vm.prank(creator);
+        amulet.mint(_owner, "https://url.com");
+
         vm.prank(_owner);
         amulet.safeTransferFrom(
             _owner, 
             address(amuletPouch), 
-            _depositId, 
+            totalAmulets++, 
             abi.encode(_withdrawId)
         );
     }
 
-    // Helper function to for majority of members to vote for a withdrawal
-    function voteForWithdrawal(
-        address _requester, 
-        uint256 _withdrawalId
-    ) private returns (uint256) {
-        uint256 voteCount = 1;
-        for (uint256 i = 0; voteCount <= input.numMembers / 2; i++) {
-            if (i == input.withdrawRequests.requesterId) {
-                continue;
-            }
-
-            vm.prank(users[i]);
-            amuletPouch.voteFor(_requester, _withdrawalId);
-            voteCount++;
-        }
-
-        return voteCount;
-    }
-
     function test_receive_Amulets_and_register_members() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
             assertTrue(amuletPouch.isMember(users[i]));
         }
 
-        assertEq(amuletPouch.totalMembers(), input.numMembers);
+        assertEq(amuletPouch.totalMembers(), numMembers);
     }
 
     function test_reject_other_erc721_tokens() external {
         vm.startPrank(creator);
-        Amulet amulet2 = new Amulet();
+        IMintable amulet2 = IMintable(address(new Amulet()));
 
         amulet2.mint(users[0], "https://url.com");
 
@@ -127,187 +118,181 @@ abstract contract TestAmuletPouch is Test {
         amulet2.safeTransferFrom(
             users[0], 
             address(amuletPouch), 
-            1, 
-            ""
+            0
         );
     }
 
     function test_register_request_to_withdraw_Amulets() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256[] memory withdrawalIds = input.withdrawRequests.withdrawalIds;
+        for (uint256 i = 0; i < withdrawRequests.length; i++) {
+            WithdrawRequest memory request = withdrawRequests[i];
+            address requester = users[request.requesterId];
 
-        for (uint256 i = 0; i < withdrawalIds.length; i++) {
-            mintAmulet(requester, depositId + i);
-            exchangeAmulet(requester, depositId + i, withdrawalIds[i]);
+            vm.prank(creator);
+            amulet.mint(requester, "https://url.com");
 
-            assertTrue(
-                amuletPouch.isWithdrawRequest(
-                    requester, 
-                    withdrawalIds[i]
-                )
+            vm.expectEmit();
+            emit WithdrawRequested(requester, request.withdrawalId, i);
+            vm.prank(requester);
+            amulet.safeTransferFrom(
+                requester, 
+                address(amuletPouch), 
+                totalAmulets++, 
+                abi.encode(request.withdrawalId)
             );
-            assertEq(
-                amuletPouch.numVotes(
-                    requester, 
-                    withdrawalIds[i]
-                ), 
-                1
-            );
+
+            (address actualRequester, uint256 actualTokenId) = amuletPouch.withdrawRequest(i);
+            assertEq(actualRequester, requester);
+            assertEq(actualTokenId, request.withdrawalId);
+
+            assertEq(amuletPouch.numVotes(i), 1);
         }
     }
 
     function test_reject_withdrawal_of_Amulets_with_insufficient_votes() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256 withdrawalId = input.withdrawRequests.withdrawalIds[0];
+        for (uint256 i = 0; i < withdrawRequests.length; i++) {
+            WithdrawRequest memory request = withdrawRequests[i];
+            address requester = users[request.requesterId];
+            exchangeAmulet(requester, request.withdrawalId);
 
-        vm.prank(requester);
-        vm.expectRevert();
-        amuletPouch.withdraw(withdrawalId);
-
-        mintAmulet(requester, depositId);
-        exchangeAmulet(requester, depositId, withdrawalId);
-
-        vm.prank(requester);
-        vm.expectRevert();
-        amuletPouch.withdraw(withdrawalId);
+            vm.prank(requester);
+            vm.expectRevert();
+            amuletPouch.withdraw(i);
+        }
 
     }
 
     function test_withdraw_Amulets_with_enough_votes() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256 withdrawalId = input.withdrawRequests.withdrawalIds[0];
-
-        mintAmulet(requester, depositId);
-        exchangeAmulet(requester, depositId, withdrawalId);
-
-        uint256 voteCount = voteForWithdrawal(requester, withdrawalId);
-
-        assertEq(
-            amuletPouch.numVotes(requester, withdrawalId), 
-            voteCount
-        );
-        vm.prank(requester);
-        amuletPouch.withdraw(withdrawalId);
-
-        assertEq(amulet.ownerOf(withdrawalId), requester);
-    }
-
-    function test_revoke_membership_and_requests_after_withdrawing_Amulet() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < withdrawRequests.length; i++) {
+            WithdrawRequest memory request = withdrawRequests[i];
+            address requester = users[request.requesterId];
+            exchangeAmulet(requester, request.withdrawalId);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256[] memory withdrawalIds = input.withdrawRequests.withdrawalIds;
+        // Vote for some withdraw request
+        uint256 requesterId = withdrawRequests[approvedRequestId].requesterId;
+        uint256 numVotes = 1;
+        for (uint256 i = 0; numVotes <= numMembers / 2; i++) {
+            if (i == requesterId) { continue; }
 
-        for (uint256 i = 0; i < withdrawalIds.length; i++) {
-            mintAmulet(requester, depositId + i);
-            exchangeAmulet(requester, depositId + i, withdrawalIds[i]);
+            vm.prank(users[i]);
+            amuletPouch.voteFor(approvedRequestId);
+
+            numVotes++;
         }
+        
+        // Voted withdrawal should be authorized. Other withdrawals should still revert.
+        for (uint256 i = 0; i < withdrawRequests.length; i++) {
+            WithdrawRequest memory request = withdrawRequests[i];
+            address requester = users[request.requesterId];
+            
+            uint256 expectedNumVotes = (i == approvedRequestId)
+                ? numVotes : 1;
 
-        voteForWithdrawal(requester, withdrawalIds[0]);
+            assertEq(amuletPouch.numVotes(i), expectedNumVotes);
 
-        vm.prank(requester);
-        amuletPouch.withdraw(withdrawalIds[0]);
+            vm.prank(requester);
 
-        assertFalse(amuletPouch.isMember(requester));
-        for (uint256 i = 0; i < withdrawalIds.length; i++) {
-            assertFalse(
-                amuletPouch.isWithdrawRequest(requester, withdrawalIds[i])
-            );
+            if (i == approvedRequestId) {
+                amuletPouch.withdraw(i);
+                assertEq(amulet.ownerOf(request.withdrawalId), requester);
+            } else {
+                vm.expectRevert();
+                amuletPouch.withdraw(i);
+            }
+
         }
 
     }
 
-    function test_reject_vote_for_an_inexistent_request() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+    function test_reject_withdrawal_from_unauthorized_caller() external {
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 withdrawalId = input.withdrawRequests.withdrawalIds[0];
+        WithdrawRequest memory request = withdrawRequests[approvedRequestId];
+        address requester = users[request.requesterId];
 
-        vm.prank(users[0]);
+        exchangeAmulet(requester, request.withdrawalId);
+
+        // Vote for some withdraw request
+        uint256 requesterId = withdrawRequests[approvedRequestId].requesterId;
+        uint256 numVotes = 1;
+        for (uint256 i = 0; numVotes <= numMembers / 2; i++) {
+            if (i == requesterId) { continue; }
+
+            vm.prank(users[i]);
+            amuletPouch.voteFor(0);
+
+            numVotes++;
+        }
+
+        // Should revert since users[0] is not requester
         vm.expectRevert();
-        amuletPouch.voteFor(requester, withdrawalId);
+        vm.prank(users[0]);
+        amuletPouch.withdraw(0);
     }
 
     function test_reject_vote_from_a_nonMember() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256 withdrawalId = input.withdrawRequests.withdrawalIds[0];
+        WithdrawRequest memory request = withdrawRequests[0];
+        address requester = users[request.requesterId];
 
-        mintAmulet(requester, depositId);
-        exchangeAmulet(requester, depositId, withdrawalId);
+        exchangeAmulet(requester, request.withdrawalId);
 
-        vm.prank(users[input.numMembers]);
+        address nonMember = users[numMembers];
+        vm.prank(nonMember);
         vm.expectRevert();
-        amuletPouch.voteFor(requester, withdrawalId);
+        amuletPouch.voteFor(0);
+
     }
 
-    function test_allow_user_to_reRegister_as_member_after_withdrawal() external {
-        for (uint256 i = 0; i < input.numMembers; i++) {
-            depositAmulet(users[i], i);
+    function test_reject_duplicate_vote() external {
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
         }
 
-        address requester = users[input.withdrawRequests.requesterId];
-        uint256 depositId = input.numMembers;
-        uint256[] memory withdrawalIds = input.withdrawRequests.withdrawalIds;
+        WithdrawRequest memory request = withdrawRequests[0];
+        address requester = users[request.requesterId];
 
-        mintAmulet(requester, depositId);
-        exchangeAmulet(requester, depositId, withdrawalIds[0]);
+        exchangeAmulet(requester, request.withdrawalId);
 
-        voteForWithdrawal(requester, withdrawalIds[0]);
-
-        vm.prank(requester);
-        amuletPouch.withdraw(withdrawalIds[0]);
-
-        mintAmulet(requester, depositId + 1);
-        depositAmulet(requester, depositId + 1);
-
-        // Requester should re-register as member.
-        assertTrue(amuletPouch.isMember(requester));
-
-        // Previously pending requests should still remain deleted.
-        assertFalse(
-            amuletPouch.isWithdrawRequest(requester, withdrawalIds[0])
-        );
-        assertEq(
-            amuletPouch.numVotes(requester, withdrawalIds[0]), 
-            0
-        );
-        
-        // New requests should be registered.
-        exchangeAmulet(requester, withdrawalIds[0], withdrawalIds[1]);
-        assertTrue(
-            amuletPouch.isWithdrawRequest(requester, withdrawalIds[1])
-        );
-        assertEq(
-            amuletPouch.numVotes(requester, withdrawalIds[1]), 
-            1
-        );
-
-
+        vm.startPrank(users[0]);
+        amuletPouch.voteFor(0);
+        vm.expectRevert();
+        amuletPouch.voteFor(0); // Duplicate vote
     }
+
+    function test_reject_vote_for_an_inexistent_request() external {
+        for (uint256 i = 0; i < numMembers; i++) {
+            depositAmulet(users[i]);
+        }
+
+        for (uint256 i = 0; i < withdrawRequests.length; i++) {
+            WithdrawRequest memory request = withdrawRequests[i];
+            address requester = users[request.requesterId];
+            exchangeAmulet(requester, request.withdrawalId);
+        }
+
+        // Should revert since requestId does not exist
+        vm.prank(users[0]);
+        vm.expectRevert();
+        amuletPouch.voteFor(withdrawRequests.length);
+    }
+
 
 }

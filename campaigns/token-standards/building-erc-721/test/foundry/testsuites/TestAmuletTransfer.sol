@@ -104,9 +104,13 @@ abstract contract TestAmuletTransfer is Test {
         assertEq(amulet.balanceOf(user1), 0);
     }
 
-    function test_reject_authorized_transferFrom() external {
+    function test_reject_unauthorized_transferFrom() external {
         vm.prank(user1);
         amulet.approve(user2, amuletID1);
+
+        vm.prank(user2);
+        vm.expectRevert();
+        amulet.transferFrom(user1, user2, amuletID2);
 
         vm.prank(user2);
         vm.expectRevert();
@@ -214,9 +218,13 @@ abstract contract TestAmuletSafeTransfer is Test {
         assertEq(amulet.balanceOf(user1), 0);
     }
 
-    function test_reject_authorized_safeTransferFrom() external {
+    function test_reject_unauthorized_safeTransferFrom() external {
         vm.prank(user1);
         amulet.approve(user2, amuletID1);
+
+        vm.prank(user2);
+        vm.expectRevert();
+        amulet.safeTransferFrom(user1, user2, amuletID2);
 
         vm.prank(user2);
         vm.expectRevert();

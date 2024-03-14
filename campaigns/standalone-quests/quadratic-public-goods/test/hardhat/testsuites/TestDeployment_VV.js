@@ -40,10 +40,10 @@ function TestValidDeployment_VV(subsuiteName, input, tests) {
         expect(totalVotes)
           .to.equal(totalVotesExpected, "Wrong total votes");
         const roundInfo = await vv.getRoundInfo();
-        expect(0n)
-          .to.equal(roundInfo[0], "Wrong winner");
-        expect(deploymentTime + input[i].roundDuration).to.gte(
-          roundInfo[2], 
+        expect(roundInfo[0])
+          .to.equal(0n, "Wrong winner");
+        expect(roundInfo[2]).to.gte(
+          deploymentTime + input[i].roundDuration, 
           "Wrong round end time"
         );
       });

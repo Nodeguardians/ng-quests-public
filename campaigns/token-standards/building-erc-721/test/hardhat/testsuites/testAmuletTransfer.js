@@ -90,10 +90,13 @@ function testAmuletTransfer(subsuiteName, input) {
       await amulet.connect(user1)
         .approve(user2.address, amuletID1);
 
-      const transferTx = amulet.connect(user2)
-        .transferFrom(user1.address, user2.address, amuletID3);
+      const transferTx1 = amulet.connect(user2)
+        .transferFrom(user1.address, user2.address, amuletID2);
+      await expect(transferTx1).to.be.reverted;
 
-      await expect(transferTx).to.be.reverted;
+      const transferTx2 = amulet.connect(user2)
+        .transferFrom(user1.address, user2.address, amuletID3);
+      await expect(transferTx2).to.be.reverted;
     });
 
     it("Should reject transferFrom to zero address", async function () {
@@ -195,10 +198,13 @@ function testAmuletSafeTransfer(subsuiteName, input) {
       await amulet.connect(user1)
         .approve(user2.address, amuletID1);
 
-      const transferTx = amulet.connect(user2)[SAFE_TRANSFER](
+      const transferTx1 = amulet.connect(user2)[SAFE_TRANSFER](
         user1.address, user2.address, amuletID2);
+      await expect(transferTx1).to.be.reverted;
 
-      await expect(transferTx).to.be.reverted;
+      const transferTx2 = amulet.connect(user2)[SAFE_TRANSFER](
+        user1.address, user2.address, amuletID3);
+      await expect(transferTx2).to.be.reverted;
     });
 
     it("Should reject safeTransferFrom to zero address", async function () {

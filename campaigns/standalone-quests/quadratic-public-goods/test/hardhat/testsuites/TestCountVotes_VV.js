@@ -28,10 +28,12 @@ function TestCountVotes_VV(subsuiteName, input, tests) {
         for (let j = 0; j < input[i].rounds.length; ++j) {
           let roundInfo = await vv.getRoundInfo();
 
-          expect(BigInt(j) + BigInt(defaultRound))
-            .to.equal(roundInfo[1], "Wrong round number");
-          expect(deploymentTime + input[i].setup.roundDuration).to.lte(
-            roundInfo[2], 
+          expect(roundInfo[1]).to.equal(
+            BigInt(j) + BigInt(defaultRound), 
+            "Wrong round number"
+          );
+          expect(roundInfo[2]).to.lte(
+            deploymentTime + input[i].setup.roundDuration, 
             "Wrong round end time"
           );
     
@@ -56,8 +58,8 @@ function TestCountVotes_VV(subsuiteName, input, tests) {
           await vv.countVotes();
           
           roundInfo = await vv.getRoundInfo();
-          expect(input[i].rounds[j].winner)
-            .to.equal(roundInfo[0], "Wrong winner");
+          expect(roundInfo[0])
+            .to.equal(input[i].rounds[j].winner, "Wrong winner");
 
           let activeProposals = await vv.getActiveProposals();
           activeProposals = activeProposals.slice().sort((a, b) => a - b);
