@@ -108,13 +108,15 @@ abstract contract TestAmuletTransfer is Test {
         vm.prank(user1);
         amulet.approve(user2, amuletID1);
 
+        // user2 is not approved to transfer user1's amuletID2
         vm.prank(user2);
         vm.expectRevert();
         amulet.transferFrom(user1, user2, amuletID2);
 
+        // user2 does not own to amuletID3
         vm.prank(user2);
         vm.expectRevert();
-        amulet.transferFrom(user1, user2, amuletID3);
+        amulet.transferFrom(user2, user1, amuletID3);
     }
 
     function test_reject_transfer_to_zero_address() external {
@@ -222,13 +224,15 @@ abstract contract TestAmuletSafeTransfer is Test {
         vm.prank(user1);
         amulet.approve(user2, amuletID1);
 
+        // user2 is not approved to transfer user1's amuletID2
         vm.prank(user2);
         vm.expectRevert();
         amulet.safeTransferFrom(user1, user2, amuletID2);
 
+        // user2 does not own to amuletID3
         vm.prank(user2);
         vm.expectRevert();
-        amulet.safeTransferFrom(user1, user2, amuletID3);
+        amulet.safeTransferFrom(user2, user1, amuletID3);
     }
 
     function test_reject_safeTransfer_to_zero_address() external {

@@ -247,7 +247,7 @@ function testAmuletPouch(subsuiteName, input) {
       return amulet.connect(owner)[SAFE_TRANSFER_BYTES](
         owner.address,
         amuletPouch.address,
-        totalAmulets,
+        totalAmulets++,
         abiCoder.encode(["uint"], [withdrawId])
       );
     }

@@ -1,6 +1,6 @@
 {
   "name": "creating-erc-721-tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "test": "hardhat test --network hardhat && forge test",
     "test:hardhat": "hardhat test --network hardhat"

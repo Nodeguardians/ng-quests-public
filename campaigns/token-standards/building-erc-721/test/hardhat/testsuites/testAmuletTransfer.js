@@ -89,13 +89,15 @@ function testAmuletTransfer(subsuiteName, input) {
     it("Should reject unauthorized transferFrom", async function () {
       await amulet.connect(user1)
         .approve(user2.address, amuletID1);
-
+      
+      // user2 is not approved to transfer user1's amuletID2
       const transferTx1 = amulet.connect(user2)
         .transferFrom(user1.address, user2.address, amuletID2);
       await expect(transferTx1).to.be.reverted;
-
+      
+      // user2 does not own to amuletID3
       const transferTx2 = amulet.connect(user2)
-        .transferFrom(user1.address, user2.address, amuletID3);
+        .transferFrom(user2.address, user1.address, amuletID3);
       await expect(transferTx2).to.be.reverted;
     });
 
@@ -198,12 +200,14 @@ function testAmuletSafeTransfer(subsuiteName, input) {
       await amulet.connect(user1)
         .approve(user2.address, amuletID1);
 
+      // user2 is not approved to transfer user1's amuletID2
       const transferTx1 = amulet.connect(user2)[SAFE_TRANSFER](
         user1.address, user2.address, amuletID2);
       await expect(transferTx1).to.be.reverted;
 
+      // user2 does not own to amuletID3
       const transferTx2 = amulet.connect(user2)[SAFE_TRANSFER](
-        user1.address, user2.address, amuletID3);
+        user2.address, user1.address, amuletID3);
       await expect(transferTx2).to.be.reverted;
     });
 
