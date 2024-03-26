@@ -32,7 +32,7 @@ function TestCountVotes_VV(subsuiteName, input, tests) {
             BigInt(j) + BigInt(defaultRound), 
             "Wrong round number"
           );
-          expect(roundInfo[2]).to.lte(
+          expect(roundInfo[2]).to.gte(
             deploymentTime + input[i].setup.roundDuration, 
             "Wrong round end time"
           );
