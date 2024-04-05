@@ -6,14 +6,19 @@ describe("Tricky Imps (Part 1)", function() {
 
   describe("Public Test 1", function() {
     it("Should attack itself", async function() {
-      let trickyImp = await ethers.getContractFactory("TrickyImp");
-      trickyImp = await trickyImp.deploy();
 
+      const TrickyImp = await ethers.getContractFactory("TrickyImp");
+      const trickyImp = await TrickyImp.deploy();
       await trickyImp.deployed();
 
-      let result = await trickyImp.attack();
+      const TestImp = await ethers.getContractFactory("TestImp");
+      const testImp = await TestImp.deploy();
+      await testImp.deployed();
 
-      expect(result).to.equal(Target.Self);
+      const actual = await trickyImp.attack();
+      const expected = await testImp.self();
+
+      expect(actual).to.equal(expected);
     });
 
   });
