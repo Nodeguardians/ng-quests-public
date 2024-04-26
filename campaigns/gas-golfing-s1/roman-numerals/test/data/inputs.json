@@ -1,0 +1,37 @@
+[
+    {
+        "decimal": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+        "roman": [
+            "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" 
+        ]
+    },
+    {
+        "decimal": [ 10, 21, 32, 43, 54, 65, 76, 87, 98],
+        "roman": [
+            "X", "XXI", "XXXII", "XLIII", "LIV", "LXV", "LXXVI", "LXXXVII", "XCVIII"
+        ]
+    },
+    {
+        "decimal": [ 123, 234, 345, 456, 567, 678, 789, 890, 901, 12],
+        "roman": [
+            "CXXIII", "CCXXXIV", "CCCXLV", "CDLVI", "DLXVII", 
+            "DCLXXVIII", "DCCLXXXIX", "DCCCXC", "CMI", "XII"
+        ]
+    },
+    {
+        "decimal": [ 0, 111, 222, 333, 444, 555, 666, 777, 888, 999 ],
+        "roman": [
+            "", "CXI", "CCXXII", "CCCXXXIII", "CDXLIV", 
+            "DLV", "DCLXVI", "DCCLXXVII", "DCCCLXXXVIII", "CMXCIX"
+        ]
+    },
+    {
+        "decimal": [ 
+            3581, 805, 3016, 3811, 3599, 1469, 2426, 1960, 1243, 989
+        ],
+        "roman": [
+            "MMMDLXXXI", "DCCCV", "MMMXVI", "MMMDCCCXI", "MMMDXCIX",
+            "MCDLXIX", "MMCDXXVI", "MCMLX", "MCCXLIII", "CMLXXXIX"
+        ]
+    }
+]
