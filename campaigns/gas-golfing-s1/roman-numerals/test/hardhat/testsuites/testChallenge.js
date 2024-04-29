@@ -1,4 +1,3 @@
-const { ethers } = require("hardhat");
 const { expect } = require("chai");
 
 function testChallenge(subsuiteName, input, isPrivate) {
@@ -9,7 +8,7 @@ function testChallenge(subsuiteName, input, isPrivate) {
     beforeEach(async function () {
       ChallengeFactory = await ethers.getContractFactory("Challenge");
       challenge = await ChallengeFactory.deploy();
-      await challenge.deployed();
+      await challenge.waitForDeployment();
     });
 
     it("Should romanify numbers", async function () {
@@ -19,8 +18,7 @@ function testChallenge(subsuiteName, input, isPrivate) {
         if (isPrivate) {
           // If tests are private, hide errors
           try {
-            const match = (await tx) === input.roman[i];
-            expect(match).to.equal(true);
+            expect(await tx).to.equal(input.roman[i]);
           } catch (error) {
             throw new Error("Private test failed");
           }
@@ -38,7 +36,7 @@ async function measureChallenge(inputs) {
 
   gasMeterFactory = await ethers.getContractFactory("GasMeter");
   gasMeter = await gasMeterFactory.deploy();
-  await gasMeter.deployed();
+  await gasMeter.waitForDeployment();
 
   let gasConsumption = 0;
   for (const input of inputs) {

@@ -1,4 +1,3 @@
-const { ethers } = require("hardhat");
 const { history, metrics } = require("@node-guardians/ng-quests-helpers");
 const { measureChallenge } = require("../test/hardhat/testsuites/testChallenge");
 

@@ -1,4 +1,3 @@
-const { ethers } = require("hardhat");
 const { expect } = require("chai");
 
 function testChallenge(subsuiteName, input, isPrivate) {
@@ -9,7 +8,7 @@ function testChallenge(subsuiteName, input, isPrivate) {
     beforeEach(async function () {
       ChallengeFactory = await ethers.getContractFactory("Challenge");
       challenge = await ChallengeFactory.deploy();
-      await challenge.deployed();
+      await challenge.waitForDeployment();
     });
 
     it("Should remove any duplicate element from the input array", async function () {
@@ -18,16 +17,11 @@ function testChallenge(subsuiteName, input, isPrivate) {
       if (isPrivate) {
         // If tests are private, hide errors
         try {
-          const match = (await tx).every(
-            (element, index) => element === input.expected[index]
-          );
-
-          expect(match).to.equal(true);
+          expect(await tx).to.deep.equal(input.expected);
         } catch (error) {
           throw new Error("Private test failed");
         }
-      }
-      else {
+      } else {
         // Else, show errors
         expect(await tx).to.deep.equal(input.expected);
       }
@@ -39,7 +33,7 @@ async function measureChallenge(inputs) {
 
   gasMeterFactory = await ethers.getContractFactory("GasMeter");
   gasMeter = await gasMeterFactory.deploy();
-  await gasMeter.deployed();
+  await gasMeter.waitForDeployment();
 
   let gasConsumption = 0;
   for (const input of inputs) {
