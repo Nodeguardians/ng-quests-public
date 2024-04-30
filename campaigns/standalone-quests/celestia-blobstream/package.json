@@ -1,0 +1,15 @@
+{
+  "name": "celestia-blobstream",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "hardhat compile && forge build"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@node-guardians/ng-quests-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "hardhat": "^2.13.0"
+  }
+}

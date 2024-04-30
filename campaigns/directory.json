@@ -129,6 +129,12 @@
                 "parts": 2
             },
             {
+                "name": "celestia-blobstream",
+                "version": "1.0.0",
+                "type": "ctf",
+                "parts": 2
+            },
+            {
                 "name": "wtf-imps",
                 "version": "1.0.1",
                 "type": "build",
