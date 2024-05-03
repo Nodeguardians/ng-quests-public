@@ -1,0 +1,30 @@
+[
+    {
+        "name": "random base to random base",
+        "inputBase": "a;RAir)/#dXPHgZtN:8y- 5",
+        "inputString": "8tZdN;;H)8Rdd#i8R XrydaA--RH/Xgy #Hia5:):i-",
+        "outputBase": "YbD-42czf[:y9$`sJ/u!R,jQoWg{3%i]",
+        "outputString": "u/`94]/[uzD[o{YD$$4!]o-bWD{![s-/-%W,ug,"
+    },
+    {
+        "name": "random base to random base",
+        "inputBase": "0#*\"p?L1t}=+TU@VJKh%:w6`/G$W^<|q",
+        "inputString": "0VpLw|@+",
+        "outputBase": "`pHrc)OiJ!KhQ:F,>sd0;Pg-u+q@Iw",
+        "outputString": "gJd:@dh"
+    },
+    {
+        "name": "random base to random base",
+        "inputBase": "z43tND",
+        "inputString": "NNt4zDt44zzN3tt3DtDNNt3tDNN34N4tzD3t4344z4zt3z44D3zNt3N4z3z",
+        "outputBase": "uZ;`nUMJ42HeT%ol#pjY{/h?9",
+        "outputString": "ehj;%2?UU?ehYHe#eHZeo;Un;JT9%UZH{"
+    },
+    {
+        "name": "random base to random base",
+        "inputBase": "na3x\\/.%1rRO-S`]p>LUfC4~I@Himy",
+        "inputString": "xIRSOHn%fammpOL1~S>rH>-@33x3y4mU@L3fLSr4]%>>LLC4",
+        "outputBase": "nHlJoXS2|k(>#r",
+        "outputString": "HJoJX>2HSJX|XJH|n(kH||kH|J#ok|nrX|(knol>2lo>XrS||#J#nS#nn(ro2("
+    }
+]

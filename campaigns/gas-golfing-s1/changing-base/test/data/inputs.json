@@ -1,0 +1,51 @@
+[
+    {   
+        "name": "decimal to binary",
+        "inputBase": "0123456789",
+        "inputString": "157",
+        "outputBase": "01",
+        "outputString": "10011101"
+    },
+    {
+        "name": "binary to decimal",
+        "inputBase": "01",
+        "inputString": "10010001101101011110000001100100100",
+        "outputBase": "0123456789",
+        "outputString": "19556926244"
+    },
+    {
+        "name": "decimal to hexadecimal",
+        "inputBase": "0123456789",
+        "inputString": "21387823456893",
+        "outputBase": "0123456789ABCDEF",
+        "outputString": "1373BD9EA27D"
+    },
+    {
+        "name": "hexadecimal to decimal",
+        "inputBase": "0123456789ABCDEF",
+        "inputString": "1FFEDCBAA9876543210",
+        "outputBase": "0123456789",
+        "outputString": "9443421198444639040016"
+    },
+    {
+        "name": "custom base to decimal",
+        "inputBase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ ",
+        "inputString": "NODE GUARDIANS",
+        "outputBase": "0123456789",
+        "outputString": "54802242799197300513"
+    },
+    {
+        "name": "hexadecimal to custom base",
+        "inputBase": "0123456789ABCDEF",
+        "inputString": "FF1892AC80",
+        "outputBase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ ",
+        "outputString": "DXUAHDFPC"
+    },
+    {
+        "name": "custom base to binary",
+        "inputBase": "AB0CDEFGHIJKL1234MNOPQRSTUV567WXY89Z ",
+        "inputString": "HELLO GUARDIAN 122",
+        "outputBase": "01",
+        "outputString": "11000000001100110110110000000110011011110000110110001100010101011110101010101100100010111110"
+    }
+]
