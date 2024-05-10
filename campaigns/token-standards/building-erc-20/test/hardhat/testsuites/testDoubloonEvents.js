@@ -40,7 +40,7 @@ function testDoubloonEvents(subsuiteName, input) {
     });
 
     it("Should emit Transfer event on transferFrom()", async function () {
-      doubloon.connect(creator).approve(
+      await doubloon.connect(creator).approve(
         user1.address, input.transferAmount1
       );
 

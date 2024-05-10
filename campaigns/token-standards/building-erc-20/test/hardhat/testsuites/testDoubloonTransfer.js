@@ -135,7 +135,7 @@ function testDoubloonTransfer(subsuiteName, input) {
       await expect(badTx).to.be.reverted;
 
       badTx = doubloon.connect(user2)
-      .transferFrom(creator.address, user1.address, input.supply);
+        .transferFrom(creator.address, user1.address, input.supply);
 
       await expect(badTx).to.be.reverted;
     });
