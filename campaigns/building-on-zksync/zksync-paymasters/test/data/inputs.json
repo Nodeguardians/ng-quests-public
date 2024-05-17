@@ -1,0 +1,16 @@
+[
+    {
+        "nightTime": "05:30:00",
+        "dayTime": "06:30:00",
+        "smallGasLimit": "0.003",
+        "mediumGasLimit": "0.005",
+        "largeGasLimit": "0.009"
+    },
+    {
+        "nightTime": "18:30:00",
+        "dayTime": "17:30:00",
+        "smallGasLimit": "0.0018",
+        "mediumGasLimit": "0.006",
+        "largeGasLimit": "0.008"
+    }
+]
