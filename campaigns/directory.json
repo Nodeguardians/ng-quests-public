@@ -348,5 +348,28 @@
                 "parts": 1
             }
         ]
+    },
+    {
+        "name": "building-on-zksync",
+        "quests": [
+            {
+                "name": "zksync-contracts",
+                "version": "1.0.0",
+                "type": "build",
+                "parts": 3
+            },
+            {
+                "name": "zksync-accounts",
+                "version": "1.0.0",
+                "type": "build",
+                "parts": 2
+            },
+            {
+                "name": "zksync-paymasters",
+                "version": "1.0.0",
+                "type": "build",
+                "parts": 2
+            }
+        ]
     }
 ]
