@@ -1,6 +1,6 @@
 {
     "name": "chainlink-vrf",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "scripts": {
         "test": "hardhat test --network hardhat && forge build",
         "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia"
@@ -8,7 +8,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@chainlink/contracts": "^0.8.0",
+        "@chainlink/contracts": "1.1.1",
         "@node-guardians/ng-quests-contracts": "^1.0.0",
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
         "@nomicfoundation/hardhat-network-helpers": "^1.0.8",

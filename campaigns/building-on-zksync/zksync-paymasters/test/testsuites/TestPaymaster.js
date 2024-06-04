@@ -139,7 +139,7 @@ function testPaymaster(subsuiteName, input) {
     });
 
     it("Should fund a full-moon transaction", async function () {
-      // Set to daytime
+      // Set to night time
       await setTime(input.nightTime);
 
       const gasLimit = ethers.parseEther(input.mediumGasLimit) * 2n;

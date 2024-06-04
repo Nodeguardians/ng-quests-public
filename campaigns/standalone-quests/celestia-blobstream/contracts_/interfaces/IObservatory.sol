@@ -8,8 +8,7 @@ interface IObservatory {
     function isProven() external view returns (bool);
 
     function proveComet(
-        SharesProof calldata _proof, 
-        bytes32 _root
+        SharesProof calldata _proof
     ) external view;
 
 }
