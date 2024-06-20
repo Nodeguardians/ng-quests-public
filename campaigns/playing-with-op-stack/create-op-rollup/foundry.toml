@@ -1,0 +1,21 @@
+[profile.default]
+src = 'contracts_'
+out = 'artifacts'
+script = 'script'
+libs = [
+    'lib', 
+    '../../../lib', 
+    'node_modules/', 
+    '../../../node_modules/'
+]
+
+auto_detect_solc = true
+remappings = [
+    'test/=test/'
+]
+no_match_path = "contracts_/utils/*.sol"
+
+[rpc_endpoints]
+sepolia = 'https://sepolia.nodeguardians.io'
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

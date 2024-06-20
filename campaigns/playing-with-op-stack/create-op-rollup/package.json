@@ -1,0 +1,10 @@
+{
+    "name": "create-op-rollup",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "hardhat compile && forge test",
+        "deploy": "hardhat run ../../../scripts/deploy-validator.js --network sepolia"
+    },
+    "author": "",
+    "license": "MIT"
+}
