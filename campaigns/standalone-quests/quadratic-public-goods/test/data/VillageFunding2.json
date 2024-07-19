@@ -1,0 +1,58 @@
+{
+    "setup": {
+        "villagers": [
+            "0xBEE61c1024A58CD887e4a91B39c132291ab97E57",
+            "0x155A4f04c98e9eBb90Ecf1A46C81E18685498E74",
+            "0x94EE4CAE6b5aE7a093Fdbe7b4F60dd89a5e0471C"
+        ],
+        "projects": [
+            "0x06EaCCBA0436A7dc2884b1d2834bB4C087803395",
+            "0xa52A6b81565Ed9095387bD9DC08CBF5788410277",
+            "0x391B5e8d26756b5bEf04F58CE7b4ED17ec9B2B22"
+        ],
+        "matchingAmount": 8890000000
+    },
+    "contributions": [
+        {
+            "amount": 49000000,
+            "project": "0x06EaCCBA0436A7dc2884b1d2834bB4C087803395",
+            "villager": "0xBEE61c1024A58CD887e4a91B39c132291ab97E57"
+        },
+        {
+            "amount": 25000000,
+            "project": "0x06EaCCBA0436A7dc2884b1d2834bB4C087803395",
+            "villager": "0x155A4f04c98e9eBb90Ecf1A46C81E18685498E74"
+        },
+        {
+            "amount": 144000000,
+            "project": "0x06EaCCBA0436A7dc2884b1d2834bB4C087803395",
+            "villager": "0x94EE4CAE6b5aE7a093Fdbe7b4F60dd89a5e0471C"
+        },
+        {
+            "amount": 64000000,
+            "project": "0xa52A6b81565Ed9095387bD9DC08CBF5788410277",
+            "villager": "0xBEE61c1024A58CD887e4a91B39c132291ab97E57"
+        },
+        {
+            "amount": 25000000,
+            "project": "0xa52A6b81565Ed9095387bD9DC08CBF5788410277",
+            "villager": "0x155A4f04c98e9eBb90Ecf1A46C81E18685498E74"
+        },
+        {
+            "amount": 144000000,
+            "project": "0x391B5e8d26756b5bEf04F58CE7b4ED17ec9B2B22",
+            "villager": "0xBEE61c1024A58CD887e4a91B39c132291ab97E57"
+        }
+    ],
+    "expectedFunds": [ 5978000000, 1779000000, 1584000000],
+    "inexistentProjectContribution": {
+        "amount": 144000000,
+        "project": "0x94EE4CAE6b5aE7a093Fdbe7b4F60dd89a5e0471C",
+        "villager": "0x155A4f04c98e9eBb90Ecf1A46C81E18685498E74"
+    },    
+    "nonVillagerContribution": {
+        "amount": 25000000,
+        "project": "0xa52A6b81565Ed9095387bD9DC08CBF5788410277",
+        "villager": "0xAD21B93b54c691E2ffAf45A872fcB6d106e240Cd"
+    }
+}

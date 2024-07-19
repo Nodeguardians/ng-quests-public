@@ -1,9 +1,6 @@
 require("@nomiclabs/hardhat-ethers");
 require("@nomicfoundation/hardhat-chai-matchers");
 
-require("./tasks/deployValidator");
-require("./tasks/deployL2Contracts");
-
 require("dotenv").config({ path: "../../../.env" });
 
 /**

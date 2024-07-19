@@ -1,57 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-interface IVillageFunding {    
-    /**
-     * @dev Returns the project IDs
-     */
-    function getProjects() external view returns (uint256[] memory);
+interface IVillageFunding {
 
-    /**
-     * @dev Returns the current vote power of a villager
-     * @param villager - the address of a villager
-     */
-    function getVotePower(address villager) external view returns (uint256);
+    /// @notice Returns the project addresses.
+    function getProjects() external view returns (address[] memory);
 
-    /**
-     * @dev Returns the amount of contributed vote power 
-     * and the number of unique contributors to a certain project
-     * @param projectId - the ID of the project
-     * @return contributions - the sum of all vote powers 
-     * contributed to the project
-     * @return numberOfPeople - the number of unique people 
-     * that voted for the project
-     */
-    function getContributions(uint256 projectId) 
-        external 
-        view 
-        returns (uint256 contributions, uint256 numberOfPeople);
+    /// @notice The final amount of funds currently eligible to a given project.
+    /// Returns 0 if funds are not finalized yet or if funds already claimed.
+    function finalFunds(address _project) external returns (uint256);
 
-    /**
-     * @dev Returns the final amount of funds for a certain project
-     * @param projectId - the ID of the project
-     */
-    function getFunds(uint256 projectId) external view returns (uint256);
-    
-    /**
-     * @dev villagers call this function to donate ETH 
-     * to get a certain amount of vote power. 
-     * The function should only be callable once per villager 
-     * and before the voting round ends
-     */
-    function donate() external payable;
+    /// @notice A function that villagers call to donate ETH to a certain project. 
+    /// Should be called before the contribution phase ends (7 days) and villagers can only donate to a specific project once.
+    function donate(address _project) external payable;
 
-    /**
-     * @dev Villagers call this function to vote for their preferred project. 
-     * Should revert if a villager tries to vote with 0 vote power.
-     * @param projectId - the ID of the project to vote for
-     * @param votePower - the amount of vote power to vote with
-     */
-    function vote(uint256 projectId, uint256 votePower) external;
+    /// @notice Finalize funds raised by each project. 
+    /// This is only callable after the contribution phase ends (7 days).
+    function finalizeFunds() external;
 
-    /**
-     * @dev Distributes the funds using the quadratic formula. 
-     * This can only be called by the deployer and after the voting round ends.
-     */
-    function distribute() external;
+    /// @notice Projects call this function to withdraw their raised funds. 
+    /// If funds have not been finalized or `msg.sender` is not eligible to withdraw any funds.
+    function withdraw() external;
+
 }

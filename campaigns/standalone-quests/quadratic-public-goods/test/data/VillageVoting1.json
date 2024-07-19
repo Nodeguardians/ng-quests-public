@@ -1,0 +1,34 @@
+{
+    "setup": {
+        "villagers": [
+            "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3",
+            "0x37f5F3D6ad8f65dD2ae46455E4E89a91643DC209"
+        ],
+        "tokenBalances": [100, 223],
+        "proposals": [6, 42, 420]
+    },
+    "votes": [
+        {
+            "voter": "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3",
+            "votedProposals": [6, 42],
+            "votedAmounts": [50, 20]
+        },
+        {
+            "voter": "0x37f5F3D6ad8f65dD2ae46455E4E89a91643DC209",
+            "votedProposals": [420],
+            "votedAmounts": [100]
+        }
+    ],
+    "expectedVotePower": [7, 4, 10], 
+    "expectedWinner": 420,
+    "inexistentProposalVote": {
+        "voter": "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3",
+        "votedProposals": [6, 42, 999],
+        "votedAmounts": [110, 10, 10]
+    },
+    "duplicateProposalVote": {
+        "voter": "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3",
+        "votedProposals": [6, 42, 6],
+        "votedAmounts": [50, 10, 10]
+    }
+}

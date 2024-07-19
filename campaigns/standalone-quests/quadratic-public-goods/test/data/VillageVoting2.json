@@ -1,0 +1,35 @@
+{
+    "setup": {
+        "villagers": [
+            "0x36b1c90c1C8F88e10Ab89b192AFf35A9178DBC42",
+            "0x9BAFE9D1d4df9c42f0FDd74cC39c48EdF5B9C5E4",
+            "0x6f1E2ac6f20dBb867F3179cC9f177A5F60FB9D26"
+        ],
+        "tokenBalances": [250, 400, 800],
+        "proposals": [9, 19, 29, 39]
+    },
+    "votes": [
+        {
+            "voter": "0x36b1c90c1C8F88e10Ab89b192AFf35A9178DBC42",
+            "votedProposals": [9, 19, 29, 39],
+            "votedAmounts": [25, 64, 49, 64]
+        },
+        {
+            "voter": "0x9BAFE9D1d4df9c42f0FDd74cC39c48EdF5B9C5E4",
+            "votedProposals": [9, 19, 29, 39],
+            "votedAmounts": [100, 100, 100, 100]
+        }
+    ],
+    "expectedVotePower": [15, 18, 17, 18], 
+    "expectedWinner": 19,
+    "inexistentProposalVote": {
+        "voter": "0x6f1E2ac6f20dBb867F3179cC9f177A5F60FB9D26",
+        "votedProposals": [9, 24444, 19],
+        "votedAmounts": [20, 20, 10]
+    },
+    "duplicateProposalVote": {
+        "voter": "0x6f1E2ac6f20dBb867F3179cC9f177A5F60FB9D26",
+        "votedProposals": [9, 19, 19, 29],
+        "votedAmounts": [10, 10, 10, 10]
+    }
+}

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "hardhat compile && forge test",
-    "deploy": "echo \"run the following commands:\n npx hardhat deploy-validator --network sepolia\n npx hardhat deploy-l2-contracts --l1coastalmaps {ADDRESS} --network op-sepolia\""
+    "deploy": "hardhat run ./scripts/deployValidator.js"
   },
   "author": "",
   "license": "MIT",

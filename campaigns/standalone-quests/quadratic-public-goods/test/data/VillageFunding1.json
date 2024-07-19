@@ -1,0 +1,42 @@
+{
+    "setup": {
+        "villagers": [
+            "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3",
+            "0x37f5F3D6ad8f65dD2ae46455E4E89a91643DC209",
+            "0x1C5Df8B551826F7C6adB27Be634275946633dfd3"
+        ],
+        "projects": [
+            "0x099bC25C9a852CcFbcD5304F9981647739B27976",
+            "0xbEFE83B3998ab6937026b10ed013246019bCA216"
+        ],
+        "matchingAmount": 3000
+    },
+    "contributions": [
+        {
+            "amount": 1600,
+            "project": "0x099bC25C9a852CcFbcD5304F9981647739B27976",
+            "villager": "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3"
+        },
+        {
+            "amount": 400,
+            "project": "0xbEFE83B3998ab6937026b10ed013246019bCA216",
+            "villager": "0x37f5F3D6ad8f65dD2ae46455E4E89a91643DC209"
+        },
+        {
+            "amount": 400,
+            "project": "0xbEFE83B3998ab6937026b10ed013246019bCA216",
+            "villager": "0x1C5Df8B551826F7C6adB27Be634275946633dfd3"
+        }
+    ],
+    "expectedFunds": [3100, 2300],
+    "inexistentProjectContribution": {
+        "amount": 10,
+        "project": "0x114FaF2e6Bf61C84168f27BA399dC59Ae8ACa32A",
+        "villager": "0x57ac8badeE18E8B96a75219f10DC8be80eeE16e3"
+    },
+    "nonVillagerContribution": {
+        "amount": 1600,
+        "project": "0xbEFE83B3998ab6937026b10ed013246019bCA216",
+        "villager": "0x20ed4b715BFEDb7F6833bd7A361EAeb1e212476b"
+    }
+}
