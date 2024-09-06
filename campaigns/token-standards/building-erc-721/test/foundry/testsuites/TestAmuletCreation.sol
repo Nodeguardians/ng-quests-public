@@ -16,6 +16,7 @@ abstract contract TestAmuletCreation is Test {
     struct Input {
         string uri;
     }
+
     Input input;
 
     address creator;
@@ -39,7 +40,7 @@ abstract contract TestAmuletCreation is Test {
         amulet = IMintable(address(new Amulet()));
     }
 
-    function test_have_name_and_symbol() external {
+    function test_have_name_and_symbol() external view {
         assertEq(amulet.name(), "Amulet");
         assertEq(amulet.symbol(), "AMULET");
     }
@@ -83,7 +84,7 @@ abstract contract TestAmuletCreation is Test {
         amulet.tokenURI(12345);
     }
 
-    function test_supports_correct_interfaces() external {
+    function test_supports_correct_interfaces() external view {
         assertEq(amulet.supportsInterface(ERC165_ID), true);
         assertEq(amulet.supportsInterface(ERC721_ID), true);
         assertEq(amulet.supportsInterface(ERC721_METADATA_ID), true);
