@@ -20,7 +20,7 @@ contract PublicTest1 is Test {
         suit = new UpgradeableMechSuit(suitLogic);
     }
 
-    function test_EIP1967_compliance() external {
+    function test_EIP1967_compliance() external view {
         address impl = _loadAddress(address(suit), IMPL_SLOT);
         assertEq(impl, suitLogic, "Bad implementation slot");
 
