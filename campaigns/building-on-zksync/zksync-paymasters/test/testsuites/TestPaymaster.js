@@ -12,7 +12,6 @@ const zksync = require("zksync-ethers");
 
 function testPaymaster(subsuiteName, input) {
   describe(subsuiteName, function () {
-
     let lunarPaymaster;
     let user;
     let userId;
@@ -28,22 +27,20 @@ function testPaymaster(subsuiteName, input) {
       deployerWallet = getWallet(LOCAL_RICH_WALLETS[0].privateKey);
       deployer = new Deployer(hre, deployerWallet);
 
-      lunarPaymaster = await deployer.deploy(
-        "LunarPaymaster", [ ]
-      );
+      lunarPaymaster = await deployer.deploy("LunarPaymaster", []);
       await lunarPaymaster.waitForDeployment();
 
       userId = 1;
 
-      box = await deployer.deploy("Box", [ 0 ]);
+      box = await deployer.deploy("Box", [0]);
       await box.waitForDeployment();
 
       await advanceTime(180000); // Realistically, time should be around 2020s
       await setTime(input.nightTime);
     });
-    
+
     beforeEach(async function () {
-      box = await deployer.deploy("Box", [ 0 ]);
+      box = await deployer.deploy("Box", [0]);
       await box.waitForDeployment();
 
       user = getWallet(LOCAL_RICH_WALLETS[userId++].privateKey);
@@ -53,14 +50,14 @@ function testPaymaster(subsuiteName, input) {
       const gasPrice = await provider.getGasPrice();
       const gasLimit = gasLimitInWei / gasPrice;
 
-      const innerInput = (isFullMoon) 
-        ? ethers.toUtf8Bytes("I CALL FORTH THE FULL MOON") 
+      const innerInput = isFullMoon
+        ? ethers.toUtf8Bytes("I CALL FORTH THE FULL MOON")
         : new Uint8Array();
 
-      paymasterParams = zksync.utils.getPaymasterParams(
-        lunarPaymaster.target,
-        { type: "General", innerInput }
-      );
+      paymasterParams = zksync.utils.getPaymasterParams(lunarPaymaster.target, {
+        type: "General",
+        innerInput,
+      });
 
       return {
         maxPriorityFeePerGas: BigInt(0),
@@ -76,7 +73,7 @@ function testPaymaster(subsuiteName, input) {
     it("Should receive ETH", async function () {
       await deployerWallet.sendTransaction({
         to: lunarPaymaster.target,
-        value: ethers.parseEther("1")
+        value: ethers.parseEther("1"),
       });
     });
 
@@ -97,12 +94,13 @@ function testPaymaster(subsuiteName, input) {
       // Use up as much of the nightly limit as possible
       let totalTapped = 0n;
       while (totalTapped + gasLimitInWei < nightlyLimit) {
-
         await box.connect(user).set(11, txOptions);
-        
+
         const newTapped = await lunarPaymaster.tappedAmount(user.address);
-        expect(newTapped - totalTapped).to.equal(gasLimitInWei);
-        
+        expect(newTapped - totalTapped).to.equal(
+          txOptions.gasLimit * txOptions.maxFeePerGas
+        );
+
         totalTapped = newTapped;
       }
 
@@ -113,15 +111,15 @@ function testPaymaster(subsuiteName, input) {
     });
 
     it("Should have new tapped amount every night", async function () {
-      const txOptions = await getTxOptions(ethers.parseEther(input.largeGasLimit));
+      const txOptions = await getTxOptions(
+        ethers.parseEther(input.largeGasLimit)
+      );
       await box.connect(user).set(11, txOptions);
 
       // Set to next night ( +24hrs )
       await setTime(input.nightTime);
 
-      expect(
-        await lunarPaymaster.tappedAmount(user.address)
-      ).to.equal(0);
+      expect(await lunarPaymaster.tappedAmount(user.address)).to.equal(0);
 
       await box.connect(user).set(11, txOptions);
       expect(await box.value()).to.equal(11);
@@ -133,7 +131,7 @@ function testPaymaster(subsuiteName, input) {
 
       const gasLimit = ethers.parseEther(input.mediumGasLimit);
       const txOptions = await getTxOptions(gasLimit);
-      
+
       const tx = box.connect(user).set(11, txOptions);
       await expect(tx).to.be.reverted;
     });
@@ -144,7 +142,7 @@ function testPaymaster(subsuiteName, input) {
 
       const gasLimit = ethers.parseEther(input.mediumGasLimit) * 2n;
       const txOptions = await getTxOptions(gasLimit, true);
-      
+
       await box.connect(user).set(11, txOptions);
       expect(await box.value()).to.equal(11);
     });
@@ -152,7 +150,7 @@ function testPaymaster(subsuiteName, input) {
     it("Should reject transactions after a full-moon", async function () {
       const gasLimit = ethers.parseEther(input.largeGasLimit) * 2n;
       const txOptions = await getTxOptions(gasLimit, true);
-      
+
       await box.connect(user).set(1, txOptions);
 
       const badTx1 = box.connect(user).set(11, txOptions);
@@ -171,14 +169,16 @@ function testPaymaster(subsuiteName, input) {
     });
 
     it("Should only be callable by bootloader", async function () {
-      const spoofer = await deployer.deploy("TransactionSpoofer", [ ]);
+      const spoofer = await deployer.deploy("TransactionSpoofer", []);
       await spoofer.waitForDeployment();
 
-      const spoofTx1 = spoofer.connect(user)
+      const spoofTx1 = spoofer
+        .connect(user)
         .spoofValidateAndPayForPaymasterTransaction(lunarPaymaster.target);
       await expect(spoofTx1).to.be.revertedWith("NOT_BOOTLOADER");
 
-      const spoofTx2 = spoofer.connect(user)
+      const spoofTx2 = spoofer
+        .connect(user)
         .spoofPostTransaction(lunarPaymaster.target);
       await expect(spoofTx2).to.be.revertedWith("NOT_BOOTLOADER");
     });
