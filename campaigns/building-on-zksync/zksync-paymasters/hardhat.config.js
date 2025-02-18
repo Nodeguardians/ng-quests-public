@@ -11,7 +11,7 @@ module.exports = {
     },
   },
   zksolc: {
-    version: "latest",
+    version: "1.4.1",
     settings: {
       isSystem: true,
     },

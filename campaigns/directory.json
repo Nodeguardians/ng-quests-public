@@ -354,19 +354,19 @@
     "quests": [
       {
         "name": "zksync-contracts",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "type": "build",
         "parts": 3
       },
       {
         "name": "zksync-accounts",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "type": "build",
         "parts": 2
       },
       {
         "name": "zksync-paymasters",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "type": "build",
         "parts": 2
       }
